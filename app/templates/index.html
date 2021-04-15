@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+        {% block content %}
+        {% for post in posts %}
+        <h1>{{post.title}}</h1>
+        <p>{{post.author}} on {{post.data_posted}}</p>
+        <p>{{post.content}}</p>
+        {% endfor %}
+        <h1>This the final change!!</h1>
+        {%endblock content%}
