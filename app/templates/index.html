@@ -1,10 +1,45 @@
 {% extends "base.html" %}
 
         {% block content %}
-        {% for post in posts %}
-        <h1>{{post.title}}</h1>
-        <p>{{post.author}} on {{post.data_posted}}</p>
-        <p>{{post.content}}</p>
-        {% endfor %}
-        <h1>This the a simple page of Flask Web!!</h1>
+        <div class="main-container">
+        <nav class="nav-container web_width clearfix">
+            <div class="nav-content">
+                <div class="sub-title">
+                    XiangQi / Chinese Chess
+                </div>
+                <br>
+                <div class="information">
+                    Xiangqi is a two-player board game from the same family of games as Chanturanga, Western Chess, Shogi, and Jogi. Xiangqi is known in the west as Chinese Chess and is one of the most widely played board games in the world.
+                </div>
+                <br>
+                <div class="learn-more">
+                    <a href="#">LEARN MORE</a>
+                </div>
+            </div>
+        </nav>
+        <article class="article-container web_width clearfix">
+            <div class="article-content">
+                <div class="cube">
+                    <div class="img1">
+                        <img src="static/chess-img/chess-rotatebing.png" alt="view of bing">
+                    </div>
+                    <div class="img2">
+                        <img src="static/chess-img/chess-rotatepao.png" alt="view of pao">
+                    </div>
+                    <div class="img3">
+                        <img src="static/chess-img/chess-rotateche.png" alt="view of che">
+                    </div>
+                    <div class="img4">
+                        <img src="static/chess-img/chess-rotateshuai.png" alt="view of shuai">
+                    </div>
+                    <div class="img5">
+                        <img src="static/chess-img/chess-rotatema.png" alt="view of ma">
+                    </div>
+                    <div class="img6">
+                        <img src="static/chess-img/chess-rotateshi.png" alt="view of shi">
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
         {%endblock content%}
