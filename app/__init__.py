@@ -33,7 +33,7 @@ def create_app(test_config=None):
     @app.route("/")
     @app.route("/home")
     def home():
-        return render_template('index.html', posts=posts, title='NBA')
+        return render_template('index.html', posts=posts, title='XiangQi / Chinese Chess')
 
 
     db.init_app(app)
