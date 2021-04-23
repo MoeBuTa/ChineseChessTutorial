@@ -1,0 +1,194 @@
+/* style for login / register */
+/* -------------------------------------------------------- */
+body{
+    background-color: rgb(224, 224, 224);
+}
+
+.container{
+    position: relative;
+}
+
+.content{
+    background-color: #f6f6f6;
+    width: 650px;
+    height: 420px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+}
+
+.switch-box{
+    position: absolute;
+    top: -10%;
+    left: 5%;
+    background-color: #eac7cc;
+    width: 320px;
+    height: 505px;
+    border-radius: 5px;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, .4);
+    transition: all 1s ease-in-out;
+    z-index: 999;
+}
+
+.display{
+    display: none;
+    transition: all .5s ease;
+}
+
+.left-box .right-box{
+    position: absolute;
+    transition: all 1s ease;
+}
+
+.left-box{
+    left: 30px;
+}
+
+.right-box{
+    right: 30px;
+}
+
+.chess1, .chess2{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 100px;
+    opacity: .8;
+}
+
+.chess1{
+    left: 50px;
+}
+
+.chess2{
+    right: 50px;
+}
+
+.title{
+    text-align: center;
+    margin-top: 100px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+.sub-title1, .sub-title2{
+    position: absolute;
+    margin-top: 50px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-style: oblique;
+    color: #8e9aaf;
+}
+
+.sub-title1{
+    left: 110px;
+}
+
+.sub-title2{
+    right: 100px;
+}
+
+.infor1, .infor2{
+    position: absolute;
+    top: 320px;
+    color: #8e8e8e;
+}
+
+.infor1{
+    left: 100px;
+}
+
+.infor2{
+    right: 70px;
+}
+
+.btn1, .btn2, .submit{
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    width: 90px;
+    height: 30px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    background-color: transparent;
+    box-shadow: 0 0 8px rgb(181, 154, 254);
+}
+
+.btn1:hover, .btn2:hover, .submit:hover{
+    font-size: 12px;
+    background: linear-gradient(180deg, rgb(181, 154, 254), rgb(245, 189, 253));
+
+}
+
+.btn1{
+    margin-left: 10px;
+}
+
+.btn2{
+    margin-left: 30px;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+input{
+    /* padding: 25px; */
+    width: 60%;
+    background: #eac7cc;
+    border: none;
+    border-bottom: 2px solid rgba(225, 225, 225, .8);
+    padding: 12px;
+    font-weight: 100;
+}
+
+input::placeholder{
+    color: #f6f6f6;
+    font-size: 12px;
+    font-style: oblique;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+input:focus{
+    color: #333;
+    outline: none;
+    border-bottom: 2px solid rgba(0, 0, 0, .4);
+    font-size: 14px;
+}
+
+input:focus::placeholder{
+    opacity: 0;
+}
+
+label{
+    color: #333;
+    font-size: 12px;
+    font-style: oblique;
+}
+
+.check-box{
+    display: inline;
+    white-space: nowrap;
+    position: relative;
+    top: 25px;
+    left: -40px;
+}
+
+input[type=checkbox]{
+    width: 15px;
+}
+
+.submit{
+    margin-top: 60px;
+}
+
+/* -------------------------------------------------------- */
