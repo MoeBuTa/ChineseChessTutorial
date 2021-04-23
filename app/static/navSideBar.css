@@ -1,0 +1,31 @@
+.main-container{
+    width: 100%;
+    background-color: rgb(224, 224, 224);
+}
+
+.nav-content, .article-content{
+    float: left;
+}
+
+.nav-content{
+  position: fixed;
+}
+
+.nav-content{
+    perspective: 0px;
+}
+.nav-content .target{
+    margin-top: 30px;
+}
+
+.nav-content .lists{
+    margin-left: 30px;
+}
+
+.nav-content .lists li{
+    margin-top: 50px;
+}
+
+.nav-content a:hover{
+    color: #ff6700;
+}
