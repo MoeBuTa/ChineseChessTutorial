@@ -13,3 +13,6 @@ def login_and_register():
     return UserController.login_and_register()
 
 
+@app.route('/logout')
+def logout():
+    return UserController.logout()
