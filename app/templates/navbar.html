@@ -1,29 +1,37 @@
 <div class="navbar-container">
-        <div class="navbar-content web_width clearfix">
-            <div class="keyword">XiangQi / Chinese Chess</div>
+    <div class="navbar-content web_width clearfix">
+        <div class="keyword">XiangQi / Chinese Chess</div>
 
-            <ul class="contact-us">
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-            <ul class="user">
-                <li><a href="{{ url_for('login_and_register') }}">Login/Register</a></li>
-            </ul>
-            <ul class="items">
-                <li>
-                    <a href="#">Game</a>
-                </li>
-                <li>
-                    <a href="#">Quiz</a>
-                </li>
-                <li>
-                    <a href="#">Rule</a>
-                </li>
-                <li>
-                    <a href="#">Story</a>
-                </li>
-                <li>
-                    <a class="home" href="#">HOME</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="contact-us">
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <ul class="user">
+
+            <li>
+                {% if current_user.is_anonymous %}
+                    <a href="{{ url_for('login_and_register') }}">Login/Register</a>
+                {% else %}
+                    <a href="{{ url_for('logout') }}">{{ current_user.username }}_Logout</a>
+                {% endif %}
+
+            </li>
+        </ul>
+        <ul class="items">
+            <li>
+                <a href="#">Game</a>
+            </li>
+            <li>
+                <a href="#">Quiz</a>
+            </li>
+            <li>
+                <a href="#">Rule</a>
+            </li>
+            <li>
+                <a href="#">Story</a>
+            </li>
+            <li>
+                <a class="home" href="#">HOME</a>
+            </li>
+        </ul>
     </div>
+</div>
