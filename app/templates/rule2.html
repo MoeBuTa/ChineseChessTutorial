@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/rule1.css">
+</head>
+<body>
+    <div class="navbar-container">
+        <div class="navbar-content web_width">
+            <div class="keyword">XiangQi / Chinese Chess</div>
+            
+            <ul class="contact-us">
+                <li><a href="#fu">Contact Us</a></li>
+            </ul>
+            <ul class="user">
+                <li><a href="#">Login/Register</a></li>
+            </ul>
+            <ul class="items">
+                <li>
+                    <a href="#">Game</a>
+                </li>
+                <li>
+                    <a href="#">Quiz</a>
+                </li>
+                <li>
+                    <a href="./rule1.html">Rule</a>
+                </li>
+                <li>
+                    <a href="#">Story</a>
+                </li>
+                <li>
+                    <a class="home" href="./index.html">HOME</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="main-container">
+        <div class="navsidebar-container web_width clearfix">
+            <div class="navsidebar-content">
+                <div class="target"><img src="./chess-img/target.png" alt="view of target"></div>
+                <ul class="lists">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#">Story</a></li>
+                    <li><a href="./rule1.html">Rule</a></li>
+                    <li><a href="#">Quiz</a></li>
+                    <li><a href="#">Game</a></li>
+                    <li><a href="./index.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="article-container">
+            <div class="article-content web_width clearfix">
+                <div class="box">
+                    <div class="content">
+                        <span class="title">Learn To Play XiangQi / Chinese Chess</span>
+                        <br><br>
+                        <span class="sub-title">Pieces</span>
+                        <br><br>
+                        <span>The playing pieces are indicated by Chinese characters. The same ranking pieces sometimes have different characters for each side and sometimes are written in either traditional or Chinese characters. The pieces are identified below by English name, Chinese pronunciation, traditional Chinese character, simplified Chinese character if it is different, and then the character variation.</span>
+                        <br><br>
+                        <span class="sub-title">Soldier “Bīng” 兵 and “Zú” 卒</span>
+                        <br><br>
+                        <img src="./chess-img/chess-bing.gif" alt="view of bing">
+                        <br><br>
+                        <span class="spanbing">Soldiers move and capture by advancing one point forward. Once a pawn has crossed the river it may also move and capture one point horizontally. A pawn may never move backward, thus retreating.</span>
+                        
+                    </div>
+                    <button class="pre" id="pre">Pre</button>
+                    <button class="next" id="next">Next</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-container">
+        <div class="footer-content web_width clearfix">
+            <div class="about-us">
+                <span>ABOUT US</span>
+                <ul>
+                    <li>
+                        <a href="#">Chinese Chess</a>
+                    </li>
+                    <li>
+                        <a href="#">User Agreement</a>
+                    </li>
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="follow-us">
+                <span id="fu">FOLLOW US</span>
+                <ul>
+                    <li>
+                        <img src="./chess-img/facebook.png" alt="facebook">
+                        <a href="#">Facebook</a>
+                    </li>
+                    <li>
+                        <img src="./chess-img/youtube.png" alt="youtube">
+                        <a href="#">Youtube</a>
+                    </li>
+                    <li>
+                        <img src="./chess-img/instagram.png" alt="instagram">
+                        <a href="#">Instagram</a>
+                    </li>
+                    <li>
+                        <img src="./chess-img/twitter.png" alt="twitter">
+                        <a href="#">Twitter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var btnPre = document.getElementById("pre");
+        btnPre.onclick = function(){
+            window.location.href="rule1.html";
+        };
+    </script>
+</body>
+</html>
