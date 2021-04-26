@@ -11,61 +11,125 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="content web_width clearfix">
-            <div class="switch-box">
-                <div class="register display">
-                    <div class="title">Register</div>
-                    <form autocapitalize="off">
-                        <input type="text" placeholder="Username">
-                        <input type="email" placeholder="Email">
-                        <input type="password" placeholder="Password">
-                        <input type="password" placeholder="Confirm Password">
-                        <button class="submit">Create Account</button>
-                    </form>
-                </div>
-
-                <div class="sign-in">
-                    <div class="title">Sign In</div>
-                    <form autocapitalize="off">
-                        <input type="text" placeholder="Username">
-                        <input type="password" placeholder="Password">
-                        <div class="check-box">
-                            <input type="checkbox" id="remember">
-                            <label for="remember">Remember Me</label>
-                        </div>
-                        <button class="submit">Login</button>
-                    </form>
-                </div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith  %}
+<div class="container">
+    <div class="content web_width clearfix">
+        <div class="switch-box">
+            <div class="register display">
+                <div class="title">Register</div>
+                <form autocapitalize="off" action="" method="post">
+                    {{ registrationForm.hidden_tag() }}
+                    <p>
+                        {{ registrationForm.username.label }}<br>
+                        {{ registrationForm.username(size=32) }}<br>
+                        {% for error in registrationForm.username.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ registrationForm.email.label }}<br>
+                        {{ registrationForm.email(size=32) }}<br>
+                        {% for error in registrationForm.email.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ registrationForm.password.label }}<br>
+                        {{ registrationForm.password(size=32) }}<br>
+                        {% for error in registrationForm.password.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ registrationForm.password2.label }}<br>
+                        {{ registrationForm.password2(size=32) }}<br>
+                        {% for error in registrationForm.password2.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>{{ registrationForm.registrationSubmit() }}</p>
+                    {#                    <input type="text" placeholder="Username">#}
+                    {#                    <input type="email" placeholder="Email">#}
+                    {#                    <input type="password" placeholder="Password">#}
+                    {#                    <input type="password" placeholder="Confirm Password">#}
+                    {#                    <button class="submit">Create Account</button>#}
+                </form>
             </div>
 
-            <div class="left-box">
-                <div class="sub-title1">
-                    <span>Have Fun!</span>
-                </div>
-                <img class="chess1" src="./chess-img/chess-login.jpg" alt="login">
-                <div class="infor1">
-                    <span>Have an account?</span>
-                    <br>
-                    <button class="btn1" id="sign-in">Login</button>
-                </div>
-            </div>
+            <div class="sign-in">
+                <div class="title">Sign In</div>
+                <form autocapitalize="off" method="post">
+                    {{ loginForm.hidden_tag() }}
 
-            <div class="right-box">
-                <div class="sub-title2">
-                    <span>Good Day!</span>
-                </div>
-                <img class="chess2" src="./chess-img/chess-login1.jpg" alt="login1">
-                <div class="infor2">
-                    <span>Don't have an account?</span>
-                    <br>
-                    <button class="btn2" id="sign-up">Sign Up</button>
-                </div>
+                    <p>
+                        {{ loginForm.username.label }}<br>
+
+                        {# size as an argument that will be added to the <input> HTML element as an attribute#}
+                        {{ loginForm.username(size=32) }}<br>
+                        {% for error in loginForm.username.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ loginForm.password.label }}<br>
+                        {{ loginForm.password(size=32) }}<br>
+                        {% for error in loginForm.password.errors %}
+                            <span style="color: red">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ loginForm.remember_me() }} {{ loginForm.remember_me.label }}
+                    </p>
+                    <p>
+                        {{ loginForm.loginSubmit() }}
+                    </p>
+
+                    {#                    <input type="text" placeholder="Username">#}
+                    {#                    <input type="password" placeholder="Password">#}
+                    {#                    <div class="check-box">#}
+                    {#                        <input type="checkbox" id="remember">#}
+                    {#                        <label for="remember">Remember Me</label>#}
+                    {#                    </div>#}
+                    {#                    <button class="submit">Login</button>#}
+                </form>
+            </div>
+        </div>
+
+        <div class="left-box">
+            <div class="sub-title1">
+                <span>Have Fun!</span>
+            </div>
+            <img class="chess1" src="../static/chess-img/chess-login.jpg" alt="login">
+            <div class="infor1">
+                <span>Have an account?</span>
+                <br>
+                <button class="btn1" id="sign-in">Login</button>
+            </div>
+        </div>
+
+        <div class="right-box">
+            <div class="sub-title2">
+                <span>Good Day!</span>
+            </div>
+            <img class="chess2" src="../static/chess-img/chess-login1.jpg" alt="login1">
+            <div class="infor2">
+                <span>Don't have an account?</span>
+                <br>
+                <button class="btn2" id="sign-up">Sign Up</button>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./js/loginAndRegister.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../static/loginAndRegister.js"></script>
 </body>
 </html>
