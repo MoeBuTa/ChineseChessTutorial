@@ -1,5 +1,8 @@
 import os
+from dotenv import load_dotenv
+
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 
 class Config(object):
@@ -15,3 +18,11 @@ class Config(object):
     # disable a feature of Flask-SQLAlchemy that
     # signal the application every time a change is about to be made in the database.
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+class TestingConfig(Config):
+    ENV = 'testing'
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'tests/test.db')
+
+    # in memory database
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'

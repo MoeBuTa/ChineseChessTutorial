@@ -1,5 +1,5 @@
 from app import app
-from app.controllers import IndexController, UserController
+from app.controllers import IndexController, UserController, TutorialController
 
 
 @app.route('/')
@@ -16,3 +16,8 @@ def login_and_register():
 @app.route('/logout')
 def logout():
     return UserController.logout()
+
+
+@app.route('/tutorial')
+def tutorial():
+    return TutorialController.tutorial()

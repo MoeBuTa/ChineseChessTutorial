@@ -48,4 +48,12 @@ class UserController:
         return redirect(url_for('index'))
 
 
+class TutorialController:
+
+    @staticmethod
+    def tutorial():
+        if not current_user.is_authenticated:
+            return redirect(url_for('login_and_register'))
+        return render_template('rule.html', title='Chinese chess tutorial')
+
 
