@@ -6,15 +6,22 @@
     background-color: rgb(224, 224, 224);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .nav-container{
+    width: 50%;
     float: left;
-    position: absolute;
+    height: 80vh;
 }
 
 .nav-content{
-    width: 50%;
-    margin-top: 10%;
-    margin-left: 8%;
+  width: 50%;
+  float: right;
+  position: relative;
+  right: 80px;
+  top: 20vh;
 }
 
 .nav-content .sub-title{
@@ -52,12 +59,17 @@
 }
 
 .article-container{
-    position: relative;
-    width:300px;
-    height: 300px;
-    top: 25%;
-    left: 25%
+  width: 50%;
+  float: left;
+  height: 80vh;
+}
 
+.article-content{
+  width: 300px;
+  top: 20vh;
+  position: relative;
+  float: left;
+  left: 25vh;
 }
 
 .article-content .cube{
