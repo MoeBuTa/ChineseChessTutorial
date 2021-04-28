@@ -20,7 +20,7 @@ class Config(object):
 
 
 class TestingConfig(Config):
-    ENV = 'testing'
+    TESTING = True
     # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'tests/test.db')
 
     # in memory database
