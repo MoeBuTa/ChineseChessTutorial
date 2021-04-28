@@ -1,5 +1,6 @@
 from app import app
 from app.controllers import IndexController, UserController, TutorialController
+from flask_login import login_required
 
 
 @app.route('/')
@@ -14,10 +15,12 @@ def login_and_register():
 
 
 @app.route('/logout')
+@login_required
 def logout():
     return UserController.logout()
 
 
 @app.route('/tutorial')
+@login_required
 def tutorial():
     return TutorialController.tutorial()
