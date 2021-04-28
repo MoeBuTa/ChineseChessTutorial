@@ -21,8 +21,21 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-    # he id that Flask-Login passes to the function as an argument is going to be a string,
+    # the id that Flask-Login passes to the function as an argument is going to be a string,
     # so databases that use numeric IDs need to convert the string to integer
     @login.user_loader
     def load_user(id):
         return User.query.get(int(id))
+
+
+class Tutorial(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(140))
+    content = db.Column(db.UnicodeText())
+    img_url = db.Column(db.String(140))
+
+    def __repr__(self):
+        return '<Tutorial {}>'.format(self.title)
+
+
+
