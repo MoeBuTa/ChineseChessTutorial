@@ -9,9 +9,9 @@
 
             <li>
                 {% if current_user.is_anonymous %}
-                    <a href="{{ url_for('login_and_register') }}">Login/Register</a>
+                    <a href="{{ url_for('auth.login_and_register') }}">Login/Register</a>
                 {% else %}
-                    <a href="{{ url_for('logout') }}">{{ current_user.username }}_Logout</a>
+                    <a href="{{ url_for('auth.logout') }}">{{ current_user.username }}_Logout</a>
                 {% endif %}
 
             </li>
@@ -24,7 +24,7 @@
                 <a href="#">Quiz</a>
             </li>
             <li>
-                <a href="{{ url_for('tutorial') }}">Rule</a>
+                <a href="{{ url_for('main.tutorial') }}">Rule</a>
             </li>
             <li>
                 <a href="#">Story</a>
