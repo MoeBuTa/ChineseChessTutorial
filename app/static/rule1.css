@@ -1,112 +1,140 @@
-/* for the navbar-container style */ 
+/* for the navbar-container style */
 /* -------------------------------------------------------- */
-.navbar-container{
-    width: 100%;
+.navbar-container {
     height: 40px;
     line-height: 40px;
     background-color: #333;
 }
 
-.navbar-container a{
+.navbar-container a {
     display: block;
     color: #b0b0b0;
 }
 
-.keyword{
+.keyword {
     color: #ff6700;
     font-size: 18px;
     float: left;
 }
 
-.keyword:hover{
+.keyword:hover {
     font-style: italic;
     font-size: 19px;
     box-shadow: 0 0 10px rgba(255, 94, 0, 0.5);
 }
 
-.contact-us, .user, .items li{
+.contact-us, .user, .items li {
     float: right;
     margin-right: 32px;
 }
 
-.items a:hover{
+.items a:hover {
     color: #fff;
 }
 
-.items .home:hover{
+.items .home:hover {
     color: #ff6700;
 }
 
-.contact-us a:hover{
+.contact-us a:hover {
     color: #fff;
 }
 
-.user a:hover{
+.user a:hover {
     color: #ff6700;
 }
+
+
 /* -------------------------------------------------------- */
-/* for main-container style */
+/* for article container style */
 /* -------------------------------------------------------- */
-.main-container{
-    width: 100%;
-    background-color: rgb(224, 224, 224);
-    height: 770px;
-    /* position: relative; */
+.article-container {
+    width: 70%;
+    float: left;
 }
 
- /* .navsidebar-content{
-    float: left; 
-     position: relative;
-} */
-
-.navsidebar-content a{
-    /* position: fixed; */
-    color: #333;
+.article-container .article-content .box-cover {
+    float: left;
+    position: relative;
+    width: 80%;
+    line-height: 30px;
+    left: 10vh;
+    top: 5vh;
+    bottom: 5vh;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, .5);
+    background-color: #333;
+    text-align: justify;
 }
 
-.navsidebar-content .target{
-    margin-top: 30px;
+.box-cover span {
+    color: #fff;
+    font-size: 16px;
 }
 
-.navsidebar-content .lists{
-    margin-left: 30px;
-}
-
-.navsidebar-content .lists li{
-    margin-top: 50px;
-}
-
-.navsidebar-content a:hover{
-    color: #ff6700;
-}
-/* -------------------------------------------------------- */
-.article-content .box{
+.box-cover .box {
     position: absolute;
-    width: 880px;
-    height: 420px;
-    border: 1px solid #333;
+    height: 50vh;
     padding: 20px;
-    top: 200px;
-    left: 350px;
     box-shadow: 5px 0 10px rgba(0, 0, 0, .5);
     overflow: auto;
 }
 
-.content span{
+.content span {
     color: #333;
 }
 
-.content .title{
+.content .title {
     font-size: 30px;
     font-style: oblique;
 }
 
-.content .sub-title{
+.content .sub-title {
     font-size: 18px;
 }
 
-button{
-    margin-top: 100px;
+.quiz-box {
+    text-align: left;
+    border-top: 1px solid #333;
+}
+
+.quiz-box form {
+    margin-left: 50px;
+}
+
+.quiz-box .chbox {
+    border-radius: 50%;
+}
+
+.quiz-box #submit, #show, #hide {
+    width: 120px;
+    height: 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    background-color: transparent;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .6);
+}
+
+.display {
+    display: none;
+}
+
+.show-answer {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+}
+
+.show-answer span {
+    color: #ff6700;
+    width: 100%;
+    line-height: 50px;
+}
+
+button {
+    margin-top: 70px;
     border: none;
     outline: none;
     width: 90px;
@@ -117,66 +145,64 @@ button{
     box-shadow: 0 0 8px rgba(0, 0, 0, .6);
 }
 
-button:hover{
+button:hover, #submit:hover, #show:hover, #hide:hover {
     color: #ff6700;
     font-size: 13px;
 }
 
-.pre{
-    margin-left: 40px;
-}
-.next{
-    margin-left: 610px;
+.pre, .next, #submit, #show {
+    margin-right: 20px;
 }
 
 /* -------------------------------------------------------- */
 /* for the footer-container style */
 /* -------------------------------------------------------- */
-.footer-container{
+.footer-container {
     width: 100%;
     height: 280px;
     background-color: #333;
 }
 
-.footer-content .about-us, .follow-us{
+.footer-content .about-us, .follow-us {
     float: right;
     margin-left: 100px;
 }
 
-.footer-content .about-us, .follow-us, span,a{
+.footer-content .about-us, .follow-us, span, a {
     color: #b0b0b0;
 }
 
-.footer-content .about-us{
+.footer-content .about-us {
     margin-top: 40px;
 }
 
-.footer-content .about-us span{
+.footer-content .about-us span {
     font-weight: bold;
 }
 
-.footer-content .about-us li{
+.footer-content .about-us li {
     margin-top: 16px;
 }
 
-.footer-content .about-us a:hover{
+.footer-content .about-us a:hover {
     color: #fff;
 }
 
-.footer-content .follow-us{
+.footer-content .follow-us {
     margin-top: 40px;
     margin-left: 80px;
 }
 
-.footer-content .follow-us span{
+.footer-content .follow-us span {
     font-weight: bold;
 }
 
-.footer-content .follow-us li{
+.footer-content .follow-us li {
     margin-top: 16px;
 }
 
-.footer-content .follow-us a:hover{
+.footer-content .follow-us a:hover {
     color: #fff;
 }
+
 /* -------------------------------------------------------- */
