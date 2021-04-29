@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for
 from app import db
 from app.auth.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user
-from app.models import User
+from app.models import User, Tutorial
 
 
 class UserController:
@@ -30,6 +30,8 @@ class UserController:
             user.set_password(registrationForm.password.data)
             db.session.add(user)
             db.session.commit()
+            registered_user = User.query.filter_by(username=registrationForm.username.data).first()
+            registered_user.save_tutorial_progress(1)
             flash('Congratulations, you are now a registered user!')
             return redirect(url_for('auth.login_and_register'))
         return render_template('loginAndRegister.html', title='Sign In/up',

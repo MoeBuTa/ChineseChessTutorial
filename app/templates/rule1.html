@@ -17,20 +17,20 @@
                         <div class="content">
                             <span class="title">Learn To Play XiangQi / Chinese Chess</span>
                             <br><br>
-                            <span class="sub-title">Brief Information</span>
+                            <span class="sub-title">{{ current_tutorial.title}}</span>
                             <br><br>
-                            <span>The board is composed of 9 vertical lines (files) and 10 horizontal lines (ranks) with the pieces being played on the intersections. On each side of the board against the back edge is a palace, which is 3 by 3 lines (9 positions) with four diagonal lines that extend outward from the center forming an “X” shape. Dividing the two opposing sides of the board is a river, located between the fifth and sixth ranks. The river is often marked with the Chinese characters, 楚河 “Chǔ Hé” meaning "Chu River", and 漢界 (汉界 in simplified Chinese), “Hàn Jiè”, meaning "Han border", a reference to the Chu-Han War. Some boards have the starting points of soldiers marked with small crosses.</span>
+                            <span>{{ current_tutorial.main_content }}</span>
                             <br><br>
-                            <span class="sub-title">Arrangment</span>
+                            <span class="sub-title">{{ current_tutorial.subtitle }}</span>
                             <br><br>
-                            <span>The starting positions of the pieces are arranged as shown below.</span>
+                            <span>{{ current_tutorial.extra_content}}</span>
                             <br><br>
                             <img src="../static/chess-img/chess-qipan.img.gif" alt="view of qipan">
                             <br><br>
                             <div class="quiz-box">
                                 <span class="sub-title">Test Yourself With Exercises</span>
                                 <br><br>
-                                <span>Q. There are totally 32 pieces.</span>
+                                <span>Q. {{ current_tutorial.question_title}}</span>
                                 <br><br>
                                 <form action="">
                                     <input type="checkbox" name="answer" id="t" value="True">True
@@ -38,14 +38,14 @@
                                     <input type="checkbox" name="answer" id="f" value="False">False
                                     <br><br>
                                     <input type="button" id="submit" value="Submit">
-                                    <input type="button" id="show" value="Show Answer">
+                                    <input type="button" id="show" value="Show Hint">
                                 </form>
 
                                 <div class="show-answer display">
-                                    <span>True! One side are 16 pieces, and totally 32 pieces.</span>
+                                    <span>{{ current_tutorial.hint}}</span>
                                     <br>
                                     <form action="">
-                                        <input type="button" id="hide" value="Hide Answer">
+                                        <input type="button" id="hide" value="Hide Hint">
                                     </form>
                                 </div>
                             </div>
