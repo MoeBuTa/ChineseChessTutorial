@@ -1,0 +1,85 @@
+/* -------------------------------------------------------- */
+/* for main-container style */
+/* -------------------------------------------------------- */
+.main-container{
+    width: 100%;
+    background-color: rgb(224, 224, 224);
+}
+
+.nav-content, .article-content{
+    float: left;
+}
+
+.nav-content{
+    position: fixed;
+}
+
+.nav-content .target{
+    margin-top: 30px;
+}
+
+.nav-content .lists{
+    margin-left: 30px;
+}
+
+.nav-content .lists li{
+    margin-top: 50px;
+}
+
+.nav-content a:hover{
+    color: #ff6700;
+}
+/* -------------------------------------------------------- */
+/* for the article-container style */
+/* -------------------------------------------------------- */
+.article-content{
+    margin-left: 200px;
+    width: 80%;
+}
+
+.article-content .title{
+    margin-top: 30px;
+    font-size: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+    font-weight: bold;
+}
+
+.article-content .sub-title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.article-content .main-text{
+    line-height: 1cm;
+}
+
+.article-content .image-container{
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.article-content .image{
+    width:475px;
+    height:325px;
+}
+
+.article-content .image-description{
+    font-size: 12px;
+}
+
+.article-content .right-side-image-container{
+    float: right;
+
+}
+
+.article-content .hanxin-text-container{
+    width:250px;
+}
+
+.article-content .centre-image-description{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}

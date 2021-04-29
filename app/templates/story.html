@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{super()}}
+  <link rel="stylesheet" type="text/css" href="./static/story.css">
+{% endblock styles %}
+
+{% block main %}
+  {{super()}}
+
+  <div class="main-container">
+    <div class="nav-container web_width clearfix">
+      {% include 'navSideBar.html' %}
+
+      <div class="article-container">
+        <div class="article-content web_width clearfix">
+          <div class="title">
+            <span>The History of Chinese Chess</span>
+          </div>
+          <br><br><br>
+          <p class="main-text">
+            XiangQi is a popular board game in China, it is in the same family
+            class as Western or International Chess. When you visit China, you
+            can often see it is being played in parks or simply a spot that has enough space for
+            the chessboard to place on top, with people surrounded the two players watching their intense match.
+            Currently, there are many theories on the origin of XiangQi - 象棋 (Chinese Chess). According
+            to the book "A History of Chess" by H. J. R. Murray published in 1913,
+            chess was first invented in India, it then travelled to Persia. After that, it
+            went to China, and to Korea and Japan. The earliest chess pieces were found
+            at Afrasiab, Uzbekistan believed to be dated around 706 AD since a coin
+            was also found near the chess pieces dated 706 AD. For XiangQi, it was first referenced
+            in "The Book of Marvels", a book by Nui Seng-ju who passed away in 847 AD
+            Lets now look at some possible origins of XiangQi.
+          </p>
+          <br><br><br>
+          <div class="image-container">
+            <img src="../static/chess-img/Chinese playing chess.jpg" alt="chinese playing chess" class="image">
+            <img src="../static/chess-img/chinese playing chess crowd.jpg" alt="chinese playing chess with crowds" class="image">
+            <p class="image-description">Chinese playing XiangQi on a table in a park (left-hand side image) and on a street with crowds surrounding the two players (right-hand side image)</p>
+          </div>
+          <br><br><br>
+          <div class="right-side-image-container">
+            <img src="../static/chess-img/hanxin.jpg" alt="A protrait of Hán Xin - 韩信" class="han-xin-portrait">
+            <div class="hanxin-text-container">
+              <p class="image-description">A protrait of Hán Xin - 韩信, who is one of the best milatary general in the history of China and he is thought to be the inventor of XiangQi</p>
+            </div>
+          </div>
+          <br><br>
+          <div class="sub-title">
+            <span>XiangQi Was Developed Based on the Game By Hán Xin - 韩信</span>
+          </div>
+          <br><br><br>
+          <p class="main-text">
+            One possible origin of XiangQi is from Hán Xin, a
+            military general who served Liu Bang during the Chu-Han Contention and
+            he is one of the best military general in the history of China. During
+            a battle, Hán Xin was required to hold his position with his troops in
+            winter, he decided to create a game or chess to represent the battle so
+            he could practise his battle strategies. A few years after that battle, he
+            fell out of favour with Liu Bang (the emperor of the Hang Dynasty) and the
+            game became less popular. But in the Tang Dynasty, a few hundred years later,
+            the game was revived with some changes in its rule.
+          </p>
+          <br><br><br><br><br>
+
+          <div class="sub-title">
+            <span>XiangQi was Originated from Ancient China</span>
+          </div>
+          <br><br><br>
+          <p class="main-text">
+            Another possible case is that XiangQi was originated from the chess game
+            developed during the Spring and Autumn Period, which is a period with a
+            lots of war happening. This theory is based on the rules of XiangQi since
+            they are closely related to some of the strategies used in battle. For example,
+            blocking the path of the horse by placing a chess piece infront of the horse
+            (tripping its leg). During the Tang Dynasty, Xiang （相) chess pieces were added into
+            the game. Xiang chess pieces are located next to another animal piece horse in
+            the starting position, and since elephant (象）and the foreign minister （相) both has
+            the same pronunciation, the Xiang green chess pieces were replaced by elephant pieces.
+            When the chess was taken from China to Persia and India, the xiang chess pieces lost
+            their original meaning of foreign minister and became an elephant. Hence, throughout
+            Persia, northern India there was a chess game with a piece called "elephant" or "alfil"
+            in Arabic.
+          </p>
+          <br><br><br>
+          <div class="image-container">
+            <img src="../static/chess-img/chess-xiangzi.gif" alt="picture of xiang chess pieces">
+
+            <p class="centre-image-description image-description">
+              The left-hand image means foreign minister and it is located next to an animal chess piece (horse)
+              at the starting position, and since elephant (the right-hand image) has the same pronunciation
+              in Chinese, the green 相 (foreign minister) chess piece was gradually replaced by the word 象 (elephant).
+            </p>
+
+          </div>
+          <br><br><br><br><br>
+          <div class="sub-title">
+            <span>XiangQi was Originated from India</span>
+          </div>
+          <br><br><br>
+          <p class="main-text">
+            As mentioned before, some people said chess was originated from the North Western
+            part of India. Chaturanga is thought to be the ancestor of Chinese
+            Chess, which was invented independently in the 5th or 6th century. There are
+            many variation of Chaturanga including two player Chaturanga and four player
+            Chaturanga. The chess was then taken to Persia and Shatranj was developed,
+            which formed the bases for the international or western chess we played today.
+            At the end, the chess travelled to China from Persia and formed the bases for
+            XiangQi.
+          </p>
+
+          <br><br><br>
+
+          <div class="image-container">
+            <img src="../static/chess-img/Shatranj.jpg" alt="an image of Shatranj" class="image">
+            <p class="image-description centre-image-description">
+              An image of glazed Iranian fritware shatranj set in the New York Metropolitan Museum of Art By
+              <a href="//commons.wikimedia.org/wiki/User:Zereshk" title="User:Zereshk">Zereshk</a> - Own work,
+              <a href="https://creativecommons.org/licenses/by/3.0" title="Creative Commons Attribution 3.0">CC BY 3.0</a>,
+              <a href="https://commons.wikimedia.org/w/index.php?curid=2944711">Link</a>
+            </p>
+
+          </div>
+          <br><br><br><br><br>
+        </div>
+
+      </div>
+    </div>
+
+
+{% endblock main %}
