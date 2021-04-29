@@ -17,10 +17,10 @@
 }
 
 .nav-content{
-  width: 50%;
+  width: 500px;
   float: right;
   position: relative;
-  right: 80px;
+  right: 200px;
   top: 20vh;
 }
 
@@ -69,7 +69,9 @@
   top: 20vh;
   position: relative;
   float: left;
-  left: 25vh;
+  left: 300px;
+  transform: translateY(-28px);
+
 }
 
 .article-content .cube{
