@@ -2,7 +2,7 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="../static/rule1.css">
+    <link rel="stylesheet" href="../static/tutorial.css">
 {% endblock styles %}
 
 
@@ -10,27 +10,27 @@
     <div class="main-container">
         {% include 'navSideBar.html' %}
         <div class="article-container web_width clearfix">
-            <div class="article-content">
-                <div class="box-cover">
+            <div class="article-content" id="article-content">
+                <div class="box-cover" id="box-cover">
                     <span>Learn To Play XiangQi / Chinese Chess</span>
-                    <div class="box">
-                        <div class="content">
+                    <div class="box" id="box">
+                        <div class="content" id="content">
                             <span class="title">Learn To Play XiangQi / Chinese Chess</span>
                             <br><br>
-                            <span class="sub-title">{{ current_tutorial.title}}</span>
+                            <span class="sub-title" id="title">{{ current_tutorial.title }}</span>
                             <br><br>
-                            <span>{{ current_tutorial.main_content }}</span>
+                            <span id="main_content">{{ current_tutorial.main_content }}</span>
                             <br><br>
-                            <span class="sub-title">{{ current_tutorial.subtitle }}</span>
+                            <span class="sub-title" id="subtitle">{{ current_tutorial.subtitle }}</span>
                             <br><br>
-                            <span>{{ current_tutorial.extra_content}}</span>
+                            <span id="extra_content">{{ current_tutorial.extra_content }}</span>
                             <br><br>
-                            <img src="../static/chess-img/chess-qipan.img.gif" alt="view of qipan">
+                            <img id="img_url" src="{{ current_tutorial.img_url }}" alt="view of qipan">
                             <br><br>
                             <div class="quiz-box">
                                 <span class="sub-title">Test Yourself With Exercises</span>
                                 <br><br>
-                                <span>Q. {{ current_tutorial.question_title}}</span>
+                                Q.<span id="question_title"> {{ current_tutorial.question_title }}</span>
                                 <br><br>
                                 <form action="">
                                     <input type="checkbox" name="answer" id="t" value="True">True
@@ -42,7 +42,7 @@
                                 </form>
 
                                 <div class="show-answer display">
-                                    <span>{{ current_tutorial.hint}}</span>
+                                    <span id="hint">{{ current_tutorial.hint }}</span>
                                     <br>
                                     <form action="">
                                         <input type="button" id="hide" value="Hide Hint">
@@ -50,8 +50,10 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="pre" id="pre">Pre</button>
-                        <button class="next" id="next">Next</button>
+                        <button class="pre" id="pre" onclick="getAnotherTutorial(false)">Pre
+                        </button>
+                        <button class="next" id="next" onclick="getAnotherTutorial(true)">Next
+                        </button>
                     </div>
                 </div>
             </div>
@@ -60,6 +62,12 @@
     {% block scripts %}
         {{ super() }}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="../static/rule1.js"></script>
+        <script type="text/javascript">
+            var Server = {
+                tutorial_id:{{ current_tutorial.id|tojson }}
+            };
+        </script>
+        <script src="../static/tutorial.js"></script>
+
     {% endblock scripts %}
 {% endblock content %}
