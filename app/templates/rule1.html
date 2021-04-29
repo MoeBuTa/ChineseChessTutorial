@@ -1,62 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/reset.css">
-    <link rel="stylesheet" href="../static/base.css">
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block styles %}
+    {{ super() }}
     <link rel="stylesheet" href="../static/rule1.css">
-</head>
-<body>
-    <div class="navbar-container">
-        <div class="navbar-content web_width">
-            <div class="keyword">XiangQi / Chinese Chess</div>
-            
-            <ul class="contact-us">
-                <li><a href="#fu">Contact Us</a></li>
-            </ul>
-            <ul class="user">
-                <li><a href="../templates/loginAndRegister.html">Login/Register</a></li>
-            </ul>
-            <ul class="items">
-                <li>
-                    <a href="#">Game</a>
-                </li>
-                <li>
-                    <a href="#">Quiz</a>
-                </li>
-                <li>
-                    <a href="../templates/rule1.html">Rule</a>
-                </li>
-                <li>
-                    <a href="#">Story</a>
-                </li>
-                <li>
-                    <a class="home" href="../templates/index.html">HOME</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+{% endblock styles %}
 
+
+{% block content %}
     <div class="main-container">
-        <div class="navsidebar-container web_width clearfix">
-            <div class="navsidebar-content">
-                <div class="target"><img src="../static/chess-img/target.png" alt="view of target"></div>
-                <ul class="lists">
-                    <li><a href="../templates/index.html">Home</a></li>
-                    <li><a href="#">Story</a></li>
-                    <li><a href="../templates/rule1.html">Rule</a></li>
-                    <li><a href="#">Quiz</a></li>
-                    <li><a href="#">Game</a></li>
-                    <li><a href="../templates/index.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="article-container">
-            <div class="article-content web_width clearfix">
+        {% include 'navSideBar.html' %}
+        <div class="article-container web_width clearfix">
+            <div class="article-content">
                 <div class="box-cover">
                     <span>Learn To Play XiangQi / Chinese Chess</span>
                     <div class="box">
@@ -86,7 +40,7 @@
                                     <input type="button" id="submit" value="Submit">
                                     <input type="button" id="show" value="Show Answer">
                                 </form>
-    
+
                                 <div class="show-answer display">
                                     <span>True! One side are 16 pieces, and totally 32 pieces.</span>
                                     <br>
@@ -94,7 +48,7 @@
                                         <input type="button" id="hide" value="Hide Answer">
                                     </form>
                                 </div>
-                        </div>
+                            </div>
                         </div>
                         <button class="pre" id="pre">Pre</button>
                         <button class="next" id="next">Next</button>
@@ -102,50 +56,10 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-    <div class="footer-container">
-        <div class="footer-content web_width clearfix">
-            <div class="about-us">
-                <span>ABOUT US</span>
-                <ul>
-                    <li>
-                        <a href="#">Chinese Chess</a>
-                    </li>
-                    <li>
-                        <a href="#">User Agreement</a>
-                    </li>
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="follow-us">
-                <span id="fu">FOLLOW US</span>
-                <ul>
-                    <li>
-                        <img src="../static/chess-img/facebook.png" alt="facebook">
-                        <a href="#">Facebook</a>
-                    </li>
-                    <li>
-                        <img src="../static/chess-img/youtube.png" alt="youtube">
-                        <a href="#">Youtube</a>
-                    </li>
-                    <li>
-                        <img src="../static/chess-img/instagram.png" alt="instagram">
-                        <a href="#">Instagram</a>
-                    </li>
-                    <li>
-                        <img src="../static/chess-img/twitter.png" alt="twitter">
-                        <a href="#">Twitter</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../static/rule1.js"></script>
-</body>
-</html>
+    {% block scripts %}
+        {{ super() }}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../static/rule1.js"></script>
+    {% endblock scripts %}
+{% endblock content %}
