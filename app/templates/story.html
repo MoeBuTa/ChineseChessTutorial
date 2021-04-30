@@ -2,15 +2,15 @@
 
 {% block styles %}
   {{super()}}
-  <link rel="stylesheet" type="text/css" href="./static/story.css">
+  <link rel="stylesheet" type="text/css" href="../static/story.css">
 {% endblock styles %}
 
-{% block main %}
+{% block content %}
   {{super()}}
 
   <div class="main-container">
     <div class="nav-container web_width clearfix">
-      {% include 'navSideBar.html' %}
+      {#{% include 'navSideBar.html' %}#}
 
       <div class="article-container">
         <div class="article-content web_width clearfix">
@@ -126,6 +126,6 @@
 
       </div>
     </div>
+  </div>
 
-
-{% endblock main %}
+{% endblock content %}
