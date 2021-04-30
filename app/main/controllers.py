@@ -38,3 +38,10 @@ class TutorialController:
         target_tutorial = Tutorial.query.get(target_tutorial_id)
         current_user.save_tutorial_progress(target_tutorial_id)
         return jsonify(IndexController.serialize(target_tutorial))
+
+
+class StoryController:
+
+    @staticmethod
+    def story():
+        return render_template('story.html', title='The Story of Chinese chess')
