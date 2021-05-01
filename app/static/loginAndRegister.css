@@ -108,6 +108,7 @@ body{
 }
 
 .btn1, .btn2, .submit{
+    padding: 0;
     margin-top: 10px;
     border: none;
     outline: none;

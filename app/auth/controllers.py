@@ -3,6 +3,7 @@ from app import db
 from app.auth.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user
 from app.models import User, Tutorial
+import re
 
 
 class UserController:
@@ -15,9 +16,9 @@ class UserController:
 
         # create login form
         loginForm = LoginForm()
-        if loginForm.loginSubmit.data and loginForm.validate():
-            user = User.query.filter_by(username=loginForm.username.data).first()
-            if user is None or not user.check_password(loginForm.password.data):
+        if loginForm.login_submit.data and loginForm.validate():
+            user = User.query.filter_by(username=loginForm.login_username.data).first()
+            if user is None or not user.check_password(loginForm.login_password.data):
                 flash('Invalid username or password')
                 return redirect(url_for('auth.login_and_register'))
             login_user(user, remember=loginForm.remember_me.data)
@@ -25,15 +26,6 @@ class UserController:
 
         # create register form
         registrationForm = RegistrationForm()
-        if registrationForm.registrationSubmit.data and registrationForm.validate():
-            user = User(username=registrationForm.username.data, email=registrationForm.email.data)
-            user.set_password(registrationForm.password.data)
-            db.session.add(user)
-            db.session.commit()
-            registered_user = User.query.filter_by(username=registrationForm.username.data).first()
-            registered_user.save_tutorial_progress(1)
-            flash('Congratulations, you are now a registered user!')
-            return redirect(url_for('auth.login_and_register'))
         return render_template('loginAndRegister.html', title='Sign In/up',
                                loginForm=loginForm, registrationForm=registrationForm)
 
@@ -42,4 +34,36 @@ class UserController:
         logout_user()
         return redirect(url_for('main.index'))
 
+    @staticmethod
+    def register_validation(register_username, email, register_password):
 
+        response = {
+            "action": 0,
+            "msg": '',
+            "target": ''
+        }
+
+        # validate username
+        check_username = User.query.filter_by(username=register_username).first()
+        if check_username is not None:
+            response["msg"] = 'Please use a different username!'
+            response["target"] = "register_username"
+            return response
+
+        # validate email
+        check_email = User.query.filter_by(email=email).first()
+        if check_email is not None:
+            response["msg"] = 'Please use a different email address!'
+            response["target"] = "email"
+            return response
+
+        # add user to database
+        else:
+            user = User(username=register_username, email=email)
+            user.set_password(register_password)
+            db.session.add(user)
+            db.session.commit()
+            registered_user = User.query.filter_by(username=register_username).first()
+            registered_user.save_tutorial_progress(1)
+            response["action"] = 1
+            return response

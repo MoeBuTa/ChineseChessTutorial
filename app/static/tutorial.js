@@ -51,13 +51,8 @@ function getAnotherTutorial(button) {
         }
         tutorial_id++;
     }
-
-
     $("#box").scrollTop(0);
-
-
-
-    $.post('/tutorial', {
+    $.post('/tutorialSwitch', {
         target_tutorial_id: tutorial_id
     }).done(function (response) {
         refreshContent(response)
@@ -73,5 +68,4 @@ function refreshContent(tutorial) {
     $("#img_url").attr("src", tutorial.img_url);
     $("#question_title").html(tutorial.question_title);
     $("#hint").html(tutorial.hint);
-
 }

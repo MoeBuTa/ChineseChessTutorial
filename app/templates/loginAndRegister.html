@@ -9,17 +9,37 @@
 
 {% block content %}
     <div class="container">
-        {{ super() }}
+        {% with messages = get_flashed_messages() %}
+            <div role="alert" id="msg"></div>
+        {% endwith %}
         <div class="content web_width clearfix">
             <div class="switch-box">
                 <div class="register display">
                     <div class="title">Register</div>
-                    {{ wtf.quick_form(registrationForm) }}
+                    {#                                        {{ wtf.quick_form(registrationForm) }}#}
+                    <form autocapitalize="off" action="" method="post" onsubmit="return registerValidation()">
+                        {{ registrationForm.register_username }}
+                        {{ registrationForm.email }}
+                        {{ registrationForm.register_password }}
+                        {{ registrationForm.register_password2 }}
+                        {{ registrationForm.registration_submit() }}
+                    </form>
                 </div>
 
                 <div class="sign-in">
                     <div class="title">Sign In</div>
-                    {{ wtf.quick_form(loginForm) }}
+                    {#                                        {{ wtf.quick_form(loginForm) }}#}
+                    <form autocapitalize="off" action="" method="post">
+                        {{ loginForm.hidden_tag() }}
+                        {{ loginForm.login_username }}
+                        {{ loginForm.login_password }}
+                        <div class="check-box">
+                            {{ loginForm.remember_me.label }}
+                            {{ loginForm.remember_me }}
+                        </div>
+                        {{ loginForm.login_submit() }}
+                    </form>
+
                 </div>
             </div>
 
