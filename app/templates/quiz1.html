@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/quiz1.css">
+{% endblock styles %}
+
+
+{% block content %}
+    <div class="article-container">
+        <div class="article-content web_width clearfix">
+            <div class="box-cover">
+                <span>Begin: Chinese Chess Quiz: Start your Qiuz now</span>
+                <div class="box">
+                    <div class="content">
+                        <span class="title">Start your Quiz now:</span>
+                        <br><br>
+                        <span>Totally 10 multiple-choice questions. Try your best!</span>
+                        <br><br>
+                        <div class="quiz-box">
+                            <span class="line">Q1. What is the number of pieces does a game require altogether?</span>
+                            <br>
+                            <form action="">
+                                <input class="a" type="checkbox" name="answer" id="q1_num_20" value="20">20
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q1_num_24" value="24">24
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q1_num_32" value="32">32
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q1_num_30" value="30">30
+                                <br><br>
+                            </form>
+
+                            <span class="line">Q2. How many types of pieces does Xiangqi have?</span>
+                            <br>
+                            <form action="">
+                                <input type="checkbox" name="answer" id="q2_num_5" value="5">5
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q2_num_6" value="6">6
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q2_num_7" value="7">7
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q2_num_8" value="8">8
+                                <br><br>
+                            </form>
+
+                            <span class="line">Q3. How big is the board of Xiangqi?</span>
+                            <br>
+                            <form action="">
+                                <input type="checkbox" name="answer" id="q3_num_8_by_9" value="8_by_9">8 by 9
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q3_num_8_by_8" value="8_by_8">8 by 8
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q3_num_9_by_9" value="9_by_9">9 by 9
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q3_num_9_by_10" value="9_by_10">9 by 10
+                                <br><br>
+                            </form>
+
+                            <span class="line">Q4. How many spots/spaces does the palace/fortress have?</span>
+                            <br>
+                            <form action="">
+                                <input type="checkbox" name="answer" id="num_q4_4" value="4">4
+                                <br><br>
+                                <input type="checkbox" name="answer" id="num_q4_6" value="6">6
+                                <br><br>
+                                <input type="checkbox" name="answer" id="num_q4_8" value="8">8
+                                <br><br>
+                                <input type="checkbox" name="answer" id="num_q4_9" value="9">9
+                                <br><br>
+                            </form>
+
+                            <span class="line">Q5. What type of piece has the most pieces on the board?</span>
+                            <br>
+                            <form action="">
+                                <input type="checkbox" name="answer" id="q5_cannon" value="Cannon">Cannon
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q5_solider" value="Soldier">Soldier
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q5_chariot" value="Chariot">Chariot
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q5_horse" value="Horse">Horse
+                                <br><br>
+                            </form>
+
+                            <span class="line">Q6. What piece cannot cross the river?</span>
+                            <br>
+                            <form action="">
+                                <input type="checkbox" name="answer" id="q6_horse" value="Horse">Horse
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q6_elephant" value="Elephant">Elephant
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q6_chariot" value="Chariot">Chariot
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q6_soldier" value="Soldier">Soldier
+                                <br><br>
+                            </form>
+
+                            <span class="line">Q7. Which piece moves in directions that are different from the other three?</span>
+                            <br>
+                            <form action="">
+                                <input type="checkbox" name="answer" id="q7_counselor" value="Counselor">Counselor
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q7_general" value="General">General
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q7_chariot" value="Chariot">Chariot
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q7_cannon" value="Cannon">Cannon
+                                <br><br>
+                            </form>
+
+                            <span class="line">Q8. Which piece captures differently from the other three?</span>
+                            <br>
+                            <form action="">
+                                <input type="checkbox" name="answer" id="q8_chariot" value="Chariot">Chariot
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q8_cannon" value="Cannon">Cannon
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q8_soldier" value="Soldier">Soldier
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q8_horse" value="Horse">Horse
+                                <br><br>
+                            </form>
+
+                            <span class="line">Q9. Which piece cannot leave the palace?</span>
+                            <br>
+                            <form action="">
+                                <input type="checkbox" name="answer" id="q9_chariot" value="Chariot">Chariot
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q9_soldier" value="Soldier">Soldier
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q9_general" value="General">General
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q9_horse" value="Horse">Horse
+                                <br><br>
+                            </form>
+
+                            <span class="line">Q10. How can you win a Xiangqi game?</span>
+                            <br>
+                            <form action="">
+                                <input type="checkbox" name="answer" id="q10_a" value="a">By capturing all opponent's pieces
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q10_b" value="b">By putting your opponent in stalemate or checkmate
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q10_c" value="c">By putting your opponent in check
+                                <br><br>
+                                <input type="checkbox" name="answer" id="q10_d" value="d">By putting all opponent's pieces
+                            </form>
+                        </div>
+                        <br><br>
+                        <span>Click <span class="b">Submit</span> to sumbit: Chinese Chess Quiz: Arguments. Click <span class="b">Cancel</span> to go back.</span>
+                    </div>
+                    <button class="cancel" id="cancel">Cancel</button>
+                    <button class="submit" id="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block scripts %}
+    {{ super() }}
+    <script src="../static/quiz1.js"></script>
+    {% endblock scripts %}
+{% endblock content %}
