@@ -1,23 +1,27 @@
-<!-- side navigation bar -->
-<div class="navsidebar-container web_width clearfix">
-    <div class="navsidebar-content">
-        <div class="target"><img src="../static/chess-img/target.png" alt="view of target"></div>
+
+<div class="main-content web_width clearfix">
+    <div class="navsidebar">
+        <div class="target"><img src="./static/chess-img/target.png" alt="view of target"></div>
         <ul class="lists">
-            <li>
-                <a href="#">Game</a>
-            </li>
-            <li>
-                <a href="#">Quiz</a>
-            </li>
-            <li>
+            <li><a href="{{ url_for('main.index') }}">Home</a></li>
+            <li><a href="{{url_for('main.story')}}">Story</a></li>
+            <li class="rule">
                 <a href="{{ url_for('main.tutorials') }}">Rule</a>
+                <div class="rule-lists">
+                    <ul>
+                        <li><a href="#">page1</a></li>
+                        <li><a href="#">page2</a></li>
+                        <li><a href="#">page3</a></li>
+                        <li><a href="#">page4</a></li>
+                        <li><a href="#">page5</a></li>
+                        <li><a href="#">page6</a></li>
+                        <li><a href="#">page7</a></li>
+                        <li><a href="#">page8</a></li>
+                    </ul>
+                </div>
             </li>
-            <li>
-                <a href="#">Story</a>
-            </li>
-            <li>
-                <a class="home" href="{{ url_for('main.index') }}">HOME</a>
-            </li>
+            <li><a href="#">Quiz</a></li>
+            <li><a href="#">Feedback</a></li>
         </ul>
     </div>
 </div>
