@@ -26,6 +26,8 @@ class UserController:
 
         # create register form
         registrationForm = RegistrationForm()
+        if registrationForm.registration_submit.data:
+            flash("Congratulations, you are now a registered user!")
         return render_template('loginAndRegister.html', title='Sign In/up',
                                loginForm=loginForm, registrationForm=registrationForm)
 

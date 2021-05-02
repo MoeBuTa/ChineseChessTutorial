@@ -32,21 +32,15 @@
                                 <br><br>
                                 Q.<span id="question_title"> {{ current_tutorial.question_title }}</span>
                                 <br><br>
-                                <form action="">
-                                    <input type="checkbox" name="answer" id="t" value="True">True
-                                    <br><br>
-                                    <input type="checkbox" name="answer" id="f" value="False">False
-                                    <br><br>
-                                    <input type="button" id="submit" value="Submit">
-                                    <input type="button" id="show" value="Show Hint">
-                                </form>
+                                <input type="radio" name="answer" value=0>True<br>
+                                <input type="radio" name="answer" value=1>False<br>
+
+                                <button id="show" name="show">Show Hint</button>
 
                                 <div class="show-answer display">
                                     <span id="hint">{{ current_tutorial.hint }}</span>
                                     <br>
-                                    <form action="">
-                                        <input type="button" id="hide" value="Hide Hint">
-                                    </form>
+                                    <input type="button" id="hide" value="Hide Hint">
                                 </div>
                             </div>
                         </div>
@@ -64,7 +58,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript">
             var Server = {
-                tutorial_id:{{ current_tutorial.id|tojson }}
+                tutorial_id:{{ current_tutorial.id|tojson }},
+                answer: {{ current_tutorial.answer|tojson }}
             };
         </script>
         <script src="../static/tutorial.js"></script>

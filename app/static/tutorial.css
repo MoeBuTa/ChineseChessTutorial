@@ -106,7 +106,7 @@
     border-radius: 50%;
 }
 
-.quiz-box #submit, #show, #hide {
+.quiz-box #show, #hide {
     width: 120px;
     height: 20px;
     border: none;
@@ -134,6 +134,10 @@
     line-height: 50px;
 }
 
+#hide{
+    color: #ff6700;
+}
+
 button {
     margin-top: 70px;
     border: none;
@@ -146,12 +150,16 @@ button {
     box-shadow: 0 0 8px rgba(0, 0, 0, .6);
 }
 
-button:hover, #submit:hover, #show:hover, #hide:hover {
+
+button:hover,  #show:hover, #hide:hover {
     color: #ff6700;
     font-size: 13px;
 }
 
-.pre, .next, #submit, #show {
+.pre, .next,  #show, #hide {
+    padding: 0;
+    line-height: 0;
+    font-size: 12px;
     margin-right: 20px;
 }
 
