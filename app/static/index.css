@@ -138,3 +138,59 @@ img{
 html{
     perspective: 800px;
 }
+
+/* -------------------------------------------------------- */
+/* for the footer-container style */
+/* -------------------------------------------------------- */
+.footer-container{
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+}
+
+.footer-content{
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50);
+    text-align: center;
+}
+
+.footer-content .about-us, .follow-us, .news-events, .discover, .support{
+    float: left;
+}
+
+.footer-content a{
+    color: #b0b0b0;
+}
+
+.footer-content a:hover{
+    color: #fff;
+}
+
+.footer-content .info{
+    width:100%;
+}
+
+
+.footer-content .about-us, .follow-us, .news-events, .discover, .support{
+    width:20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-content span{
+    font-weight: bold;
+    color: #b0b0b0;
+}
+
+.footer-content ul{
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    line-height: 0.5cm;
+}
+
+.footer-content li:first-child{
+    margin-top: 10px;
+}
+/* -------------------------------------------------------- */
