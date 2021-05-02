@@ -30,7 +30,9 @@
             {% endif %}
         {% endwith %}
     {% endblock content %}
-    {% include 'footer.html' %}
+    {% block footer %}
+      {% include 'footer.html' %}
+    {% endblock footer %}
     {% block scripts %}
         {{ super() }}
     {%- endblock scripts %}

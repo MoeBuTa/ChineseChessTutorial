@@ -36,6 +36,8 @@ a{
 /* for navbar style */
 /* -------------------------------------------------------- */
 .navbar-container{
+    width: 100%;
+    height: 40px;
     line-height: 40px;
     background-color: #333;
 }
@@ -49,6 +51,7 @@ a{
     color: #ff6700;
     font-size: 18px;
     float: left;
+    margin-left: 50px;
 }
 
 .keyword:hover{
@@ -83,38 +86,78 @@ a{
 /* for main-container style */
 /* -------------------------------------------------------- */
 .main-container {
+    width: 100%;
+    height: 100%;
     background-color: rgb(224, 224, 224);
 }
 
 
 /* -------------------------------------------------------- */
-/* for navsidebar style */
+/* for the main-container */
 /* -------------------------------------------------------- */
-.navsidebar-container {
-    width: 30%;
-    float: left;
-    position: relative;
-    left: 20vh;
+.main-container{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(224, 224, 224);
 }
 
-.navsidebar-content a {
-    /* position: fixed; */
+.navsidebar{
+    width: 200px;
+    height: 480px;
+    position: fixed;
+    padding: 20px 0;
+    text-align: center;
+    z-index: 999;
+
+
+    /* background-color: #ff6700; */
+}
+
+.navsidebar:hover{
+    background-color: #333;
+    border: 2px solid #ff6700;
+}
+
+.navsidebar a{
+    display: block;
+    color: #b0b0b0;
+}
+
+.navsidebar .lists{
+  border-top: 2px solid #ff6700;
+}
+
+.navsidebar .rule-lists{
+    display: none;
+    width: 150px;
+    height: 500px;
+    position: absolute;
+    z-index: 999;
+    left: 200px;
+    top: 90px;
+
+    background-color: blue;
+}
+
+.navsidebar .rule-lists ul{
+    display: block;
     color: #333;
+    margin: 3px 10px;
 }
 
-.navsidebar-content .target {
-    margin-top: 30px;
+.rule:hover .rule-lists{
+    display: block;
+    z-index: 999;
 }
 
-.navsidebar-content .lists {
-    margin-left: 30px;
+.navsidebar .lists li a{
+    display: block;
+    height: 62px;
+    line-height: 62px;
+    z-index: 9999;
 }
 
-.navsidebar-content .lists li {
-    margin-top: 50px;
-}
-
-.navsidebar-content a:hover {
+.navsidebar .lists li a:hover{
     color: #ff6700;
 }
 
@@ -125,60 +168,23 @@ a{
 /* for the footer-container style */
 /* -------------------------------------------------------- */
 .footer-container{
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
     background-color: #333;
 }
 
-.footer-content .about-us, .follow-us, .phone-us{
+.footer-content .info{
     float: left;
+    margin-left: 30px;
 }
 
-.footer-content .about-us, .follow-us, .phone-us span,a{
-    color: #b0b0b0;
+.footer-content .info span{
+    color: rgb(224, 224, 224);
 }
 
-.footer-content .about-us{
-    margin-top: 40px;
-}
-
-.footer-content .about-us span{
-    font-weight: bold;
-}
-
-.footer-content .about-us li{
-    margin-top: 16px;
-}
-
-.footer-content .about-us a:hover{
-    color: #fff;
-}
-
-.footer-content .follow-us{
-    margin-top: 40px;
-    margin-left: 80px;
-}
-
-.footer-content .follow-us span{
-    font-weight: bold;
-}
-
-.footer-content .follow-us li{
-    margin-top: 16px;
-}
-
-.footer-content .follow-us a:hover{
-    color: #fff;
-}
-
-.footer-content .phone-us{
-    margin-top: 40px;
-    margin-left: 650px;
-}
-
-.footer-content .phone-us span{
-    margin-top: 5px;
-}
-
-.footer-content .phone-us .s{
-    font-size: 16px;
+.footer-content .imgs li{
+    float: right;
+    margin-right: 30px;
 }
 /* -------------------------------------------------------- */
