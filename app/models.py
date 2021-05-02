@@ -68,3 +68,8 @@ class Tutorial(db.Model):
 
     def __repr__(self):
         return '<Tutorial {}, {}>'.format(self.id, self.title)
+
+
+# class Story(db.Model):
+    # id = db.Column(db.Integer, primary_key=True)
+    # main_text = db.Column(db.UnicodeText())

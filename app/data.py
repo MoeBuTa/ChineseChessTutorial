@@ -18,7 +18,7 @@ def add_tutorial_data():
             extra_content="The starting positions of the pieces are arranged as shown below.",
             img_url="../static/chess-img/chess-qipan.img.gif",
             question_title="There are totally 32 pieces.",
-            answer=1,
+            answer=0,
             hint="hint=One side are 16 pieces, and totally 32 pieces"
         ),
         Tutorial(
@@ -34,7 +34,7 @@ def add_tutorial_data():
                           "thus retreating.",
             img_url="../static/chess-img/chess-bing.gif",
             question_title="Soldiers can move down.",
-            answer=0,
+            answer=1,
             hint="Soldiers can move left, right and front, but not move down."
         ),
         Tutorial(
@@ -45,7 +45,7 @@ def add_tutorial_data():
             extra_content="",
             img_url="../static/chess-img/chess-pao.gif",
             question_title="A cannon must jump over exactly two pieces, friends or foes, along its line of movement.",
-            answer=0,
+            answer=1,
             hint="A cannon must jump over exactly one piece, friend or foe, along its line of movement."
         ),
         Tutorial(
@@ -56,7 +56,7 @@ def add_tutorial_data():
             extra_content="",
             img_url="../static/chess-img/chess-che.gif",
             question_title="Chariots moves one point diagonally and is confined to the palace.",
-            answer=0,
+            answer=1,
             hint="Chariots move similarly to the rooks in international chess. The chariot moves as many points as it "
                  "wishes horizontally or vertically. "
         ),
@@ -68,7 +68,7 @@ def add_tutorial_data():
             extra_content="",
             img_url="../static/chess-img/chess-ma.gif",
             question_title="Horses moves as many points as it wishes horizontally or vertically.",
-            answer=0,
+            answer=1,
             hint="The horse moves one point horizontally or vertically, and then one point diagonally."
         ),
 
@@ -80,7 +80,7 @@ def add_tutorial_data():
             extra_content="",
             img_url="../static/chess-img/chess-xiang.gif",
             question_title="Elephants can across the river.",
-            answer=0,
+            answer=1,
             hint="Elephants cannot across the river."
         ),
         Tutorial(
@@ -91,7 +91,7 @@ def add_tutorial_data():
             extra_content="",
             img_url="../static/chess-img/chess-shi.gif",
             question_title="Advisor cannot leave the palace.",
-            answer=1,
+            answer=0,
             hint="Advisor can and only move within the palace."
         ),
         Tutorial(
@@ -104,7 +104,7 @@ def add_tutorial_data():
             extra_content="",
             img_url="../static/chess-img/chess-shuai.gif",
             question_title="Generals cannot leave the palace.",
-            answer=1,
+            answer=0,
             hint="Generals can and only move within the palace."
         )
 

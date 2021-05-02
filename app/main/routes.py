@@ -21,7 +21,7 @@ def tutorials():
     return TutorialController.tutorials()
 
 
-@bp.route('/tutorial', methods=['POST'])
+@bp.route('/tutorialSwitch', methods=['POST'])
 @login_required
 def tutorial_switch():
     target_tutorial_id = request.form.get('target_tutorial_id')
