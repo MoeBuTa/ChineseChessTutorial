@@ -2,7 +2,7 @@
 
 {% block styles %}
   {{super()}}
-  <link rel="stylesheet" type="text/css" href="../static/index.css">
+  <link rel="stylesheet" type="text/css" href="./static/index.css">
 {% endblock styles %}
 
 {% block content %}
@@ -19,7 +19,7 @@
                 </div>
                 <br>
                 <div class="learn-more">
-                    <a href="#">LEARN MORE</a>
+                    <a href="{{url_for('main.story')}}">LEARN MORE</a>
                 </div>
             </div>
         </nav>
@@ -27,22 +27,22 @@
             <div class="article-content">
                 <div class="cube">
                     <div class="img1">
-                        <img src="../static/chess-img/chess-rotatebing.png" alt="view of bing">
+                        <img src="./static/chess-img/chess-rotatebing.png" alt="view of bing">
                     </div>
                     <div class="img2">
-                        <img src="../static/chess-img/chess-rotatepao.png" alt="view of pao">
+                        <img src="./static/chess-img/chess-rotatepao.png" alt="view of pao">
                     </div>
                     <div class="img3">
-                        <img src="../static/chess-img/chess-rotateche.png" alt="view of che">
+                        <img src="./static/chess-img/chess-rotateche.png" alt="view of che">
                     </div>
                     <div class="img4">
-                        <img src="../static/chess-img/chess-rotateshuai.png" alt="view of shuai">
+                        <img src="./static/chess-img/chess-rotateshuai.png" alt="view of shuai">
                     </div>
                     <div class="img5">
-                        <img src="../static/chess-img/chess-rotatema.png" alt="view of ma">
+                        <img src="./static/chess-img/chess-rotatema.png" alt="view of ma">
                     </div>
                     <div class="img6">
-                        <img src="../static/chess-img/chess-rotateshi.png" alt="view of shi">
+                        <img src="./static/chess-img/chess-rotateshi.png" alt="view of shi">
                     </div>
                 </div>
             </div>

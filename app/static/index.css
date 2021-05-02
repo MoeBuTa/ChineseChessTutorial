@@ -14,14 +14,20 @@
     width: 50%;
     float: left;
     height: 80vh;
+    position: relative;
 }
 
 .nav-content{
   width: 500px;
   float: right;
-  position: relative;
-  right: 200px;
-  top: 20vh;
+  right: 15vh;
+
+
+/* makes div vertically center */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
 }
 
 .nav-content .sub-title{
@@ -62,16 +68,18 @@
   width: 50%;
   float: left;
   height: 80vh;
+  position: relative;
 }
 
 .article-content{
   width: 300px;
-  top: 20vh;
-  position: relative;
   float: left;
-  left: 300px;
-  transform: translateY(-28px);
+  left: 28vh;
 
+/* makes div vertically center */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .article-content .cube{
