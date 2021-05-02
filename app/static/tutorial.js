@@ -1,29 +1,3 @@
-// over the page
-// var btnNext = document.getElementById("next");
-// btnNext.onclick = function(){
-//     window.location.href="rule2.html";
-// };
-//true or false only
-var f = document.getElementById("f");
-var t = document.getElementById("t");
-t.onclick = function () {
-    f.checked = false;
-};
-
-f.onclick = function () {
-    t.checked = false;
-};
-//sumbit feedback
-var f = document.getElementById("f");
-var t = document.getElementById("t");
-var submit = document.getElementById("submit");
-submit.onclick = function () {
-    if (!t.checked) {
-        alert("Correct!")
-    } else {
-        alert("Try again!")
-    }
-};
 //answer page
 $('#show').click(function () {
     $('.show-answer').removeClass('display');
@@ -35,18 +9,20 @@ $('#hide').click(function () {
 
 
 var tutorial_id = Server.tutorial_id;
+var answer = Server.answer
+
 
 function getAnotherTutorial(button) {
     if (!button) {
         if (tutorial_id === 1) {
-            alert("this is the first tutorial!");
+            toastr.warning("this is the first tutorial!");
             return;
         }
         tutorial_id--;
     }
     if (button) {
         if (tutorial_id === 8) {
-            alert("you've completed all the tutorial!");
+            toastr.success("you've completed all tutorials!");
             return;
         }
         tutorial_id++;
@@ -68,4 +44,14 @@ function refreshContent(tutorial) {
     $("#img_url").attr("src", tutorial.img_url);
     $("#question_title").html(tutorial.question_title);
     $("#hint").html(tutorial.hint);
+    answer = tutorial.answer
+    $(':radio').prop('checked', false);
 }
+
+$(':radio').click(function () {
+    if ($(this).val() != answer) {
+        toastr.error("Try again!");
+    } else {
+        toastr.success("Correct!");
+    }
+});

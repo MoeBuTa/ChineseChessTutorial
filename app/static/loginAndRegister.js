@@ -12,6 +12,7 @@ $('#sign-in').click(function () {
 });
 
 
+//validate registration form
 function registerValidation() {
     var pwd = $("#register_password").val();
     var pwd2 = $("#register_password2").val();
@@ -19,16 +20,12 @@ function registerValidation() {
     var response = null;
     mailReg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
     if (!mailReg.test(email)) {
-        $("#msg").removeClass();
-        $("#msg").addClass("alert alert-danger alert-dismissible");
-        $("#msg").html("Invalid email!")
+        toastr.error("Invalid email!");
         return false;
     }
 
     if (pwd2 !== pwd) {
-        $("#msg").removeClass();
-        $("#msg").addClass("alert alert-danger alert-dismissible");
-        $("#msg").html("The two passwords entered were inconsistent!")
+        toastr.error("The two passwords entered were inconsistent!");
         return false;
     }
 
@@ -43,16 +40,18 @@ function registerValidation() {
         async: false,
         success: function (re) {
             response = re;
+        },
+        error: function () {
+            toastr.error("server timeout")
         }
     });
-    $("#msg").html(response.msg)
+
     if (response.action == 1) {
-        $("#msg").removeClass();
-        alert("Congratulations, you are now a registered user!")
         return true;
-    } else {
-        $("#msg").removeClass();
-        $("#msg").addClass("alert alert-warning alert-dismissible");
-        return false;
     }
+    else{
+        toastr.error(response.msg);
+    }
+    return false;
+
 }

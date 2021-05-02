@@ -9,9 +9,7 @@
 
 {% block content %}
     <div class="container">
-        {% with messages = get_flashed_messages() %}
-            <div role="alert" id="msg"></div>
-        {% endwith %}
+        {{ super() }}
         <div class="content web_width clearfix">
             <div class="switch-box">
                 <div class="register display">

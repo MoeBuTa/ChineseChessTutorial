@@ -12,6 +12,7 @@
         {{ super() }}
         <link rel="stylesheet" type="text/css" href="../static/reset.css">
         <link rel="stylesheet" type="text/css" href="../static/base.css">
+        <link rel="stylesheet" href="../static/toastr/toastr.css"/>
     {% endblock styles %}
 {%- endblock head %}
 
@@ -33,5 +34,7 @@
     {% include 'footer.html' %}
     {% block scripts %}
         {{ super() }}
+        <script src="../static/toastr/toastr.js"></script>
+        <script src="../static/toastr/toastrOption.js"></script>
     {%- endblock scripts %}
 {% endblock body %}

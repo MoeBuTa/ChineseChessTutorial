@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, jsonify
 from app import db
 from flask_login import current_user, login_user, logout_user
 from app.models import User, Tutorial
-from app.tutorial_data import add_tutorial_data
+from app.data import add_tutorial_data
 from sqlalchemy.orm import class_mapper
 
 
