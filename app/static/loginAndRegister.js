@@ -30,7 +30,7 @@ function registerValidation() {
     }
 
     $.ajax({
-        url: "/auth/registerValidation",
+        url: "/registerValidation",
         data: {
             register_username: $("#register_username").val(),
             email: email,
