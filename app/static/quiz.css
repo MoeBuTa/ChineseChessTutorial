@@ -1,134 +1,50 @@
-/* for the navbar-container style */
-/* -------------------------------------------------------- */
-.navbar-container{
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    background-color: #333;
-}
-
-.navbar-container a{
-    display: block;
-    color: #b0b0b0;
-}
-
-.keyword{
-    color: #ff6700;
-    font-size: 18px;
-    float: left;
-}
-
-.keyword:hover{
-    font-style: italic;
-    font-size: 19px;
-    box-shadow: 0 0 10px rgba(255, 94, 0, 0.5);
-}
-
-.contact-us, .user, .items li{
-    float: right;
-    margin-right: 32px;
-}
-
-.items a:hover{
-    color: #fff;
-}
-
-.items .home:hover{
-    color: #ff6700;
-}
-
-.contact-us a:hover{
-    color: #fff;
-}
-
-.user a:hover{
-    color: #ff6700;
-}
-/* -------------------------------------------------------- */
-/* for the main-container */
-/* -------------------------------------------------------- */
-.main-container{
-    width: 100%;
-    height: 770px;
-    background-color: rgb(224, 224, 224);
-}
-
-.navsidebar{
-    width: 200px;
-    height: 420px;
-    position: fixed;
-    border-bottom: 1px solid #333;
-    padding: 20px 0;
-    text-align: center;
-    z-index: 999;
-
-    /* background-color: #ff6700; */
-}
-
-.navsidebar .rule-lists{
-    display: none;
-    width: 150px;
-    /* height: 500px; */
-    border-top: 1px solid #333;
-    position: absolute;
-    z-index: 999;
-    left: 200px;
-    top: 90px;
-
-    /* background-color: yellowgreen; */
-}
-
-.navsidebar .rule-lists ul{
-    display: block;
-    color: #333;
-    margin: 3px 10px;
-}
-
-.rule:hover .rule-lists{
-    display: block;
-    z-index: 999;
-}
-
-.navsidebar .lists li a{
-    display: block;
-    height: 62px;
-    line-height: 62px;
-    z-index: 9999;
-}
-
-.navsidebar .lists li a:hover{
-    color: #ff6700;
-}
 /* -------------------------------------------------------- */
 /* for the quiz box */
 /* -------------------------------------------------------- */
-.article-content .box-cover{
-    position: absolute;
-    width: 920px;
+.article-container{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.article-content{
+    width: 80%;
+    height:80%;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.article-container .article-content .box-cover{
+    float: left;
+    position: relative;
+    width: 100%;
+    height: 30.5px;
     line-height: 30px;
-    border: 1px solid #333;
-    top: 150px;
-    left: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    top: 5vh;
+    bottom: 5vh;
     box-shadow: 5px 0 10px rgba(0, 0, 0, .5);
     background-color: #333;
-    border: none;
+    text-align: justify;
 }
 
 .box-cover span{
     color: #fff;
     font-size: 16px;
-    padding-left: 10px;
 }
 
-.box-cover .box{
+.box-cover .box {
     position: absolute;
-    width: 880px;
-    height: 420px;
-    border: 1px solid #333;
-    border: none;
-    padding: 20px; 
+    height: 63vh;
+    width:100%;
+    padding: 20px;
     box-shadow: 5px 0 10px rgba(0, 0, 0, .5);
     overflow: auto;
+    text-align: justify;
 }
 
 .content span{
@@ -148,6 +64,19 @@
     font-weight: bolder;
 }
 
+.quiz-box{
+    text-align: left;
+}
+
+.quiz-box .line{
+    display: block;
+    border-top: 1px solid #333;
+}
+
+.quiz-box form input{
+    margin-left: 50px;
+}
+
 button{
     margin-top: 70px;
     border: none;
@@ -165,31 +94,7 @@ button:hover{
     font-size: 13px;
 }
 
-.cancel, .begin{
+.cancel, .submit{
     float: right;
     margin-right: 10px;
 }
-/* -------------------------------------------------------- */
-/* for the footer-container style */
-/* -------------------------------------------------------- */
-.footer-container{
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    background-color: #333;
-}
-
-.footer-content .info{
-    float: left;
-    margin-left: 30px;
-}
-
-.footer-content .info span{
-    color: rgb(224, 224, 224);
-}
-
-.footer-content .imgs li{
-    float: right;
-    margin-right: 30px;
-}
-/* -------------------------------------------------------- */
