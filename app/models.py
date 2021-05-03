@@ -39,7 +39,6 @@ class User(UserMixin, db.Model):
 
     # query tutorial progress
     def query_tutorial_progress(self):
-
         return self.tutorial_checked
 
     def set_password(self, password):
@@ -57,6 +56,7 @@ class User(UserMixin, db.Model):
 
 class Tutorial(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    tutorial_num = db.Column(db.Integer)
     title = db.Column(db.String(140))
     subtitle = db.Column(db.String(140))
     main_content = db.Column(db.UnicodeText())

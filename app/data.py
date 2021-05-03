@@ -5,6 +5,7 @@ from app.models import Tutorial
 def add_tutorial_data():
     tutorials = [
         Tutorial(
+            tutorial_num=1,
             title="Brief Information",
             subtitle="Arrangement",
             main_content="The board is composed of 9 vertical lines (files) and 10 horizontal lines (ranks) "
@@ -22,6 +23,7 @@ def add_tutorial_data():
             hint="hint=One side are 16 pieces, and totally 32 pieces"
         ),
         Tutorial(
+            tutorial_num=2,
             title="Pieces",
             subtitle="Soldier “Bīng” 兵 and “Zú” 卒",
             main_content="The playing pieces are indicated by Chinese characters. The same ranking pieces sometimes "
@@ -38,6 +40,7 @@ def add_tutorial_data():
             hint="Soldiers can move left, right and front, but not move down."
         ),
         Tutorial(
+            tutorial_num=3,
             title="Pieces",
             subtitle="Cannons “Pào” 炮 and “Pào” 砲",
             main_content="Cannons move exactly like the chariot. To capture, however, a cannon must jump over exactly "
@@ -49,6 +52,7 @@ def add_tutorial_data():
             hint="A cannon must jump over exactly one piece, friend or foe, along its line of movement."
         ),
         Tutorial(
+            tutorial_num=4,
             title="Pieces",
             subtitle="Chariot “Jū” 俥/车 and “Jū” 車/车",
             main_content="Chariots move similarly to the rooks in international chess. The chariot moves as many "
@@ -61,6 +65,7 @@ def add_tutorial_data():
                  "wishes horizontally or vertically. "
         ),
         Tutorial(
+            tutorial_num=5,
             title="Pieces",
             subtitle="Horse “Mà” 傌/马 and “Mǎ” 馬/马",
             main_content="The horse moves one point horizontally or vertically, and then one point diagonally. It "
@@ -73,6 +78,7 @@ def add_tutorial_data():
         ),
 
         Tutorial(
+            tutorial_num=6,
             title="Pieces",
             subtitle="Elephant “Xiàng” 相 and “Xiàng” 象",
             main_content="The elephants move exactly two points in any diagonal direction and may not jump over "
@@ -84,6 +90,7 @@ def add_tutorial_data():
             hint="Elephants cannot across the river."
         ),
         Tutorial(
+            tutorial_num=7,
             title="Pieces",
             subtitle="Guard / Advisor “Shì” 仕 and “Shì” 士",
             main_content="These are the king’s counselors and guard the king within the palace. The guard moves one "
@@ -95,6 +102,7 @@ def add_tutorial_data():
             hint="Advisor can and only move within the palace."
         ),
         Tutorial(
+            tutorial_num=8,
             title="Pieces",
             subtitle="General “Shuài” 帥/帅 and “Jiàng” 將/将",
             main_content="Generals may move one point either vertically or horizontally, but not diagonally and is "

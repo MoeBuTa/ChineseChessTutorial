@@ -1,4 +1,6 @@
 from flask import render_template, flash, redirect, url_for, jsonify
+from sqlalchemy import func
+
 from app import db
 from flask_login import current_user, login_user, logout_user
 from app.models import User, Tutorial
@@ -22,6 +24,7 @@ class IndexController:
 
 class TutorialController:
 
+    # render tutorial.html
     @staticmethod
     def tutorials():
         # authentication required
@@ -30,13 +33,15 @@ class TutorialController:
 
         # query current tutorial progress
         current_tutorial = current_user.query_tutorial_progress()
+        tutorial_count = db.session.query(func.count(Tutorial.id)).scalar()
+        return render_template('tutorial.html', title='Chinese chess tutorial', current_tutorial=current_tutorial,
+                               tutorial_count=tutorial_count)
 
-        return render_template('tutorial.html', title='Chinese chess tutorial', current_tutorial=current_tutorial)
-
+    # query switched tutorial by num and save progress
     @staticmethod
-    def tutorial_switch(target_tutorial_id):
-        target_tutorial = Tutorial.query.get(target_tutorial_id)
-        current_user.save_tutorial_progress(target_tutorial_id)
+    def tutorial_switch(target_tutorial_num):
+        target_tutorial = Tutorial.query.filter_by(tutorial_num=target_tutorial_num).first()
+        current_user.save_tutorial_progress(target_tutorial.id)
         return jsonify(IndexController.serialize(target_tutorial))
 
 
@@ -45,3 +50,14 @@ class StoryController:
     @staticmethod
     def story():
         return render_template('story.html', title='The Story of Chinese chess')
+
+
+class AssessmentController:
+
+    @staticmethod
+    def assessmentsInfo():
+        return render_template('quiz.html', title='Chinese chess Assessments')
+
+    @staticmethod
+    def assessments():
+        return render_template('quiz1.html', title='Chinese chess Assessments')

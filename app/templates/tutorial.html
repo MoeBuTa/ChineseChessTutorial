@@ -58,8 +58,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript">
             var Server = {
-                tutorial_id:{{ current_tutorial.id|tojson }},
-                answer: {{ current_tutorial.answer|tojson }}
+                tutorial_num:{{ current_tutorial.tutorial_num|tojson }},
+                answer: {{ current_tutorial.answer|tojson }},
+                tutorial_count:{{ tutorial_count|tojson }}
             };
         </script>
         <script src="../static/tutorial.js"></script>
