@@ -8,34 +8,38 @@ $('#hide').click(function () {
 });
 
 
-var tutorial_id = Server.tutorial_id;
-var answer = Server.answer
+var tutorial_num = Server.tutorial_num;
+var answer = Server.answer;
+var count = Server.tutorial_count;
 
-
+//function for switching tutorial chapters
 function getAnotherTutorial(button) {
     if (!button) {
-        if (tutorial_id === 1) {
+        if (tutorial_num == 1) {
             toastr.warning("this is the first tutorial!");
             return;
         }
-        tutorial_id--;
+        tutorial_num--;
     }
     if (button) {
-        if (tutorial_id === 8) {
+        if (tutorial_num == count) {
             toastr.success("you've completed all tutorials!");
             return;
         }
-        tutorial_id++;
+        tutorial_num++;
     }
-    $("#box").scrollTop(0);
     $.post('/tutorialSwitch', {
-        target_tutorial_id: tutorial_id
+        target_tutorial_num: tutorial_num
     }).done(function (response) {
+        $("#box").scrollTop(0);
         refreshContent(response)
+    }).fail(function (){
+        toastr.error("connection timeout!");
     })
 
 }
 
+//update tutorial content by assigning data received from server
 function refreshContent(tutorial) {
     $("#title").html(tutorial.title);
     $("#main_content").html(tutorial.main_content);
