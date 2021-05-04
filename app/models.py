@@ -1,6 +1,7 @@
 from app import db, login
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from datetime import datetime
 
 tutorial_progress = db.Table('tutorial_progress',
                              db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
@@ -12,6 +13,9 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))  # write password hashes to improve security
+    register_time = db.Column(db.DateTime)
+    last_tutorial_read_time = db.Column(db.DateTime)
+
     # one-to-one: tutorial - user
     # This relationship links User instances to Tutorial instances
     # Tutorial: target entity
@@ -32,6 +36,8 @@ class User(UserMixin, db.Model):
         if not self.tutorial_checked:
             statement = tutorial_progress.insert().values(tutorial_id=tutorial_id, user_id=self.id)
         else:
+            user = User.query.get(self.id)
+            user.last_tutorial_read_time = datetime.now()
             statement = tutorial_progress.update().where(
                 tutorial_progress.c.user_id == self.id).values(tutorial_id=tutorial_id)
         db.session.execute(statement)

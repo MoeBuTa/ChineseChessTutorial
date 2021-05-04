@@ -3,7 +3,7 @@ from app import db
 from app.auth.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user
 from app.models import User, Tutorial
-import re
+from datetime import datetime
 
 
 class UserController:
@@ -61,7 +61,7 @@ class UserController:
 
         # add user to database
         else:
-            user = User(username=register_username, email=email)
+            user = User(username=register_username, email=email, register_time=datetime.now())
             user.set_password(register_password)
             db.session.add(user)
             db.session.commit()

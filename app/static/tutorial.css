@@ -3,17 +3,17 @@
 /* -------------------------------------------------------- */
 .article-container {
     width: 100%;
-    height:100%;
+    height: 100%;
     float: left;
 }
 
-.article-content{
-    width: 80%;
-    height:80%;
+.article-content {
+    width: 70%;
+    height: 80%;
     position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    left: 55%;
+    top: 40%;
+    transform: translate(-50%, -50%);
 
 }
 
@@ -27,7 +27,7 @@
     /* left: 10vh; */
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     top: 5vh;
     bottom: 5vh;
     box-shadow: 5px 0 10px rgba(0, 0, 0, .5);
@@ -45,7 +45,7 @@
 .box-cover .box {
     position: absolute;
     height: 63vh;
-    width:100%;
+    width: 100%;
     padding: 20px;
     box-shadow: 5px 0 10px rgba(0, 0, 0, .5);
     overflow: auto;
@@ -106,12 +106,12 @@
     line-height: 50px;
 }
 
-#hide{
+#hide {
     color: #ff6700;
 }
 
 button {
-    margin-top: 70px;
+    /*margin-top: 70px;*/
     border: none;
     outline: none;
     width: 90px;
@@ -122,11 +122,11 @@ button {
     box-shadow: 0 0 8px rgba(0, 0, 0, .6);
 }
 
-.box > .paginWrapper{
+.box > .paginWrapper {
     margin-top: 70px;
 }
 
-.paginWrapper{
+.paginWrapper {
     position: relative;
 
     width: 100%;
@@ -134,7 +134,7 @@ button {
     text-align: center;
 }
 
-.pagination{
+.pagination {
 
 
     box-shadow: 0 0 8px rgba(0, 0, 0, .6);
@@ -152,11 +152,19 @@ button {
     /* box-shadow: 0 0 8px rgba(0, 0, 0, .6); */
 }
 
+.pagination a.currentPage {
+    color: #ff6700;
+    background-color: grey;
+}
+
 /* when hovering a but not the number corresponding to the current page */
-.pagination a:hover:not(.currentPage) {background-color: grey;}
+.pagination a:hover:not(.currentPage) {
+    background-color: grey;
+}
 
 
-a:hover,  #show:hover, #hide:hover {
+a:hover, #show:hover, #hide:hover {
+    cursor: pointer;
     color: #ff6700;
     font-size: 13px;
 }
