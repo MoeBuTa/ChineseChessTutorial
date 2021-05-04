@@ -1,9 +1,11 @@
+import random
+
 from flask import render_template, flash, redirect, url_for, jsonify
 from sqlalchemy import func
 
 from app import db
 from flask_login import current_user, login_user, logout_user
-from app.models import User, Tutorial
+from app.models import User, Tutorial, Ques
 from app.data import add_tutorial_data
 from sqlalchemy.orm import class_mapper
 
@@ -60,4 +62,10 @@ class AssessmentController:
 
     @staticmethod
     def assessments():
-        return render_template('quiz1.html', title='Chinese chess Assessments')
+        L1 = random.sample(range(1, 9), 7)
+        ques = Ques.query.all()
+        form = []
+        for i in L1:
+            form.append(ques[i])
+
+        return render_template('quiz1.html', title='Chinese chess Assessments',form=form)

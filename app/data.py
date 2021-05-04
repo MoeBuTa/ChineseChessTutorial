@@ -1,5 +1,5 @@
 from app import db
-from app.models import Tutorial
+from app.models import Tutorial, Ques
 
 
 def add_tutorial_data():
@@ -119,3 +119,89 @@ def add_tutorial_data():
     ]
     db.session.add_all(tutorials)
     db.session.commit()
+
+def addQues():
+   ques=[
+       Ques(
+           body="What is the number of pieces does a game require altogether?",
+           right_answer='32',
+           option_one='20',
+           option_two='24',
+           option_three='32',
+           option_four='30'
+       ),
+
+       Ques(
+           body="How many types of pieces does Xiangqi have?",
+           right_answer='7',
+           option_one='5',
+           option_two='6',
+           option_three='7',
+           option_four='8'
+       ),
+
+       Ques(
+           body="How big is the board of Xiangqi?",
+           right_answer='9 by 10',
+           option_one='8 by 9',
+           option_two='8 by 8',
+           option_three='9 by 9',
+           option_four='9 by 10'
+       ),
+
+       Ques(
+           body=" How many spots/spaces does the palace/fortress have?",
+           right_answer='9',
+           option_one='4',
+           option_two='6',
+           option_three='8',
+           option_four='9'
+       ),
+       Ques(
+           body="What type of piece has the most pieces on the board?",
+           right_answer='Soldier',
+           option_one='Cannon',
+           option_two='Soldier',
+           option_three='Chariot',
+           option_four='Horse'
+       ),
+
+       Ques(
+           body="What piece cannot cross the river?",
+           right_answer='Elephant',
+           option_one='Horse',
+           option_two='Elephant',
+           option_three='Chariot',
+           option_four='Soldier'
+       ),
+
+       Ques(
+           body="Which piece moves in directions that are different from the other three?",
+           right_answer='Counselor',
+           option_one='Counselor',
+           option_two='General',
+           option_three='Chariot',
+           option_four='Cannon'
+       ),
+       Ques(
+           body="Which piece captures differently from the other three?",
+           right_answer='Cannon',
+           option_one='Chariot',
+           option_two='Cannon',
+           option_three='Soldier',
+           option_four='Horse'
+       ),
+
+       Ques(
+           body="Which piece cannot leave the palace?",
+           right_answer='General',
+           option_one='Chariot',
+           option_two='Soldier',
+           option_three='General',
+           option_four='Horse'
+       )
+
+
+   ]
+   db.session.add_all(ques)
+   db.session.commit()

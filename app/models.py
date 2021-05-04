@@ -4,7 +4,7 @@ from flask_login import UserMixin
 
 tutorial_progress = db.Table('tutorial_progress',
                              db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-                                       db.Column('tutorial_id', db.Integer, db.ForeignKey('tutorial.id')))
+                             db.Column('tutorial_id', db.Integer, db.ForeignKey('tutorial.id')))
 
 
 class User(UserMixin, db.Model):
@@ -71,5 +71,18 @@ class Tutorial(db.Model):
 
 
 # class Story(db.Model):
-    # id = db.Column(db.Integer, primary_key=True)
-    # main_text = db.Column(db.UnicodeText())
+# id = db.Column(db.Integer, primary_key=True)
+# main_text = db.Column(db.UnicodeText())
+
+
+class Ques(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.String(140))
+    right_answer = db.Column(db.String(40))
+    option_one = db.Column(db.String(40))
+    option_two = db.Column(db.String(40))
+    option_three = db.Column(db.String(40))
+    option_four = db.Column(db.String(40))
+
+    def __repr__(self):
+        return '<Ques {}>'.format(self.body)
