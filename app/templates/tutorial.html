@@ -15,6 +15,31 @@
                     <span>Learn To Play XiangQi / Chinese Chess</span>
                     <div class="box" id="box">
                         <div class="content" id="content">
+
+                            <!-- CAN PUT THIS IN A SEPARATE HTML DOC WHEN THE LINK IS DONE -->
+                            <nav class="paginWrapper">
+                              <nav class="pagination">
+
+                                <!-- needs to set add class currentPage if it is the current page -->
+                                <a class="firstLast" id="firstLast" href="#">&lt;&lt;</a>
+                                <a class="pre" id="pre" onclick="getAnotherTutorial(false)">&lt; Pre
+                                </a>
+
+                                <a class="numberPagin" id="numberPagin" href="#">1</a>
+                                <a class="numberPagin" id="numberPagin" href="#">2</a>
+                                <a class="numberPagin" id="numberPagin" href="#">3</a>
+                                <a class="numberPagin" id="numberPagin" href="#">4</a>
+                                <a class="numberPagin" id="numberPagin" href="#">5</a>
+                                <a class="numberPagin" id="numberPagin" href="#">6</a>
+                                <a class="numberPagin" id="numberPagin" href="#">7</a>
+                                <a class="numberPagin" id="numberPagin" href="#">8</a>
+
+                                <a class="next" id="next" onclick="getAnotherTutorial(true)">Next &gt;
+                                </a>
+                                <a class="firstLast" id="firstLast" href="#">&gt;&gt;</a>
+                              </nav>
+                            </nav>
+                            <br><br>
                             <span class="title">Learn To Play XiangQi / Chinese Chess</span>
                             <br><br>
                             <span class="sub-title" id="title">{{ current_tutorial.title }}</span>
@@ -44,10 +69,30 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="pre" id="pre" onclick="getAnotherTutorial(false)">Pre
-                        </button>
-                        <button class="next" id="next" onclick="getAnotherTutorial(true)">Next
-                        </button>
+                        <nav class="paginWrapper">
+                          <nav class="pagination">
+
+                            <!-- needs to set add class currentPage if it is the current page -->
+                            <a class="firstLast" id="firstLast" href="#">&lt;&lt;</a>
+                            <a class="pre" id="pre" onclick="getAnotherTutorial(false)">&lt; Pre
+                            </a>
+
+                            <a class="numberPagin" id="numberPagin" href="#">1</a>
+                            <a class="numberPagin" id="numberPagin" href="#">2</a>
+                            <a class="numberPagin" id="numberPagin" href="#">3</a>
+                            <a class="numberPagin" id="numberPagin" href="#">4</a>
+                            <a class="numberPagin" id="numberPagin" href="#">5</a>
+                            <a class="numberPagin" id="numberPagin" href="#">6</a>
+                            <a class="numberPagin" id="numberPagin" href="#">7</a>
+                            <a class="numberPagin" id="numberPagin" href="#">8</a>
+
+
+                            <a class="next" id="next" onclick="getAnotherTutorial(true)">Next &gt;
+                            </a>
+                            <a class="firstLast" id="firstLast" href="#">&gt;&gt;</a>
+                          </nav>
+                        </nav>
+
                     </div>
                 </div>
             </div>

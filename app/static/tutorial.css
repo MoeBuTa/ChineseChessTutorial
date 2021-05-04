@@ -110,7 +110,7 @@
     color: #ff6700;
 }
 
-button {
+/* button {
     margin-top: 70px;
     border: none;
     outline: none;
@@ -120,15 +120,48 @@ button {
     text-transform: uppercase;
     background-color: transparent;
     box-shadow: 0 0 8px rgba(0, 0, 0, .6);
+} */
+
+.box > .paginWrapper{
+    margin-top: 70px;
 }
 
+.paginWrapper{
+    position: relative;
+    
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
 
-button:hover,  #show:hover, #hide:hover {
+.pagination{
+
+
+    box-shadow: 0 0 8px rgba(0, 0, 0, .6);
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 0px 12px;
+    text-decoration: none;
+    transition: background-color .5s;
+    border-radius: 10px;
+    /* box-shadow: 0 0 8px rgba(0, 0, 0, .6); */
+}
+
+/* when hovering a but not the number corresponding to the current page */
+.pagination a:hover:not(.currentPage) {background-color: grey;}
+
+
+a:hover,  #show:hover, #hide:hover {
     color: #ff6700;
     font-size: 13px;
 }
 
-.pre, .next,  #show, #hide {
+#show, #hide {
     padding: 0;
     line-height: 0;
     font-size: 12px;
