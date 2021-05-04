@@ -110,7 +110,7 @@
     color: #ff6700;
 }
 
-/* button {
+button {
     margin-top: 70px;
     border: none;
     outline: none;
@@ -120,7 +120,7 @@
     text-transform: uppercase;
     background-color: transparent;
     box-shadow: 0 0 8px rgba(0, 0, 0, .6);
-} */
+}
 
 .box > .paginWrapper{
     margin-top: 70px;
@@ -128,7 +128,7 @@
 
 .paginWrapper{
     position: relative;
-    
+
     width: 100%;
     display: inline-block;
     text-align: center;
