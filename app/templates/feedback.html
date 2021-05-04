@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/feedback.css">
+{% endblock styles %}
+
+
+{% block content %}
+    <div class="main-container">
+        <div class="main-content web_width clearfix">
+            <div class="profile">
+                <div class="avatar">
+                    <a href="#">
+                        <img src="../static/chess-img/user.png" alt="user">
+                    </a>
+                    <div class="text">
+                        Temp_User_123_d / <a href="#">Login</a>
+                    </div>
+                    <div class="btn">
+                        <button>Edit Profile</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard">
+                <div class="text">
+                    <img src="../static/chess-img/books.png" alt="books"> Overview
+                </div>
+
+                <div class="dashboard-tutorial">
+                    <div class="text">
+                        <a href="#">Tutorial</a> 
+                        <img src="../static/chess-img/notes.png" alt="notes">
+                    </div>
+                </div>
+
+                <div class="dashboard-quiz">
+                    <div class="text">
+                        <a href="#">Quiz</a> 
+                        <img src="../static/chess-img/pin.png" alt="pin">
+                    </div>
+                </div>
+                <br><br>
+                <div class="charts">
+                    <div class="text">
+                        <img src="../static/chess-img/books.png" alt="books">
+                        Default
+                    </div>
+                    <div id="Sarah_chart_div"></div>
+                    <br><br>
+                    <div class="text">
+                        <img src="../static/chess-img/books.png" alt="books">
+                        Default
+                    </div>
+                    <div id="Anthony_chart_div"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block scripts %}
+    {{ super() }}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../static/feedback.js"></script>
+    {% endblock scripts %}
+{% endblock content %}
