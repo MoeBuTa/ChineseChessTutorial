@@ -11,6 +11,7 @@
         {% include 'navSideBar.html' %}
         <div class="article-container web_width clearfix">
             <div class="article-content" id="article-content">
+                {{ super() }}
                 <div class="box-cover" id="box-cover">
                     <span>Learn To Play XiangQi / Chinese Chess</span>
                     <div class="box" id="box">
@@ -18,26 +19,21 @@
 
                             <!-- CAN PUT THIS IN A SEPARATE HTML DOC WHEN THE LINK IS DONE -->
                             <nav class="paginWrapper">
-                              <nav class="pagination">
+                                <nav class="pagination">
 
-                                <!-- needs to set add class currentPage if it is the current page -->
-                                <a class="firstLast" id="firstLast" href="#">&lt;&lt;</a>
-                                <a class="pre" id="pre" onclick="getAnotherTutorial(false)">&lt; Pre
-                                </a>
-
-                                <a class="numberPagin" id="numberPagin" href="#">1</a>
-                                <a class="numberPagin" id="numberPagin" href="#">2</a>
-                                <a class="numberPagin" id="numberPagin" href="#">3</a>
-                                <a class="numberPagin" id="numberPagin" href="#">4</a>
-                                <a class="numberPagin" id="numberPagin" href="#">5</a>
-                                <a class="numberPagin" id="numberPagin" href="#">6</a>
-                                <a class="numberPagin" id="numberPagin" href="#">7</a>
-                                <a class="numberPagin" id="numberPagin" href="#">8</a>
-
-                                <a class="next" id="next" onclick="getAnotherTutorial(true)">Next &gt;
-                                </a>
-                                <a class="firstLast" id="firstLast" href="#">&gt;&gt;</a>
-                              </nav>
+                                    <!-- needs to set add class currentPage if it is the current page -->
+                                    <a class="firstLast" id="firstLast" onclick="getAnotherTutorial(1)">&lt;&lt;</a>
+                                    <a class="pre" id="pre" onclick="getAnotherTutorial('pre')">&lt; Pre
+                                    </a>
+                                    {% for tutorial_num in range(1,tutorial_count+1) %}
+                                        <a class="numberPagin" id="numberPagin_{{ tutorial_num }}"
+                                           onclick="getAnotherTutorial({{ tutorial_num }})">{{ tutorial_num }}</a>
+                                    {% endfor %}
+                                    <a class="next" id="next" onclick="getAnotherTutorial('next')">Next &gt;
+                                    </a>
+                                    <a class="firstLast" id="firstLast"
+                                       onclick="getAnotherTutorial({{ tutorial_count }})">&gt;&gt;</a>
+                                </nav>
                             </nav>
                             <br><br>
                             <span class="title">Learn To Play XiangQi / Chinese Chess</span>
@@ -70,27 +66,20 @@
                             </div>
                         </div>
                         <nav class="paginWrapper">
-                          <nav class="pagination">
+                            <nav class="pagination">
 
-                            <!-- needs to set add class currentPage if it is the current page -->
-                            <a class="firstLast" id="firstLast" href="#">&lt;&lt;</a>
-                            <a class="pre" id="pre" onclick="getAnotherTutorial(false)">&lt; Pre
-                            </a>
-
-                            <a class="numberPagin" id="numberPagin" href="#">1</a>
-                            <a class="numberPagin" id="numberPagin" href="#">2</a>
-                            <a class="numberPagin" id="numberPagin" href="#">3</a>
-                            <a class="numberPagin" id="numberPagin" href="#">4</a>
-                            <a class="numberPagin" id="numberPagin" href="#">5</a>
-                            <a class="numberPagin" id="numberPagin" href="#">6</a>
-                            <a class="numberPagin" id="numberPagin" href="#">7</a>
-                            <a class="numberPagin" id="numberPagin" href="#">8</a>
-
-
-                            <a class="next" id="next" onclick="getAnotherTutorial(true)">Next &gt;
-                            </a>
-                            <a class="firstLast" id="firstLast" href="#">&gt;&gt;</a>
-                          </nav>
+                                <!-- needs to set add class currentPage if it is the current page -->
+                                <a class="firstLast" id="firstLast" onclick="getAnotherTutorial(1)">&lt;&lt;</a>
+                                <a class="pre" id="pre" onclick="getAnotherTutorial('pre')">&lt; Pre
+                                </a>
+                                {% for tutorial_num in range(1,tutorial_count+1) %}
+                                    <a class="numberPagin" id="numberPagin_{{ tutorial_num }}"
+                                       onclick="getAnotherTutorial({{ tutorial_num }})">{{ tutorial_num }}</a>
+                                {% endfor %}
+                                <a class="next" id="next" onclick="getAnotherTutorial('next')">Next &gt;
+                                </a>
+                                <a class="firstLast" id="firstLast" onclick="getAnotherTutorial({{ tutorial_count }})">&gt;&gt;</a>
+                            </nav>
                         </nav>
 
                     </div>

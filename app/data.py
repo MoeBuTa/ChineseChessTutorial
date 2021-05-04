@@ -120,6 +120,7 @@ def add_tutorial_data():
     db.session.add_all(tutorials)
     db.session.commit()
 
+
 def addQues():
    ques=[
        Ques(

@@ -26,16 +26,22 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                    <div class="alert alert-info" role="alert">{{ message }}</div>
+                    <div class="alert alert-info alert-dismissible" role="alert">
+                        {{ message }}
+                        <button class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
     {% endblock content %}
     {% block footer %}
-      {% include 'footer.html' %}
+        {% include 'footer.html' %}
     {% endblock footer %}
     {% block scripts %}
         {{ super() }}
+        {{ moment.include_moment() }}
         <script src="../static/toastr/toastr.js"></script>
         <script src="../static/toastr/toastrOption.js"></script>
     {%- endblock scripts %}

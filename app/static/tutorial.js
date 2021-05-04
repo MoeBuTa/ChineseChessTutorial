@@ -6,7 +6,7 @@ $('#show').click(function () {
 $('#hide').click(function () {
     $('.show-answer').addClass('display');
 });
-
+$("#numberPagin_" + tutorial_num).addClass('currentPage');
 
 var tutorial_num = Server.tutorial_num;
 var answer = Server.answer;
@@ -14,26 +14,30 @@ var count = Server.tutorial_count;
 
 //function for switching tutorial chapters
 function getAnotherTutorial(button) {
-    if (!button) {
-        if (tutorial_num == 1) {
+    $("#numberPagin_" + tutorial_num).removeClass('currentPage');
+    if (button == 'pre') {
+        if (tutorial_num === 1) {
             toastr.warning("this is the first tutorial!");
             return;
         }
         tutorial_num--;
-    }
-    if (button) {
+    } else if (button == 'next') {
         if (tutorial_num == count) {
             toastr.success("you've completed all tutorials!");
             return;
         }
         tutorial_num++;
+    } else {
+        tutorial_num = button;
+
     }
+    $("#numberPagin_" + tutorial_num).addClass('currentPage');
     $.post('/tutorialSwitch', {
         target_tutorial_num: tutorial_num
     }).done(function (response) {
         $("#box").scrollTop(0);
         refreshContent(response)
-    }).fail(function (){
+    }).fail(function () {
         toastr.error("connection timeout!");
     })
 
