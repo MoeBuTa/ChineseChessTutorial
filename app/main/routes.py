@@ -38,3 +38,12 @@ def assessmentsInfo():
 @login_required
 def assessments():
     return AssessmentController.assessments()
+
+
+@bp.route('/saveAssessmentsProgress', methods=['POST'])
+@login_required
+def save_assessments_progress():
+    selected_answer = request.form.get('selected_answer')
+    assessment_log_id = request.form.get('assessment_log_id')
+    quiz_id = request.form.get('quiz_id')
+    return AssessmentController.save_assessments_progress(selected_answer, assessment_log_id, quiz_id)

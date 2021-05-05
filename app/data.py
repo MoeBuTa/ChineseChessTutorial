@@ -1,5 +1,5 @@
 from app import db
-from app.models import Tutorial, Ques
+from app.models import Tutorial, Assessment, AssessmentAnswer
 
 
 def add_tutorial_data():
@@ -121,88 +121,120 @@ def add_tutorial_data():
     db.session.commit()
 
 
-def addQues():
-   ques=[
-       Ques(
-           body="What is the number of pieces does a game require altogether?",
-           right_answer='32',
-           option_one='20',
-           option_two='24',
-           option_three='32',
-           option_four='30'
-       ),
+def addAssessment():
+    assessment1 = Assessment(
+        body="What is the number of pieces does a game require altogether?",
+        option_one='20',
+        option_two='24',
+        option_three='32',
+        option_four='30'
+    )
+    db.session.add(assessment1)
+    db.session.flush()
+    answer1 = AssessmentAnswer(assessment_id=assessment1.id, answer='32')
+    db.session.add(answer1)
+    db.session.commit()
 
-       Ques(
-           body="How many types of pieces does Xiangqi have?",
-           right_answer='7',
-           option_one='5',
-           option_two='6',
-           option_three='7',
-           option_four='8'
-       ),
+    assessment2 = Assessment(
+        body="How many types of pieces does Xiangqi have?",
+        option_one='5',
+        option_two='6',
+        option_three='7',
+        option_four='8'
+    )
+    db.session.add(assessment2)
+    db.session.flush()
+    answer2 = AssessmentAnswer(assessment_id=assessment1.id, answer='7')
+    db.session.add(answer2)
+    db.session.commit()
 
-       Ques(
-           body="How big is the board of Xiangqi?",
-           right_answer='9 by 10',
-           option_one='8 by 9',
-           option_two='8 by 8',
-           option_three='9 by 9',
-           option_four='9 by 10'
-       ),
+    assessment3 = Assessment(
+        body="How big is the board of Xiangqi?",
+        option_one='8 by 9',
+        option_two='8 by 8',
+        option_three='9 by 9',
+        option_four='9 by 10'
+    )
+    db.session.add(assessment3)
+    db.session.flush()
+    answer3 = AssessmentAnswer(assessment_id=assessment3.id, answer='9 by 10')
+    db.session.add(answer3)
+    db.session.commit()
 
-       Ques(
-           body=" How many spots/spaces does the palace/fortress have?",
-           right_answer='9',
-           option_one='4',
-           option_two='6',
-           option_three='8',
-           option_four='9'
-       ),
-       Ques(
-           body="What type of piece has the most pieces on the board?",
-           right_answer='Soldier',
-           option_one='Cannon',
-           option_two='Soldier',
-           option_three='Chariot',
-           option_four='Horse'
-       ),
+    assessment4 = Assessment(
+        body=" How many spots/spaces does the palace/fortress have?",
+        option_one='4',
+        option_two='6',
+        option_three='8',
+        option_four='9'
+    )
+    db.session.add(assessment4)
+    db.session.flush()
+    answer4 = AssessmentAnswer(assessment_id=assessment4.id, answer='9')
+    db.session.add(answer4)
+    db.session.commit()
 
-       Ques(
-           body="What piece cannot cross the river?",
-           right_answer='Elephant',
-           option_one='Horse',
-           option_two='Elephant',
-           option_three='Chariot',
-           option_four='Soldier'
-       ),
+    assessment5 = Assessment(
+        body="What type of piece has the most pieces on the board?",
+        option_one='Cannon',
+        option_two='Soldier',
+        option_three='Chariot',
+        option_four='Horse'
+    )
+    db.session.add(assessment5)
+    db.session.flush()
+    answer5 = AssessmentAnswer(assessment_id=assessment5.id, answer='Soldier')
+    db.session.add(answer5)
+    db.session.commit()
 
-       Ques(
-           body="Which piece moves in directions that are different from the other three?",
-           right_answer='Counselor',
-           option_one='Counselor',
-           option_two='General',
-           option_three='Chariot',
-           option_four='Cannon'
-       ),
-       Ques(
-           body="Which piece captures differently from the other three?",
-           right_answer='Cannon',
-           option_one='Chariot',
-           option_two='Cannon',
-           option_three='Soldier',
-           option_four='Horse'
-       ),
+    assessment6 = Assessment(
+        body="What piece cannot cross the river?",
+        option_one='Horse',
+        option_two='Elephant',
+        option_three='Chariot',
+        option_four='Soldier'
+    )
+    db.session.add(assessment6)
+    db.session.flush()
+    answer6 = AssessmentAnswer(assessment_id=assessment6.id, answer='Elephant')
+    db.session.add(answer6)
+    db.session.commit()
 
-       Ques(
-           body="Which piece cannot leave the palace?",
-           right_answer='General',
-           option_one='Chariot',
-           option_two='Soldier',
-           option_three='General',
-           option_four='Horse'
-       )
+    assessment7 = Assessment(
+        body="Which piece moves in directions that are different from the other three?",
+        option_one='Counselor',
+        option_two='General',
+        option_three='Chariot',
+        option_four='Cannon'
+    )
+    db.session.add(assessment7)
+    db.session.flush()
+    answer7 = AssessmentAnswer(assessment_id=assessment7.id, answer='Counselor')
+    db.session.add(answer7)
+    db.session.commit()
 
+    assessment8 = Assessment(
+        body="Which piece captures differently from the other three?",
+        option_one='Chariot',
+        option_two='Cannon',
+        option_three='Soldier',
+        option_four='Horse'
+    )
+    db.session.add(assessment8)
+    db.session.flush()
+    answer8 = AssessmentAnswer(assessment_id=assessment8.id, answer='Cannon')
+    db.session.add(answer8)
+    db.session.commit()
 
-   ]
-   db.session.add_all(ques)
-   db.session.commit()
+    assessment9 = Assessment(
+        body="Which piece cannot leave the palace?",
+        option_one='Chariot',
+        option_two='Soldier',
+        option_three='General',
+        option_four='Horse'
+    )
+    db.session.add(assessment9)
+    db.session.flush()
+    answer9 = AssessmentAnswer(assessment_id=assessment9.id, answer='General')
+    db.session.add(answer9)
+    db.session.commit()

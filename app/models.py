@@ -81,14 +81,45 @@ class Tutorial(db.Model):
 # main_text = db.Column(db.UnicodeText())
 
 
-class Ques(db.Model):
+class Assessment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
-    right_answer = db.Column(db.String(40))
     option_one = db.Column(db.String(40))
     option_two = db.Column(db.String(40))
     option_three = db.Column(db.String(40))
     option_four = db.Column(db.String(40))
 
     def __repr__(self):
-        return '<Ques {}>'.format(self.body)
+        return '<Assessment {}>'.format(self.body)
+
+
+class AssessmentAnswer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    assessment_id = db.Column(db.Integer, db.ForeignKey('assessment.id'))
+    answer = db.Column(db.String(40))
+
+    def __repr__(self):
+        return '<AssessmentAnswer {}>'.format(self.answer)
+
+
+class Quiz(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    result = db.Column(db.Float)
+    feedback = db.Column(db.UnicodeText())
+    last_assessment_edit_time = db.Column(db.DateTime)
+    status = db.Column(db.SmallInteger)
+
+    def __repr__(self):
+        return '<Quiz {}>'.format(self.result)
+
+
+class AssessmentLog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    assessment_id = db.Column(db.Integer, db.ForeignKey('assessment.id'))
+    selected_answer = db.Column(db.String(40))
+    current_assessment_num = db.Column(db.Integer)
+    quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id'))
+
+    def __repr__(self):
+        return '<AssessmentLog {}, {}, {}>'.format(self.selected_answer, self.quiz_id, self.current_assessment_num)

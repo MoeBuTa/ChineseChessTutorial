@@ -11,8 +11,8 @@ class UserController:
     @staticmethod
     def login_and_register():
 
-        if current_user.is_authenticated:
-            return redirect(url_for('main.index'))
+        # if current_user.is_authenticated:
+        #     return redirect(url_for('main.index'))
 
         # create login form
         loginForm = LoginForm()
