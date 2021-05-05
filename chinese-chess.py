@@ -1,5 +1,5 @@
 from app import create_app, db, cli
-from app.models import User, Ques
+from app.models import User, Assessment
 
 app = create_app()
 cli.register(app)
@@ -9,4 +9,4 @@ cli.register(app)
 #  add the function, and you can work with database entities without having to import them
 @app.shell_context_processor
 def make_shell_context():
-    return {'db': db, 'User': User, 'Ques': Ques}
+    return {'db': db, 'User': User, 'Assessment': Assessment}

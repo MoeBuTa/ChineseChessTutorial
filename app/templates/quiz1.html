@@ -8,7 +8,9 @@
 
 {% block content %}
     <div class="article-container">
+
         <div class="article-content web_width clearfix">
+            {{ super() }}
             <div class="box-cover">
                 <span>Begin: Chinese Chess Quiz: Start your Qiuz now</span>
                 <div class="box">
@@ -19,30 +21,57 @@
                         <br><br>
                         <div class="quiz-box">
                             <form method="post">
-                                {% for q in form %}
-                                 <p>{{ q.body}}</p>
-                                   <input type="radio" name= {{q.id}} value={{q.option_one}}>
-                                   <label>{{q.option_one}}</label><br>
-                                   <input type="radio"  name={{q.id}} value={{q.option_two}}>
-                                   <label> {{q.option_two}}</label><br>
-                                   <input type="radio" name={{q.id}} value={{q.option_three}}>
-                                   <label>{{q.option_three}}</label><br>
-                                   <input type="radio" name={{q.id}} value={{q.option_four}}>
-                                   <label>{{q.option_four}}</label><br><br>
+                                {% for q in selected_assessments %}
+                                    <p>{{ q.AssessmentLog.current_assessment_num }}.{{ q.Assessment.body }}</p>
+                                    <input type="radio"
+                                           name={{ q.AssessmentLog.id }} value={{ q.Assessment.option_one }}
+                                           id="A{{ q.AssessmentLog.id }}">
+                                    <label>{{ q.Assessment.option_one }}</label><br>
+                                    <input type="radio"
+                                           name={{ q.AssessmentLog.id }} value={{ q.Assessment.option_two }}
+                                           id="B{{ q.AssessmentLog.id }}">
+                                    <label> {{ q.Assessment.option_two }}</label><br>
+                                    <input type="radio"
+                                           name={{ q.AssessmentLog.id }} value={{ q.Assessment.option_three }}
+                                           id="C{{ q.AssessmentLog.id }}">
+                                    <label>{{ q.Assessment.option_three }}</label><br>
+                                    <input type="radio"
+                                           name={{ q.AssessmentLog.id }} value={{ q.Assessment.option_four }}
+                                           id="D{{ q.AssessmentLog.id }}">
+                                    <label>{{ q.Assessment.option_four }}</label><br><br>
                                 {% endfor %}
                             </form>
                         </div>
                         <br><br>
-                        <span>Click <span class="b">Submit</span> to sumbit: Chinese Chess Quiz: Arguments. Click <span class="b">Cancel</span> to go back.</span>
+                        <span>Click <span class="b">Submit</span> to sumbit: Chinese Chess Quiz: Arguments. Click <span
+                                class="b">Cancel</span> to go back.</span>
                     </div>
                     <button class="cancel" id="cancel">Cancel</button>
                     <button class="submit" id="submit">Submit</button>
+                    <button class="save" id="save">Save</button>
                 </div>
             </div>
         </div>
     </div>
     {% block scripts %}
-    {{ super() }}
-    <script src="../static/quiz1.js"></script>
+        {{ super() }}
+        <script>
+            var Server = {
+                quiz_id:{{ quiz_id }}
+            }
+            var selected_assessments = []
+            {% for q in selected_assessments %}
+                assess = {
+                    id: "{{ q.AssessmentLog.id }}",
+                    selected_answer: "{{q.AssessmentLog.selected_answer}}",
+                    option_one:"{{ q.Assessment.option_one }}",
+                    option_two:"{{ q.Assessment.option_two }}",
+                    option_three:"{{ q.Assessment.option_three }}",
+                    option_four:"{{ q.Assessment.option_four }}"
+                }
+                selected_assessments.push(assess)
+            {% endfor %}
+        </script>
+        <script src="../static/quiz1.js"></script>
     {% endblock scripts %}
 {% endblock content %}
