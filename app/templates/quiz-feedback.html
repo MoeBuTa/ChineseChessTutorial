@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/quiz-feedback.css">
+{% endblock styles %}
+
+
+{% block content %}
+    <div class="main-container">
+        <div class="main-content web_width clearfix">
+            <div class="feedback-box">
+                <div class="title">
+                    Review Quiz Submission: Chinese Chess Quizzes
+                </div>
+
+                <div class="table">
+                    <table>
+                        <tr>
+                            <td>User</td> <td>UserName</td>
+                        </tr>
+
+                        <tr>
+                            <td>Quiz</td> <td>Chinese Chess Quiz</td>
+                        </tr>
+
+                        <tr>
+                            <td>Started</td> <td>Time</td>
+                        </tr>
+
+                        <tr>
+                            <td>Submitted</td> <td>Time</td>
+                        </tr>
+
+                        <tr>
+                            <td>Status</td> <td>Completed</td>
+                        </tr>
+
+                        <tr>
+                            <td>Attempt Score</td> <td>number out of 10 points</td>
+                        </tr>
+
+                        <tr>
+                            <td>Results Displayed</td> <td>Submitted Answer, Correct Answer, Feedback, Incorrectly Answer Questions</td>
+                        </tr>
+                    </table>
+                </div>
+            
+                <div class="q_1">
+                    <div class="num_of_question">
+                        Question 1
+                    </div>
+
+                    <div class="num_of_points">
+                        0 out of 1 points
+                    </div>
+
+                    <div class="details">
+                        <div class="display">
+                            1.What piece cannot cross the river?
+                        </div>
+
+                        <div class="selected_answer">
+                            Selected Answer: Soldier <img src="../static/chess-img/error.png" alt="error">
+                        </div>
+
+                        <div class="answers">
+                            Answers:
+                            <ul class="answer_list">
+                                <li>Horse</li>
+                                <li>Elephant <img src="../static/chess-img/success.png" alt="success"></li>
+                                <li>Chariot</li>
+                                <li>Soldier</li>
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="q_1">
+                    <div class="num_of_question">
+                        Question 2
+                    </div>
+
+                    <div class="num_of_points">
+                        1 out of 1 points
+                    </div>
+
+                    <div class="details">
+                        <div class="display">
+                            2.What type of piece has the most pieces on the board?
+                        </div>
+
+                        <div class="selected_answer">
+                            Selected Answer: Soldier <img src="../static/chess-img/success.png" alt="success">
+                        </div>
+
+                        <div class="answers">
+                            Answers:
+                            <ul class="answer_list">
+                                <li>Cannon</li>
+                                <li>Soldier <img src="../static/chess-img/success.png" alt="success"></li>
+                                <li>Chariot</li>
+                                <li>Horse</li>
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="q_1">
+                    <div class="num_of_question">
+                        Question 3
+                    </div>
+
+                    <div class="num_of_points">
+                        0 out of 1 points
+                    </div>
+
+                    <div class="details">
+                        <div class="display">
+                            3.How many types of pieces does Xiangqi have?
+                        </div>
+
+                        <div class="selected_answer">
+                            Selected Answer: 6 <img src="../static/chess-img/error.png" alt="error">
+                        </div>
+
+                        <div class="answers">
+                            Answers:
+                            <ul class="answer_list">
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7<img src="../static/chess-img/success.png" alt="success"></li>
+                                <li>8</li>
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="q_1">
+                    <div class="num_of_question">
+                        Question 4
+                    </div>
+
+                    <div class="num_of_points">
+                        0 out of 1 points
+                    </div>
+
+                    <div class="details">
+                        <div class="display">
+                            4.How big is the board of Xiangqi?
+                        </div>
+
+                        <div class="selected_answer">
+                            Selected Answer: 8 by 9 <img src="../static/chess-img/error.png" alt="error">
+                        </div>
+
+                        <div class="answers">
+                            Answers:
+                            <ul class="answer_list">
+                                <li>8 by 9</li>
+                                <li>8 by 8</li>
+                                <li>9 by 9</li>
+                                <li>9 by 10<img src="../static/chess-img/success.png" alt="success"></li>
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="q_1">
+                    <div class="num_of_question">
+                        Question 5
+                    </div>
+
+                    <div class="num_of_points">
+                        0 out of 1 points
+                    </div>
+
+                    <div class="details">
+                        <div class="display">
+                            5. How many spots/spaces does the palace/fortress have?
+                        </div>
+
+                        <div class="selected_answer">
+                            Selected Answer: 4 <img src="../static/chess-img/error.png" alt="error">
+                        </div>
+
+                        <div class="answers">
+                            Answers:
+                            <ul class="answer_list">
+                                <li>4</li>
+                                <li>6</li>
+                                <li>8</li>
+                                <li>9<img src="../static/chess-img/success.png" alt="success"></li>
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="q_1">
+                    <div class="num_of_question">
+                        Question 6
+                    </div>
+
+                    <div class="num_of_points">
+                        0 out of 1 points
+                    </div>
+
+                    <div class="details">
+                        <div class="display">
+                            6.Which piece captures differently from the other three?
+                        </div>
+
+                        <div class="selected_answer">
+                            Selected Answer: Soldier <img src="../static/chess-img/error.png" alt="error">
+                        </div>
+
+                        <div class="answers">
+                            Answers:
+                            <ul class="answer_list">
+                                <li>Chariot</li>
+                                <li>Cannon</li>
+                                <li>Soldier</li>
+                                <li>Horse<img src="../static/chess-img/success.png" alt="success"></li>
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="btn">
+                    <button>ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block scripts %}
+        {{ super() }}
+    {% endblock scripts %}
+{% endblock content %}
