@@ -1,0 +1,152 @@
+
+/* -------------------------------------------------------- */
+/* for main-container  */
+/* -------------------------------------------------------- */
+.main-container{
+    width: 100%;
+    background-color: rgb(224, 224, 224);
+}
+
+.main-content{
+    width: 240px;
+    height: 100%;
+    background: linear-gradient(45deg, #333, #656569);
+}
+
+.bar{
+    width: 240px;
+    height: 100%;
+    text-align: justify;
+}
+
+.bar .user-info{
+    padding: 10px;
+}
+
+.bar .user-info a{
+    color: #fff;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.bar ul{
+    color: #fff;
+    padding: 20px;
+}
+
+.bar ul li{
+    margin-top: 30px;
+}
+
+.bar ul li a{
+    color: #b0b0b0;
+}
+
+.bar ul li a:hover{
+    text-shadow: 0 0 4px #fff;
+}
+
+.bar ul li img{
+    margin-right: 10px;
+}
+
+.bar .li{
+    border-top: 1px solid #b0b0b0;
+    font-size: 12px;
+    opacity: .5;
+}
+
+.main-content .dashboard{
+    position: relative;
+    left: 120%;
+    top: -400px;
+}
+
+.dashboard .text{
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+} 
+
+.dashboard .text a{
+    position: relative;
+    left: 30px;
+}
+
+.dashboard .dashboard-story{
+    position: absolute;
+    width: 198px;
+    height: 84px;
+    line-height: 84px;
+    background-color: #fff;
+    border-left: 5px solid #2640d3;
+    border-radius: 5px;
+}
+
+.dashboard .dashboard-story a{
+    color: #2640d3;
+    transition: all .3s;
+}
+
+.dashboard .dashboard-tutorial{
+    position: absolute;
+    width: 198px;
+    height: 84px;
+    line-height: 84px;
+    left: 240px;
+    background-color: #fff;
+    border-left: 5px solid #ff6700;
+    border-radius: 5px;
+}
+
+.dashboard .dashboard-tutorial a{
+    color: #ff3300;
+    transition: all .3s;
+}
+
+.dashboard .dashboard-quiz{
+    position: absolute;
+    width: 198px;
+    height: 84px;
+    line-height: 84px;
+    left: 480px;
+    background-color: #fff;
+    border-left: 5px solid #ff3300;
+    border-radius: 5px;
+}
+
+.dashboard .dashboard-quiz a{
+    color: #ff6700;
+    transition: all .3s;
+}
+
+.dashboard .dashboard-feedback{
+    position: relative;
+    width: 198px;
+    height: 84px;
+    line-height: 84px;
+    left: 720px;
+    background-color: #fff;
+    border-left: 5px solid #0dc234;
+    border-radius: 5px;
+}
+
+.dashboard .dashboard-feedback a{
+    color: #0dc234;
+    transition: all .3s;
+}
+
+.dashboard .dashboard-feedback a:hover, .dashboard-quiz a:hover, .dashboard-story a:hover, .dashboard-tutorial a:hover{
+    text-shadow: 6px 0 4px rgba(0, 0, 0, .4);
+}
+
+.dashboard .dashboard-tutorial img, .dashboard-quiz img, .dashboard-feedback img, .dashboard-story img{
+    position: relative;
+    left: 50px;
+} 
+
+#calendar_basic{
+    position: absolute;
+    top: 1020px;
+}
+
