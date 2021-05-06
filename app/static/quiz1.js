@@ -11,7 +11,6 @@ cel.onclick = function () {
 
 var quiz_id = Server.quiz_id;
 
-console.log(selected_assessments)
 for (var i =0; i < selected_assessments.length; i++) {
     if (selected_assessments[i].selected_answer == selected_assessments[i].option_one) {
         $("#A" + selected_assessments[i].id ).attr("checked", true)
@@ -19,13 +18,17 @@ for (var i =0; i < selected_assessments.length; i++) {
         $("#B" + selected_assessments[i].id ).attr("checked", true)
     } else if (selected_assessments[i].selected_answer == selected_assessments[i].option_three) {
         $("#C" + selected_assessments[i].id).attr("checked", true)
-    } else {
+    } else if (selected_assessments[i].selected_answer == selected_assessments[i].option_four){
         $("#D" + selected_assessments[i].id ).attr("checked", true)
+    } else{
+
     }
+
 }
 
 $(':radio').click(function () {
     var selected_answer = $(this).val();
+    console.log(selected_answer)
     var assessment_log_id = $(this).attr('name');
     $.post('/saveAssessmentsProgress', {
         selected_answer: selected_answer,
@@ -36,8 +39,14 @@ $(':radio').click(function () {
     }).fail(function () {
         // toastr.error("connection timeout!");
     })
-
-
 });
+
+
+function submitAssessment(){
+
+
+}
+
+
 
 

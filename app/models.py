@@ -1,5 +1,7 @@
+import random, mock
 from app import db, login
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy import desc, asc, func
 from flask_login import UserMixin
 from datetime import datetime
 
@@ -73,7 +75,11 @@ class Tutorial(db.Model):
     hint = db.Column(db.String(140))
 
     def __repr__(self):
-        return '<Tutorial {}, {}>'.format(self.id, self.title)
+        return '<Tutorial id: {}, title: {}>'.format(self.id, self.title)
+
+    @staticmethod
+    def get_tutorial_count():
+        return db.session.query(func.count(Tutorial.id)).scalar()
 
 
 # class Story(db.Model):
@@ -90,28 +96,70 @@ class Assessment(db.Model):
     option_four = db.Column(db.String(40))
 
     def __repr__(self):
-        return '<Assessment {}>'.format(self.body)
+        return '<Assessment body: {}>'.format(self.body)
+
+    @classmethod
+    def get_selected_assessment(cls, id):
+        return cls.query.join(
+            AssessmentLog, (Assessment.id == AssessmentLog.assessment_id)).filter(
+            AssessmentLog.quiz_id == id).order_by(
+            asc(AssessmentLog.current_assessment_num)
+        ).add_entity(AssessmentLog).all()
 
 
 class AssessmentAnswer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     assessment_id = db.Column(db.Integer, db.ForeignKey('assessment.id'))
     answer = db.Column(db.String(40))
+    score = db.Column(db.Float(precision=10, decimal_return_scale=2))
 
     def __repr__(self):
-        return '<AssessmentAnswer {}>'.format(self.answer)
+        return '<AssessmentAnswer assessment_id: {}, answer: {}>'.format(self.assessment_id, self.answer)
 
 
 class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    result = db.Column(db.Float)
+    total_score = db.Column(db.Float(precision=10, decimal_return_scale=2))
     feedback = db.Column(db.UnicodeText())
+    start_assessment_time = db.Column(db.DateTime)
     last_assessment_edit_time = db.Column(db.DateTime)
     status = db.Column(db.SmallInteger)
 
     def __repr__(self):
-        return '<Quiz {}>'.format(self.result)
+        return '<Quiz status: {}>'.format(self.status)
+
+    @staticmethod
+    def addNewQuiz(quiz, assessments):
+        selected_assessments = []
+        db.session.add(quiz)
+        db.session.flush()
+        quiz_id = quiz.id
+
+        # select assessments randomly
+        j = 0
+        for i in random.sample(range(1, len(assessments)), 5):
+            j += 1
+            assess = AssessmentLog(assessment_id=assessments[i].id,
+                                   current_assessment_num=j, quiz_id=quiz_id)
+            selected_assess = mock.Mock()
+            selected_assess.Assessment = assessments[i]
+            selected_assess.AssessmentLog = assess
+
+            selected_assessments.append(selected_assess)
+            db.session.add(assess)
+        db.session.commit()
+        return selected_assessments
+
+    def update_quiz_edit_time(self):
+        self.last_assessment_edit_time = datetime.now()
+        db.session.commit()
+
+    def submit_quiz(self, total_score):
+        self.last_assessment_edit_time = datetime.now()
+        self.total_score = total_score
+        self.status = 1
+        db.session.commit()
 
 
 class AssessmentLog(db.Model):
@@ -120,6 +168,20 @@ class AssessmentLog(db.Model):
     selected_answer = db.Column(db.String(40))
     current_assessment_num = db.Column(db.Integer)
     quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id'))
+    correct = db.Column(db.SmallInteger)
 
     def __repr__(self):
-        return '<AssessmentLog {}, {}, {}>'.format(self.selected_answer, self.quiz_id, self.current_assessment_num)
+        return '<AssessmentLog selected_answer: {}, quiz_id: {}, current_assessment_num{}>'.format(
+            self.selected_answer, self.quiz_id, self.current_assessment_num)
+
+    def save_assessment_progress(self, selected_answer):
+        self.selected_answer = selected_answer
+        db.session.commit()
+
+    @classmethod
+    def get_selected_assessment_answer(cls, ids):
+        return cls.query.filter(cls.id.in_(ids)).join(
+            AssessmentAnswer, (AssessmentLog.assessment_id == AssessmentAnswer.assessment_id)).join(Assessment, (
+                AssessmentLog.assessment_id == Assessment.id)).order_by(
+            asc(AssessmentLog.current_assessment_num)).add_entity(
+            AssessmentAnswer).add_entity(Assessment).all()

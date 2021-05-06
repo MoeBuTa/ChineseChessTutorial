@@ -1,13 +1,9 @@
-import random
-
 from flask import render_template, flash, redirect, url_for, jsonify
-from sqlalchemy import func, desc, asc
 from app import db
 from flask_login import current_user, login_user, logout_user
-from app.models import User, Tutorial, Assessment, AssessmentLog, Quiz
+from app.models import User, Tutorial, Assessment, AssessmentLog, Quiz, AssessmentAnswer
 from app.data import add_tutorial_data, addAssessment
 from sqlalchemy.orm import class_mapper
-from app import moment
 from datetime import datetime
 
 
@@ -38,13 +34,13 @@ class TutorialController:
 
         # query current tutorial progress
         current_tutorial = current_user.query_tutorial_progress()
-        tutorial_count = db.session.query(func.count(Tutorial.id)).scalar()
+        tutorial_count = Tutorial.get_tutorial_count()
         if current_user.last_tutorial_read_time:
             flash('Welcome back to <b>Tutorial section, ' +
                   current_user.username + '!</b>' +
                   ' last seen on <b>page' +
                   str(current_tutorial.tutorial_num) + '</b>, ' +
-                  current_user.last_tutorial_read_time.strftime("%H:%M:%S, %d %b  %Y"))
+                  current_user.last_tutorial_read_time.strftime("%d %b  %Y, %H:%M:%S"))
 
         return render_template('tutorial.html', title='Chinese chess tutorial', current_tutorial=current_tutorial,
                                tutorial_count=tutorial_count)
@@ -77,49 +73,60 @@ class AssessmentController:
         quiz_id = 0
         # check if database has assessments available
         if assessments:
-            assess_log = []
 
             # check if current user has unfinished quiz
-            quiz = Quiz.query.filter(Quiz.user_id == current_user.id and Quiz.status == 0).first()
+            quiz = Quiz.query.filter(Quiz.status == 0 and Quiz.user_id == current_user.id).first()
             if not quiz:
-                quiz = Quiz(user_id=current_user.id, last_assessment_edit_time=datetime.now())
-                db.session.add(quiz)
-                db.session.flush()
-                quiz_id = quiz.id
-                j = 0
-                for i in random.sample(range(1, len(assessments)), 6):
-                    j += 1
-                    assess = AssessmentLog(assessment_id=assessments[i].id,
-                                           current_assessment_num=j, quiz_id=quiz_id)
-                    selected_assess = {
-                        "Assessment": assessments[i],
-                        "AssessmentLog": assess
-                    }
-                    selected_assessments.append(selected_assess)
-                    db.session.add(assess)
-                db.session.commit()
+                quiz = Quiz(user_id=current_user.id,
+                            start_assessment_time=datetime.now(),
+                            status=0,
+                            last_assessment_edit_time=datetime.now())
+                selected_assessments = Quiz.addNewQuiz(quiz, assessments)
+
             else:
-                selected_assessments = Assessment.query.join(
-                    AssessmentLog, (Assessment.id == AssessmentLog.assessment_id)).filter(
-                    AssessmentLog.quiz_id == quiz.id).order_by(
-                    asc(AssessmentLog.current_assessment_num)
-                ).add_entity(AssessmentLog).all()
-                quiz_id = selected_assessments[0].AssessmentLog.quiz_id
+                selected_assessments = Assessment.get_selected_assessment(quiz.id)
                 flash(
                     'Welcome back to <b>Quiz section, ' + current_user.username + '</b>!' +
-                    ' you have unfinished quiz! &nbsp;last seen on' ': ' +
-                    quiz.last_assessment_edit_time.strftime("%H:%M:%S, %d %b  %Y"))
+                    ' you have <b>unfinished quiz!</b> &nbsp;last seen on' ': ' +
+                    quiz.last_assessment_edit_time.strftime("%d %b  %Y, %H:%M:%S"))
+            quiz_id = selected_assessments[0].AssessmentLog.quiz_id
+
         else:
             flash("no assessments available in the database! ")
+
         return render_template('quiz1.html', title='Chinese chess Assessments',
                                selected_assessments=selected_assessments, quiz_id=quiz_id)
 
     @staticmethod
     def save_assessments_progress(selected_answer, assessment_log_id, quiz_id):
         assessment_log = AssessmentLog.query.get(assessment_log_id)
-        assessment_log.selected_answer = selected_answer
-        db.session.commit()
+        assessment_log.save_assessment_progress(selected_answer)
         quiz = Quiz.query.get(quiz_id)
-        quiz.last_assessment_edit_time = datetime.now()
-        db.session.commit()
+        quiz.update_quiz_edit_time()
         return "success"
+
+    @staticmethod
+    def submit_assessments(form):
+
+        total_score = 0
+        assessment_log_ids = form.keys()
+
+        # update submitted answers
+        selected_assessments = AssessmentLog.get_selected_assessment_answer(assessment_log_ids)
+        quiz_id = selected_assessments[0].AssessmentLog.quiz_id
+
+        # calculate quiz result
+        for assess in selected_assessments:
+            if assess.AssessmentAnswer.answer == assess.AssessmentLog.selected_answer:
+                total_score += assess.AssessmentAnswer.score
+                assess.AssessmentLog.correct = 1
+            else:
+                assess.AssessmentLog.correct = 0
+
+        # update quiz info
+        quiz = Quiz.query.get(quiz_id)
+        if quiz.status == 0:
+            quiz.submit_quiz(total_score)
+
+        return render_template('quiz-feedback.html', title='feedback', selected_assessments=selected_assessments,
+                               quiz=quiz)

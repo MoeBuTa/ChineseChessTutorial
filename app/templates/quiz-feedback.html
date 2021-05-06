@@ -17,214 +17,107 @@
                 <div class="table">
                     <table>
                         <tr>
-                            <td>User</td> <td>UserName</td>
+                            <td>User</td>
+                            <td>{{ current_user.username }}</td>
                         </tr>
 
                         <tr>
-                            <td>Quiz</td> <td>Chinese Chess Quiz</td>
+                            <td>Quiz</td>
+                            <td>Chinese Chess Quiz</td>
                         </tr>
 
                         <tr>
-                            <td>Started</td> <td>Time</td>
+                            <td>Started</td>
+                            <td>{{ quiz.start_assessment_time.strftime("%d %b  %Y, %H:%M:%S") }}</td>
                         </tr>
 
                         <tr>
-                            <td>Submitted</td> <td>Time</td>
+                            <td>Submitted</td>
+                            <td>{{ quiz.last_assessment_edit_time.strftime("%d %b  %Y, %H:%M:%S") }}</td>
                         </tr>
 
                         <tr>
-                            <td>Status</td> <td>Completed</td>
+                            <td>Status</td>
+                            <td>Completed</td>
                         </tr>
 
                         <tr>
-                            <td>Attempt Score</td> <td>number out of 10 points</td>
+                            <td>Attempt Score</td>
+                            <td>{{ quiz.total_score }} out of 100.0 points</td>
                         </tr>
 
                         <tr>
-                            <td>Results Displayed</td> <td>Submitted Answer, Correct Answer, Feedback, Incorrectly Answer Questions</td>
+                            <td>Results</td>
+                            <td>Submitted Answer, Correct Answer, Feedback, Incorrectly Answer Questions</td>
                         </tr>
                     </table>
                 </div>
-            
-                <div class="q_1">
-                    <div class="num_of_question">
-                        Question 1
-                    </div>
-
-                    <div class="num_of_points">
-                        0 out of 1 points
-                    </div>
-
-                    <div class="details">
-                        <div class="display">
-                            1.What piece cannot cross the river?
+                {% for selected_assessment in selected_assessments %}
+                    <div class="q_1">
+                        <div class="num_of_question">
+                            Question {{ selected_assessment.AssessmentLog.current_assessment_num }}
                         </div>
 
-                        <div class="selected_answer">
-                            Selected Answer: Soldier <img src="../static/chess-img/error.png" alt="error">
+                        <div class="num_of_points">
+
+                            {% if selected_assessment.AssessmentLog.correct == 1 %}
+                                {{ selected_assessment.AssessmentAnswer.score }}
+                            {% else %}
+                                0
+                            {% endif %}
+
+
+                                out of {{ selected_assessment.AssessmentAnswer.score }} points
                         </div>
 
-                        <div class="answers">
-                            Answers:
-                            <ul class="answer_list">
-                                <li>Horse</li>
-                                <li>Elephant <img src="../static/chess-img/success.png" alt="success"></li>
-                                <li>Chariot</li>
-                                <li>Soldier</li>
-                            </ul>
-                        </div> 
-                    </div>
-                </div>
+                        <div class="details">
+                            <div class="display">
+                                {{ selected_assessment.AssessmentLog.current_assessment_num }}.{{ selected_assessment.Assessment.body }}
+                            </div>
 
-                <div class="q_1">
-                    <div class="num_of_question">
-                        Question 2
-                    </div>
+                            <div class="selected_answer">
+                                Selected Answer: {{ selected_assessment.AssessmentLog.selected_answer }}
+                                {% if selected_assessment.AssessmentLog.selected_answer == selected_assessment.AssessmentAnswer.answer %}
+                                    <img src="../static/chess-img/success.png">
+                                {% else %}
+                                    <img src="../static/chess-img/error.png">
+                                {% endif %}
+                            </div>
 
-                    <div class="num_of_points">
-                        1 out of 1 points
-                    </div>
+                            <div class="answers">
+                                Answers:
+                                <ul class="answer_list">
 
-                    <div class="details">
-                        <div class="display">
-                            2.What type of piece has the most pieces on the board?
+                                    <li>{{ selected_assessment.Assessment.option_one }}
+                                        {% if selected_assessment.Assessment.option_one == selected_assessment.AssessmentAnswer.answer %}
+                                            <img src="../static/chess-img/success.png"></li>
+                                        {% endif %}
+
+                                    </li>
+                                    <li>{{ selected_assessment.Assessment.option_two }}
+                                        {% if selected_assessment.Assessment.option_two == selected_assessment.AssessmentAnswer.answer %}
+                                            <img src="../static/chess-img/success.png"></li>
+                                        {% endif %}
+                                    <li>{{ selected_assessment.Assessment.option_three }}
+                                        {% if selected_assessment.Assessment.option_three == selected_assessment.AssessmentAnswer.answer %}
+                                            <img src="../static/chess-img/success.png"></li>
+                                        {% endif %}
+                                    </li>
+
+                                    <li>{{ selected_assessment.Assessment.option_four }}
+                                        {% if selected_assessment.Assessment.option_four == selected_assessment.AssessmentAnswer.answer %}
+                                            <img src="../static/chess-img/success.png"></li>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-
-                        <div class="selected_answer">
-                            Selected Answer: Soldier <img src="../static/chess-img/success.png" alt="success">
-                        </div>
-
-                        <div class="answers">
-                            Answers:
-                            <ul class="answer_list">
-                                <li>Cannon</li>
-                                <li>Soldier <img src="../static/chess-img/success.png" alt="success"></li>
-                                <li>Chariot</li>
-                                <li>Horse</li>
-                            </ul>
-                        </div> 
                     </div>
-                </div>
+                {% endfor %}
 
-                <div class="q_1">
-                    <div class="num_of_question">
-                        Question 3
-                    </div>
 
-                    <div class="num_of_points">
-                        0 out of 1 points
-                    </div>
 
-                    <div class="details">
-                        <div class="display">
-                            3.How many types of pieces does Xiangqi have?
-                        </div>
 
-                        <div class="selected_answer">
-                            Selected Answer: 6 <img src="../static/chess-img/error.png" alt="error">
-                        </div>
-
-                        <div class="answers">
-                            Answers:
-                            <ul class="answer_list">
-                                <li>5</li>
-                                <li>6</li>
-                                <li>7<img src="../static/chess-img/success.png" alt="success"></li>
-                                <li>8</li>
-                            </ul>
-                        </div> 
-                    </div>
-                </div>
-
-                <div class="q_1">
-                    <div class="num_of_question">
-                        Question 4
-                    </div>
-
-                    <div class="num_of_points">
-                        0 out of 1 points
-                    </div>
-
-                    <div class="details">
-                        <div class="display">
-                            4.How big is the board of Xiangqi?
-                        </div>
-
-                        <div class="selected_answer">
-                            Selected Answer: 8 by 9 <img src="../static/chess-img/error.png" alt="error">
-                        </div>
-
-                        <div class="answers">
-                            Answers:
-                            <ul class="answer_list">
-                                <li>8 by 9</li>
-                                <li>8 by 8</li>
-                                <li>9 by 9</li>
-                                <li>9 by 10<img src="../static/chess-img/success.png" alt="success"></li>
-                            </ul>
-                        </div> 
-                    </div>
-                </div>
-
-                <div class="q_1">
-                    <div class="num_of_question">
-                        Question 5
-                    </div>
-
-                    <div class="num_of_points">
-                        0 out of 1 points
-                    </div>
-
-                    <div class="details">
-                        <div class="display">
-                            5. How many spots/spaces does the palace/fortress have?
-                        </div>
-
-                        <div class="selected_answer">
-                            Selected Answer: 4 <img src="../static/chess-img/error.png" alt="error">
-                        </div>
-
-                        <div class="answers">
-                            Answers:
-                            <ul class="answer_list">
-                                <li>4</li>
-                                <li>6</li>
-                                <li>8</li>
-                                <li>9<img src="../static/chess-img/success.png" alt="success"></li>
-                            </ul>
-                        </div> 
-                    </div>
-                </div>
-
-                <div class="q_1">
-                    <div class="num_of_question">
-                        Question 6
-                    </div>
-
-                    <div class="num_of_points">
-                        0 out of 1 points
-                    </div>
-
-                    <div class="details">
-                        <div class="display">
-                            6.Which piece captures differently from the other three?
-                        </div>
-
-                        <div class="selected_answer">
-                            Selected Answer: Soldier <img src="../static/chess-img/error.png" alt="error">
-                        </div>
-
-                        <div class="answers">
-                            Answers:
-                            <ul class="answer_list">
-                                <li>Chariot</li>
-                                <li>Cannon</li>
-                                <li>Soldier</li>
-                                <li>Horse<img src="../static/chess-img/success.png" alt="success"></li>
-                            </ul>
-                        </div> 
-                    </div>
-                </div>
 
                 <div class="btn">
                     <button>ok</button>

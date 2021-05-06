@@ -131,9 +131,9 @@ def addAssessment():
     )
     db.session.add(assessment1)
     db.session.flush()
-    answer1 = AssessmentAnswer(assessment_id=assessment1.id, answer='32')
+    answer1 = AssessmentAnswer(assessment_id=assessment1.id, answer='32', score=20.00)
     db.session.add(answer1)
-    db.session.commit()
+    # db.session.commit()
 
     assessment2 = Assessment(
         body="How many types of pieces does Xiangqi have?",
@@ -144,9 +144,9 @@ def addAssessment():
     )
     db.session.add(assessment2)
     db.session.flush()
-    answer2 = AssessmentAnswer(assessment_id=assessment1.id, answer='7')
+    answer2 = AssessmentAnswer(assessment_id=assessment2.id, answer='7', score=20.00)
     db.session.add(answer2)
-    db.session.commit()
+    # db.session.commit()
 
     assessment3 = Assessment(
         body="How big is the board of Xiangqi?",
@@ -157,9 +157,9 @@ def addAssessment():
     )
     db.session.add(assessment3)
     db.session.flush()
-    answer3 = AssessmentAnswer(assessment_id=assessment3.id, answer='9 by 10')
+    answer3 = AssessmentAnswer(assessment_id=assessment3.id, answer='9 by 10', score=20.00)
     db.session.add(answer3)
-    db.session.commit()
+    # db.session.commit()
 
     assessment4 = Assessment(
         body=" How many spots/spaces does the palace/fortress have?",
@@ -170,9 +170,9 @@ def addAssessment():
     )
     db.session.add(assessment4)
     db.session.flush()
-    answer4 = AssessmentAnswer(assessment_id=assessment4.id, answer='9')
+    answer4 = AssessmentAnswer(assessment_id=assessment4.id, answer='9', score=20.00)
     db.session.add(answer4)
-    db.session.commit()
+    # db.session.commit()
 
     assessment5 = Assessment(
         body="What type of piece has the most pieces on the board?",
@@ -183,9 +183,9 @@ def addAssessment():
     )
     db.session.add(assessment5)
     db.session.flush()
-    answer5 = AssessmentAnswer(assessment_id=assessment5.id, answer='Soldier')
+    answer5 = AssessmentAnswer(assessment_id=assessment5.id, answer='Soldier', score=20.00)
     db.session.add(answer5)
-    db.session.commit()
+    # db.session.commit()
 
     assessment6 = Assessment(
         body="What piece cannot cross the river?",
@@ -196,9 +196,9 @@ def addAssessment():
     )
     db.session.add(assessment6)
     db.session.flush()
-    answer6 = AssessmentAnswer(assessment_id=assessment6.id, answer='Elephant')
+    answer6 = AssessmentAnswer(assessment_id=assessment6.id, answer='Elephant', score=20.00)
     db.session.add(answer6)
-    db.session.commit()
+    # db.session.commit()
 
     assessment7 = Assessment(
         body="Which piece moves in directions that are different from the other three?",
@@ -209,9 +209,9 @@ def addAssessment():
     )
     db.session.add(assessment7)
     db.session.flush()
-    answer7 = AssessmentAnswer(assessment_id=assessment7.id, answer='Counselor')
+    answer7 = AssessmentAnswer(assessment_id=assessment7.id, answer='Counselor', score=20.00)
     db.session.add(answer7)
-    db.session.commit()
+    # db.session.commit()
 
     assessment8 = Assessment(
         body="Which piece captures differently from the other three?",
@@ -222,9 +222,9 @@ def addAssessment():
     )
     db.session.add(assessment8)
     db.session.flush()
-    answer8 = AssessmentAnswer(assessment_id=assessment8.id, answer='Cannon')
+    answer8 = AssessmentAnswer(assessment_id=assessment8.id, answer='Cannon', score=20.00)
     db.session.add(answer8)
-    db.session.commit()
+    # db.session.commit()
 
     assessment9 = Assessment(
         body="Which piece cannot leave the palace?",
@@ -235,6 +235,6 @@ def addAssessment():
     )
     db.session.add(assessment9)
     db.session.flush()
-    answer9 = AssessmentAnswer(assessment_id=assessment9.id, answer='General')
+    answer9 = AssessmentAnswer(assessment_id=assessment9.id, answer='General', score=20.00)
     db.session.add(answer9)
     db.session.commit()
