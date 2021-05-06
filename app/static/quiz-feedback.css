@@ -56,8 +56,9 @@
 
 .feedback-box .q_1 .details .answer_list{
     position: relative;
-    float: right;
-    right: 900px;
+/*     float: right;
+    right: 900px; */
+    left: 100px;
 }
 
 .feedback-box .btn button{
