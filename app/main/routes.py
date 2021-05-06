@@ -47,3 +47,9 @@ def save_assessments_progress():
     assessment_log_id = request.form.get('assessment_log_id')
     quiz_id = request.form.get('quiz_id')
     return AssessmentController.save_assessments_progress(selected_answer, assessment_log_id, quiz_id)
+
+
+@bp.route('/submitAssessments', methods=['POST'])
+@login_required
+def submit_assessments():
+    return AssessmentController.submit_assessments(request.form)
