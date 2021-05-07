@@ -169,7 +169,7 @@ class GeneralController:
         tutorial_progresses = TutorialProgress.query.all()
         tutorial_count = Tutorial.get_tutorial_count()
         tutorial_time_list = {}
-        tutorial_average_time = [0 for x in range(0, tutorial_count)]
+        tutorial_average_time = [['P' + str(x), 0] for x in range(0, tutorial_count)]
         for tu in tutorial_progresses:
             if not tutorial_time_list.get(tu.read_tutorial_num):
                 tutorial_time_list[tu.read_tutorial_num] = []
