@@ -93,8 +93,9 @@ class TutorialProgress(db.Model):
             db.session.add(current_tutorial_progress)
         else:
             # update time_duration and read_time
-            last_tutorial_progress.time_duration = ((datetime.now() -
-                                                     last_tutorial_progress.last_tutorial_read_time).seconds) / 60
+            time_duration = (datetime.now() - last_tutorial_progress.last_tutorial_read_time).seconds / 60
+            if time_duration < 5:
+                last_tutorial_progress.time_duration = time_duration
             last_tutorial_progress.last_tutorial_read_time = datetime.now()
 
             # query if the user read the current tutorial
