@@ -133,3 +133,11 @@ class QuestionController:
 
         return render_template('quiz-feedback.html', title='feedback', selected_questions=selected_questions,
                                quiz=quiz)
+
+
+class GeneralController:
+
+    @staticmethod
+    def general_view():
+        return render_template('general.html', title='general view')
+
