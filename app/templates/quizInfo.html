@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/quizInfo.css">
+{% endblock styles %}
+
+
+{% block content %}
+    <div class="article-container">
+        <div class="article-content web_width clearfix">
+            <div class="box-cover">
+                <span>Begin: Chinese Chess Quiz: Start your Qiuz now</span>
+                <div class="box">
+                    <div class="content">
+                        <span class="title">INSTRUCTIONS</span>
+                        <br><br>
+                        <span class="sub-title">Descriptions</span>
+                        <br><br>
+                        <span>This is a quiz that covers material for the tutorial(Rule). Good Luck!</span>
+                        <br><br>
+                        <span class="sub-title">Instructions</span>
+                        <br><br>
+                        <span>The quiz consists in ten multiple-choice questions. These questions may ask about anything discussed in the tutorial(Rule). The quiz is meant to be taken alone, and without looking at any notes or texts.</span>
+                        <br><br>
+                        <span>Click <span class="b">Begin</span> to start: Chinese Chess Quiz: Arguments. Click <span class="b">Cancel</span> to go back.</span>
+                    </div>
+                    <button class="cancel" id="cancel" onclick="window.location.href='{{ url_for('main.index') }}'">Cancel</button>
+                    <button class="begin" id="begin" onclick="window.location.href='{{ url_for('main.questions') }}'">Begin</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block scripts %}
+    {{ super() }}
+
+    <script src="../static/quizInfo.js"></script>
+
+    {% endblock scripts %}
+{% endblock content %}
