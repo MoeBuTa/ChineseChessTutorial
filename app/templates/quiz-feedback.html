@@ -28,12 +28,12 @@
 
                         <tr>
                             <td>Started</td>
-                            <td>{{ quiz.start_assessment_time.strftime("%d %b  %Y, %H:%M:%S") }}</td>
+                            <td>{{ quiz.start_question_time.strftime("%d %b  %Y, %H:%M:%S") }}</td>
                         </tr>
 
                         <tr>
                             <td>Submitted</td>
-                            <td>{{ quiz.last_assessment_edit_time.strftime("%d %b  %Y, %H:%M:%S") }}</td>
+                            <td>{{ quiz.last_question_edit_time.strftime("%d %b  %Y, %H:%M:%S") }}</td>
                         </tr>
 
                         <tr>
@@ -52,35 +52,35 @@
                         </tr>
                     </table>
                 </div>
-                {% for selected_assessment in selected_assessments %}
+                {% for selected_question in selected_questions %}
                     <div class="q_1">
                         <div class="num_of_question">
-                            Question {{ selected_assessment.AssessmentLog.current_assessment_num }}
+                            Question {{ selected_question.QuestionLog.current_question_num }}
                         </div>
 
                         <div class="num_of_points">
 
-                            {% if selected_assessment.AssessmentLog.correct == 1 %}
-                                {{ selected_assessment.AssessmentAnswer.score }}
+                            {% if selected_question.QuestionLog.correct == 1 %}
+                                {{ selected_question.QuestionAnswer.score }}
                             {% else %}
                                 0
                             {% endif %}
 
 
-                                out of {{ selected_assessment.AssessmentAnswer.score }} points
+                                out of {{ selected_question.QuestionAnswer.score }} points
                         </div>
 
                         <div class="details">
                             <div class="display">
-                                {{ selected_assessment.AssessmentLog.current_assessment_num }}.{{ selected_assessment.Assessment.body }}
+                                {{ selected_question.QuestionLog.current_question_num }}.{{ selected_question.Question.body }}
                             </div>
 
                             <div class="selected_answer">
-                                Selected Answer: {{ selected_assessment.AssessmentLog.selected_answer }}
-                                {% if selected_assessment.AssessmentLog.selected_answer == selected_assessment.AssessmentAnswer.answer %}
-                                    <img src="../static/chess-img/success.png">
+                                Selected Answer: {{ selected_question.QuestionLog.selected_answer }}
+                                {% if selected_question.QuestionLog.selected_answer == selected_question.QuestionAnswer.answer %}
+                                    <img src="../static/chess-img/success.png" alt="success">
                                 {% else %}
-                                    <img src="../static/chess-img/error.png">
+                                    <img src="../static/chess-img/error.png" alt="error">
                                 {% endif %}
                             </div>
 
@@ -88,25 +88,25 @@
                                 Answers:
                                 <ul class="answer_list">
 
-                                    <li>{{ selected_assessment.Assessment.option_one }}
-                                        {% if selected_assessment.Assessment.option_one == selected_assessment.AssessmentAnswer.answer %}
-                                            <img src="../static/chess-img/success.png"></li>
+                                    <li>{{ selected_question.Question.option_one }}
+                                        {% if selected_question.Question.option_one == selected_question.QuestionAnswer.answer %}
+                                            <img src="../static/chess-img/success.png" alt="success"></li>
                                         {% endif %}
 
                                     </li>
-                                    <li>{{ selected_assessment.Assessment.option_two }}
-                                        {% if selected_assessment.Assessment.option_two == selected_assessment.AssessmentAnswer.answer %}
-                                            <img src="../static/chess-img/success.png"></li>
+                                    <li>{{ selected_question.Question.option_two }}
+                                        {% if selected_question.Question.option_two == selected_question.QuestionAnswer.answer %}
+                                            <img src="../static/chess-img/success.png" alt="success"></li>
                                         {% endif %}
-                                    <li>{{ selected_assessment.Assessment.option_three }}
-                                        {% if selected_assessment.Assessment.option_three == selected_assessment.AssessmentAnswer.answer %}
-                                            <img src="../static/chess-img/success.png"></li>
+                                    <li>{{ selected_question.Question.option_three }}
+                                        {% if selected_question.Question.option_three == selected_question.QuestionAnswer.answer %}
+                                            <img src="../static/chess-img/success.png" alt="success"></li>
                                         {% endif %}
                                     </li>
 
-                                    <li>{{ selected_assessment.Assessment.option_four }}
-                                        {% if selected_assessment.Assessment.option_four == selected_assessment.AssessmentAnswer.answer %}
-                                            <img src="../static/chess-img/success.png"></li>
+                                    <li>{{ selected_question.Question.option_four }}
+                                        {% if selected_question.Question.option_four == selected_question.QuestionAnswer.answer %}
+                                            <img src="../static/chess-img/success.png" alt="success"></li>
                                         {% endif %}
                                     </li>
                                 </ul>
@@ -116,11 +116,8 @@
                 {% endfor %}
 
 
-
-
-
                 <div class="btn">
-                    <button>ok</button>
+                    <button onclick="window.location.href='{{ url_for('main.index') }}'">ok</button>
                 </div>
             </div>
         </div>

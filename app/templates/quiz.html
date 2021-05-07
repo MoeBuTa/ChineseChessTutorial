@@ -8,33 +8,76 @@
 
 {% block content %}
     <div class="article-container">
+
         <div class="article-content web_width clearfix">
+            {{ super() }}
             <div class="box-cover">
                 <span>Begin: Chinese Chess Quiz: Start your Qiuz now</span>
                 <div class="box">
-                    <div class="content">
-                        <span class="title">INSTRUCTIONS</span>
-                        <br><br>
-                        <span class="sub-title">Descriptions</span>
-                        <br><br>
-                        <span>This is a quiz that covers material for the tutorial(Rule). Good Luck!</span>
-                        <br><br>
-                        <span class="sub-title">Instructions</span>
-                        <br><br>
-                        <span>The quiz consists in ten multiple-choice questions. These questions may ask about anything discussed in the tutorial(Rule). The quiz is meant to be taken alone, and without looking at any notes or texts.</span>
-                        <br><br>
-                        <span>Click <span class="b">Begin</span> to start: Chinese Chess Quiz: Arguments. Click <span class="b">Cancel</span> to go back.</span>
-                    </div>
-                    <button class="cancel" id="cancel">Cancel</button>
-                    <button class="begin" id="begin">Begin</button>
+                    <form action="{{ url_for('main.submit_questions') }}" method="post">
+                        <div class="content">
+                            <span class="title">Start your Quiz now:</span>
+                            <br><br>
+                            <span>Totally 10 multiple-choice questions. Try your best!</span>
+                            <br><br>
+                            <div class="quiz-box">
+
+                                {% for q in selected_questions %}
+                                    <p>{{ q.QuestionLog.current_question_num }}.{{ q.Question.body }}</p>
+                                    <input type="radio" name="{{ q.QuestionLog.id }}" value="" id="E{{ q.QuestionLog.id }}" checked hidden>
+                                    <input type="radio"
+                                           name="{{ q.QuestionLog.id }}" value="{{ q.Question.option_one }}"
+                                           id="A{{ q.QuestionLog.id }}">
+                                    <label>{{ q.Question.option_one }}</label><br>
+                                    <input type="radio"
+                                           name="{{ q.QuestionLog.id }}" value="{{ q.Question.option_two }}"
+                                           id="B{{ q.QuestionLog.id }}">
+                                    <label> {{ q.Question.option_two }}</label><br>
+                                    <input type="radio"
+                                           name="{{ q.QuestionLog.id }}" value="{{ q.Question.option_three }}"
+                                           id="C{{ q.QuestionLog.id }}">
+                                    <label>{{ q.Question.option_three }}</label><br>
+                                    <input type="radio"
+                                           name="{{ q.QuestionLog.id }}" value="{{ q.Question.option_four }}"
+                                           id="D{{ q.QuestionLog.id }}">
+                                    <label>{{ q.Question.option_four }}</label><br><br>
+                                {% endfor %}
+
+                            </div>
+                            <br><br>
+                            <span>Click <span
+                                    class="b">Submit</span> to sumbit: Chinese Chess Quiz: Arguments. Click <span
+                                    class="b">Cancel</span> to go back.</span>
+                        </div>
+                        <button type="submit" class="submit" id="submit">Submit</button>
+                    </form>
+                    <button class="cancel" id="cancel" onclick="window.location.href='{{ url_for('main.index') }}'">
+                        Cancel
+                    </button>
+
                 </div>
             </div>
         </div>
     </div>
     {% block scripts %}
-    {{ super() }}
-
-    <script src="../static/quiz.js"></script>
-
+        {{ super() }}
+        <script>
+            var Server = {
+                quiz_id:{{ quiz_id }}
+            }
+            var selected_questions = []
+            {% for q in selected_questions %}
+                quest = {
+                    id: "{{ q.QuestionLog.id }}",
+                    selected_answer: "{{q.QuestionLog.selected_answer}}",
+                    option_one: "{{ q.Question.option_one }}",
+                    option_two: "{{ q.Question.option_two }}",
+                    option_three: "{{ q.Question.option_three }}",
+                    option_four: "{{ q.Question.option_four }}"
+                }
+                selected_questions.push(quest)
+            {% endfor %}
+        </script>
+        <script src="../static/quiz.js"></script>
     {% endblock scripts %}
 {% endblock content %}

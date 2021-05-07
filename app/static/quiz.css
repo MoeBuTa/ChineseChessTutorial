@@ -78,7 +78,7 @@
 }
 
 button{
-    margin-top: 70px;
+    line-height: 0;
     border: none;
     outline: none;
     width: 90px;
@@ -94,7 +94,7 @@ button:hover{
     font-size: 13px;
 }
 
-.cancel, .submit{
+.cancel, .submit .save{
     float: right;
     margin-right: 10px;
 }

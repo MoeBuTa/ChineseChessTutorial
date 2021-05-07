@@ -1,4 +1,4 @@
-from app.main.controllers import IndexController, TutorialController, StoryController, AssessmentController
+from app.main.controllers import IndexController, TutorialController, StoryController, QuestionController
 from app.main import bp
 from flask_login import login_required
 from flask import request
@@ -28,28 +28,28 @@ def tutorial_switch():
     return TutorialController.tutorial_switch(target_tutorial_num)
 
 
-@bp.route('/assessmentsInfo')
+@bp.route('/questionsInfo')
 @login_required
-def assessmentsInfo():
-    return AssessmentController.assessmentsInfo()
+def questions_info():
+    return QuestionController.questions_info()
 
 
-@bp.route('/assessments')
+@bp.route('/questions')
 @login_required
-def assessments():
-    return AssessmentController.assessments()
+def questions():
+    return QuestionController.questions()
 
 
-@bp.route('/saveAssessmentsProgress', methods=['POST'])
+@bp.route('/saveQuestionsProgress', methods=['POST'])
 @login_required
-def save_assessments_progress():
+def save_questions_progress():
     selected_answer = request.form.get('selected_answer')
-    assessment_log_id = request.form.get('assessment_log_id')
+    question_log_id = request.form.get('question_log_id')
     quiz_id = request.form.get('quiz_id')
-    return AssessmentController.save_assessments_progress(selected_answer, assessment_log_id, quiz_id)
+    return QuestionController.save_questions_progress(selected_answer, question_log_id, quiz_id)
 
 
-@bp.route('/submitAssessments', methods=['POST'])
+@bp.route('/submitQuestions', methods=['POST'])
 @login_required
-def submit_assessments():
-    return AssessmentController.submit_assessments(request.form)
+def submit_questions():
+    return QuestionController.submit_questions(request.form)

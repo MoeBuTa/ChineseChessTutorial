@@ -87,7 +87,7 @@ class Tutorial(db.Model):
 # main_text = db.Column(db.UnicodeText())
 
 
-class Assessment(db.Model):
+class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
     option_one = db.Column(db.String(40))
@@ -96,25 +96,25 @@ class Assessment(db.Model):
     option_four = db.Column(db.String(40))
 
     def __repr__(self):
-        return '<Assessment body: {}>'.format(self.body)
+        return '<Question body: {}>'.format(self.body)
 
     @classmethod
-    def get_selected_assessment(cls, id):
+    def get_selected_question(cls, id):
         return cls.query.join(
-            AssessmentLog, (Assessment.id == AssessmentLog.assessment_id)).filter(
-            AssessmentLog.quiz_id == id).order_by(
-            asc(AssessmentLog.current_assessment_num)
-        ).add_entity(AssessmentLog).all()
+            QuestionLog, (Question.id == QuestionLog.question_id)).filter(
+            QuestionLog.quiz_id == id).order_by(
+            asc(QuestionLog.current_question_num)
+        ).add_entity(QuestionLog).all()
 
 
-class AssessmentAnswer(db.Model):
+class QuestionAnswer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    assessment_id = db.Column(db.Integer, db.ForeignKey('assessment.id'))
+    question_id = db.Column(db.Integer, db.ForeignKey('question.id'))
     answer = db.Column(db.String(40))
     score = db.Column(db.Float(precision=10, decimal_return_scale=2))
 
     def __repr__(self):
-        return '<AssessmentAnswer assessment_id: {}, answer: {}>'.format(self.assessment_id, self.answer)
+        return '<QuestionAnswer question_id: {}, answer: {}>'.format(self.question_id, self.answer)
 
 
 class Quiz(db.Model):
@@ -122,66 +122,66 @@ class Quiz(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     total_score = db.Column(db.Float(precision=10, decimal_return_scale=2))
     feedback = db.Column(db.UnicodeText())
-    start_assessment_time = db.Column(db.DateTime)
-    last_assessment_edit_time = db.Column(db.DateTime)
+    start_question_time = db.Column(db.DateTime)
+    last_question_edit_time = db.Column(db.DateTime)
     status = db.Column(db.SmallInteger)
 
     def __repr__(self):
         return '<Quiz status: {}>'.format(self.status)
 
     @staticmethod
-    def addNewQuiz(quiz, assessments):
-        selected_assessments = []
+    def addNewQuiz(quiz, questions):
+        selected_questions = []
         db.session.add(quiz)
         db.session.flush()
         quiz_id = quiz.id
 
-        # select assessments randomly
+        # select questions randomly
         j = 0
-        for i in random.sample(range(1, len(assessments)), 5):
+        for i in random.sample(range(1, len(questions)), 5):
             j += 1
-            assess = AssessmentLog(assessment_id=assessments[i].id,
-                                   current_assessment_num=j, quiz_id=quiz_id)
-            selected_assess = mock.Mock()
-            selected_assess.Assessment = assessments[i]
-            selected_assess.AssessmentLog = assess
+            quest = QuestionLog(question_id=questions[i].id,
+                                current_question_num=j, quiz_id=quiz_id)
+            selected_quest = mock.Mock()
+            selected_quest.Question = questions[i]
+            selected_quest.QuestionLog = quest
 
-            selected_assessments.append(selected_assess)
-            db.session.add(assess)
+            selected_questions.append(selected_quest)
+            db.session.add(quest)
         db.session.commit()
-        return selected_assessments
+        return selected_questions
 
     def update_quiz_edit_time(self):
-        self.last_assessment_edit_time = datetime.now()
+        self.last_question_edit_time = datetime.now()
         db.session.commit()
 
     def submit_quiz(self, total_score):
-        self.last_assessment_edit_time = datetime.now()
+        self.last_question_edit_time = datetime.now()
         self.total_score = total_score
         self.status = 1
         db.session.commit()
 
 
-class AssessmentLog(db.Model):
+class QuestionLog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    assessment_id = db.Column(db.Integer, db.ForeignKey('assessment.id'))
+    question_id = db.Column(db.Integer, db.ForeignKey('question.id'))
     selected_answer = db.Column(db.String(40))
-    current_assessment_num = db.Column(db.Integer)
+    current_question_num = db.Column(db.Integer)
     quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id'))
     correct = db.Column(db.SmallInteger)
 
     def __repr__(self):
-        return '<AssessmentLog selected_answer: {}, quiz_id: {}, current_assessment_num{}>'.format(
-            self.selected_answer, self.quiz_id, self.current_assessment_num)
+        return '<QuestionLog selected_answer: {}, quiz_id: {}, current_question_num: {}>'.format(
+            self.selected_answer, self.quiz_id, self.current_question_num)
 
-    def save_assessment_progress(self, selected_answer):
+    def save_question_progress(self, selected_answer):
         self.selected_answer = selected_answer
         db.session.commit()
 
     @classmethod
-    def get_selected_assessment_answer(cls, ids):
+    def get_selected_question_answer(cls, ids):
         return cls.query.filter(cls.id.in_(ids)).join(
-            AssessmentAnswer, (AssessmentLog.assessment_id == AssessmentAnswer.assessment_id)).join(Assessment, (
-                AssessmentLog.assessment_id == Assessment.id)).order_by(
-            asc(AssessmentLog.current_assessment_num)).add_entity(
-            AssessmentAnswer).add_entity(Assessment).all()
+            QuestionAnswer, (QuestionLog.question_id == QuestionAnswer.question_id)).join(Question, (
+                QuestionLog.question_id == Question.id)).order_by(
+            asc(QuestionLog.current_question_num)).add_entity(
+            QuestionAnswer).add_entity(Question).all()
