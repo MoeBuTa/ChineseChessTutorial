@@ -1,4 +1,5 @@
-from app.main.controllers import IndexController, TutorialController, StoryController, QuestionController, GeneralController
+from app.main.controllers import IndexController, TutorialController, StoryController, QuestionController, \
+    GeneralController
 from app.main import bp
 from flask_login import login_required
 from flask import request
@@ -63,3 +64,8 @@ def general_view():
 @bp.route('/getDataForPieChart', methods=['POST'])
 def get_data_for_pie_chart():
     return GeneralController.get_data_for_pie_chart()
+
+
+@bp.route('/getDataForAreaChart', methods=['POST'])
+def get_data_for_area_chart():
+    return GeneralController.get_data_for_area_chart()
