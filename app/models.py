@@ -62,7 +62,7 @@ class TutorialProgress(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     time_duration = db.Column(db.Float(precision=10, decimal_return_scale=2))
-    read_tutorial_num = db.Column(db.Integer, db.ForeignKey('tutorial.tutorial_num'))
+    read_tutorial_num = db.Column(db.Integer)
     last_tutorial_read_time = db.Column(db.DateTime)
 
     def __repr__(self):
@@ -89,7 +89,7 @@ class TutorialProgress(db.Model):
         # for new user who never read any of the tutorials
         if not last_tutorial_progress:
             current_tutorial_progress = TutorialProgress(user_id=user_id,
-                                                         read_tutorial_num=tutorial_num)
+                                                         read_tutorial_num=tutorial_num, time_duration = 0)
             db.session.add(current_tutorial_progress)
         else:
             # update time_duration and read_time

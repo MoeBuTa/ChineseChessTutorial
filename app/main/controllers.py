@@ -174,7 +174,6 @@ class GeneralController:
             if not tutorial_time_list.get(tu.read_tutorial_num):
                 tutorial_time_list[tu.read_tutorial_num] = []
             tutorial_time_list[tu.read_tutorial_num].append(tu.time_duration)
-
         for k, v in tutorial_time_list.items():
             tutorial_average_time[k - 1] = ['P' + str(k), np.mean(v)]
 
