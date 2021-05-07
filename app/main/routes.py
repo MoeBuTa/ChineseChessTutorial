@@ -58,3 +58,8 @@ def submit_questions():
 @bp.route('/generalView')
 def general_view():
     return GeneralController.general_view()
+
+
+@bp.route('/getDataForPieChart', methods=['POST'])
+def get_data_for_pie_chart():
+    return GeneralController.get_data_for_pie_chart()

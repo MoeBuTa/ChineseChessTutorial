@@ -127,7 +127,7 @@ class Quiz(db.Model):
     status = db.Column(db.SmallInteger)
 
     def __repr__(self):
-        return '<Quiz status: {}>'.format(self.status)
+        return '<Quiz status: {}, total_score:{}, user_id:{}>'.format(self.status, self.total_score, self.user_id)
 
     @staticmethod
     def addNewQuiz(quiz, questions):
@@ -160,6 +160,10 @@ class Quiz(db.Model):
         self.total_score = total_score
         self.status = 1
         db.session.commit()
+
+    @staticmethod
+    def get_quizzes_count():
+        return db.session.query(func.count(Quiz.id)).scalar()
 
 
 class QuestionLog(db.Model):

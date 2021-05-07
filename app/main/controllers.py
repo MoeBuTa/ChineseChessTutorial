@@ -5,6 +5,7 @@ from app.models import User, Tutorial, Question, QuestionLog, Quiz, QuestionAnsw
 from app.data import add_tutorial_data, addQuestion
 from sqlalchemy.orm import class_mapper
 from datetime import datetime
+from sqlalchemy import desc, asc, func
 
 
 class IndexController:
@@ -113,7 +114,6 @@ class QuestionController:
     def submit_questions(form):
         total_score = 0
         question_log_ids = form.keys()
-        print(form)
         # update submitted answers
         selected_questions = QuestionLog.get_selected_question_answer(question_log_ids)
         quiz_id = selected_questions[0].QuestionLog.quiz_id
@@ -139,5 +139,23 @@ class GeneralController:
 
     @staticmethod
     def general_view():
+        # GeneralController.get_data_for_pie_chart()
         return render_template('general.html', title='general view')
 
+    @staticmethod
+    def get_data_for_pie_chart():
+        count_score_below_forty = db.session.query(func.count(Quiz.id)).filter(Quiz.total_score <= 40).scalar()
+        count_score_between_forty_and_eighty = db.session.query(func.count(Quiz.id)).filter(
+            Quiz.total_score > 40, Quiz.total_score < 80).scalar()
+        count_score_above_eighty = db.session.query(func.count(Quiz.id)).filter(
+            Quiz.total_score >= 80).scalar()
+        count_total = Quiz.get_quizzes_count()
+
+        proportions = {
+            "count_score_below_forty": count_score_below_forty,
+            "count_score_between_forty_and_eighty": count_score_between_forty_and_eighty,
+            "count_score_above_eighty": count_score_above_eighty,
+            "count_total": count_total
+        }
+
+        return jsonify(proportions)
