@@ -1,4 +1,4 @@
-from app.main.controllers import IndexController, TutorialController, StoryController, QuestionController
+from app.main.controllers import IndexController, TutorialController, StoryController, QuestionController, GeneralController
 from app.main import bp
 from flask_login import login_required
 from flask import request
@@ -53,3 +53,13 @@ def save_questions_progress():
 @login_required
 def submit_questions():
     return QuestionController.submit_questions(request.form)
+
+
+@bp.route('/generalView')
+def general_view():
+    return GeneralController.general_view()
+
+
+@bp.route('/getDataForPieChart', methods=['POST'])
+def get_data_for_pie_chart():
+    return GeneralController.get_data_for_pie_chart()

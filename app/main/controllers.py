@@ -1,10 +1,11 @@
 from flask import render_template, flash, redirect, url_for, jsonify
 from app import db
 from flask_login import current_user, login_user, logout_user
-from app.models import User, Tutorial, Question, QuestionLog, Quiz, QuestionAnswer
+from app.models import User, Tutorial, Question, QuestionLog, Quiz, QuestionAnswer, TutorialProgress
 from app.data import add_tutorial_data, addQuestion
 from sqlalchemy.orm import class_mapper
 from datetime import datetime
+from sqlalchemy import desc, asc, func
 
 
 class IndexController:
@@ -33,14 +34,17 @@ class TutorialController:
             return redirect(url_for('auth.login_and_register'))
 
         # query current tutorial progress
-        current_tutorial = current_user.query_tutorial_progress()
+        current_tutorial = Tutorial.query_tutorial(current_user.id)
+        current_tutorial_progress = TutorialProgress.query_tutorial_progress(current_user.id)
         tutorial_count = Tutorial.get_tutorial_count()
-        if current_user.last_tutorial_read_time:
+        if current_tutorial_progress.last_tutorial_read_time:
             flash('Welcome back to <b>Tutorial Section Page&nbsp;' +
-                  str(current_tutorial.tutorial_num) + ', ' +
+                  str(current_tutorial_progress.read_tutorial_num) + ', ' +
                   current_user.username + '!</b>' +
                   ' &nbsp;&nbsp; last seen on: ' +
-                  current_user.last_tutorial_read_time.strftime("%d %b  %Y, %H:%M:%S"))
+                  current_tutorial_progress.last_tutorial_read_time.strftime("%d %b  %Y, %H:%M:%S"))
+        else:
+            current_tutorial_progress.set_first_read_time()
 
         return render_template('tutorial.html', title='Chinese chess tutorial', current_tutorial=current_tutorial,
                                tutorial_count=tutorial_count)
@@ -49,7 +53,7 @@ class TutorialController:
     @staticmethod
     def tutorial_switch(target_tutorial_num):
         target_tutorial = Tutorial.query.filter_by(tutorial_num=target_tutorial_num).first()
-        current_user.save_tutorial_progress(target_tutorial.id)
+        TutorialProgress.save_tutorial_progress(current_user.id, target_tutorial_num)
         return jsonify(IndexController.serialize(target_tutorial))
 
 
@@ -113,7 +117,6 @@ class QuestionController:
     def submit_questions(form):
         total_score = 0
         question_log_ids = form.keys()
-        print(form)
         # update submitted answers
         selected_questions = QuestionLog.get_selected_question_answer(question_log_ids)
         quiz_id = selected_questions[0].QuestionLog.quiz_id
@@ -133,3 +136,29 @@ class QuestionController:
 
         return render_template('quiz-feedback.html', title='feedback', selected_questions=selected_questions,
                                quiz=quiz)
+
+
+class GeneralController:
+
+    @staticmethod
+    def general_view():
+        # GeneralController.get_data_for_pie_chart()
+        return render_template('general.html', title='general view')
+
+    @staticmethod
+    def get_data_for_pie_chart():
+        count_score_below_forty = db.session.query(func.count(Quiz.id)).filter(Quiz.total_score <= 40).scalar()
+        count_score_between_forty_and_eighty = db.session.query(func.count(Quiz.id)).filter(
+            Quiz.total_score > 40, Quiz.total_score < 80).scalar()
+        count_score_above_eighty = db.session.query(func.count(Quiz.id)).filter(
+            Quiz.total_score >= 80).scalar()
+        count_total = Quiz.get_quizzes_count()
+
+        proportions = {
+            "count_score_below_forty": count_score_below_forty,
+            "count_score_between_forty_and_eighty": count_score_between_forty_and_eighty,
+            "count_score_above_eighty": count_score_above_eighty,
+            "count_total": count_total
+        }
+
+        return jsonify(proportions)

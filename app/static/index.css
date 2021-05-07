@@ -143,8 +143,11 @@ html{
 /* for the footer-container style */
 /* -------------------------------------------------------- */
 .footer-container{
+    position: absolute;
+    height:210px;
+    left: 0;
     width: 100%;
-    height: 100%;
+    bottom:0;
     background-color: #333;
 }
 

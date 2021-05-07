@@ -5,10 +5,6 @@ from sqlalchemy import desc, asc, func
 from flask_login import UserMixin
 from datetime import datetime
 
-tutorial_progress = db.Table('tutorial_progress',
-                             db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-                             db.Column('tutorial_id', db.Integer, db.ForeignKey('tutorial.id')))
-
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -16,38 +12,9 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))  # write password hashes to improve security
     register_time = db.Column(db.DateTime)
-    last_tutorial_read_time = db.Column(db.DateTime)
-
-    # one-to-one: tutorial - user
-    # This relationship links User instances to Tutorial instances
-    # Tutorial: target entity
-    # secondary: configures the association table that is used for this relationship
-    # primaryjoin: the condition that links the left side entity
-    # secondaryjoin: ...........................right...........
-    # backref: defines how this relationship will be accessed from the right side entity
-    # lazy: execution mode (dynamic sets up the query to not run until specifically requested)
-    tutorial_checked = db.relationship(
-        'Tutorial', secondary=tutorial_progress,
-        backref='user', uselist=False)
 
     def __repr__(self):  # tells Python how to print objects of this class for debugging.
         return '<User {}>'.format(self.username)
-
-    # update tutorial progress
-    def save_tutorial_progress(self, tutorial_id):
-        if not self.tutorial_checked:
-            statement = tutorial_progress.insert().values(tutorial_id=tutorial_id, user_id=self.id)
-        else:
-            user = User.query.get(self.id)
-            user.last_tutorial_read_time = datetime.now()
-            statement = tutorial_progress.update().where(
-                tutorial_progress.c.user_id == self.id).values(tutorial_id=tutorial_id)
-        db.session.execute(statement)
-        db.session.commit()
-
-    # query tutorial progress
-    def query_tutorial_progress(self):
-        return self.tutorial_checked
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -81,10 +48,71 @@ class Tutorial(db.Model):
     def get_tutorial_count():
         return db.session.query(func.count(Tutorial.id)).scalar()
 
+    @classmethod
+    def query_tutorial(cls, user_id):
+        return cls.query.join(TutorialProgress, (TutorialProgress.read_tutorial_num == cls.tutorial_num)).filter(
+            TutorialProgress.user_id == user_id).order_by(desc(TutorialProgress.last_tutorial_read_time)).first()
 
-# class Story(db.Model):
-# id = db.Column(db.Integer, primary_key=True)
-# main_text = db.Column(db.UnicodeText())
+    @classmethod
+    def query_by_num(cls, num):
+        return cls.query.filter_by(tutorial_num=num).first()
+
+
+class TutorialProgress(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    time_duration = db.Column(db.Float(precision=10, decimal_return_scale=2))
+    read_tutorial_num = db.Column(db.Integer, db.ForeignKey('tutorial.tutorial_num'))
+    last_tutorial_read_time = db.Column(db.DateTime)
+
+    def __repr__(self):
+        return '<TutorialDuration id: {}, time_duration: {}>'.format(self.id, self.time_duration)
+
+    # query tutorial progress
+    @classmethod
+    def query_tutorial_progress(cls, user_id):
+        return cls.query.filter_by(user_id=user_id).order_by(desc(cls.last_tutorial_read_time)).first()
+
+    @classmethod
+    def query_tutorial_progress_by_tutorial_num(cls, user_id, tutorial_num):
+        return cls.query.filter(TutorialProgress.user_id == user_id,
+                                TutorialProgress.read_tutorial_num == tutorial_num).order_by(
+            desc(cls.last_tutorial_read_time)).first()
+
+    # update tutorial progress
+    @classmethod
+    def save_tutorial_progress(cls, user_id, tutorial_num):
+
+        # query last time of the tutorial progress.
+        last_tutorial_progress = cls.query_tutorial_progress(user_id)
+
+        # for new user who never read any of the tutorials
+        if not last_tutorial_progress:
+            current_tutorial_progress = TutorialProgress(user_id=user_id,
+                                                         read_tutorial_num=tutorial_num)
+            db.session.add(current_tutorial_progress)
+        else:
+            # update time_duration and read_time
+            last_tutorial_progress.time_duration = ((datetime.now() -
+                                                     last_tutorial_progress.last_tutorial_read_time).seconds) / 60
+            last_tutorial_progress.last_tutorial_read_time = datetime.now()
+
+            # query if the user read the current tutorial
+            current_tutorial_progress = cls.query_tutorial_progress_by_tutorial_num(user_id, tutorial_num)
+            if not current_tutorial_progress:
+                # add new tutorial progress
+                current_tutorial_progress = TutorialProgress(user_id=user_id, time_duration=0,
+                                                             read_tutorial_num=tutorial_num,
+                                                             last_tutorial_read_time=datetime.now())
+                db.session.add(current_tutorial_progress)
+            else:
+                # update tutorial progress
+                current_tutorial_progress.last_tutorial_read_time = datetime.now()
+        db.session.commit()
+
+    def set_first_read_time(self):
+        self.last_tutorial_read_time = datetime.now()
+        db.session.commit()
 
 
 class Question(db.Model):
@@ -127,7 +155,7 @@ class Quiz(db.Model):
     status = db.Column(db.SmallInteger)
 
     def __repr__(self):
-        return '<Quiz status: {}>'.format(self.status)
+        return '<Quiz status: {}, total_score:{}, user_id:{}>'.format(self.status, self.total_score, self.user_id)
 
     @staticmethod
     def addNewQuiz(quiz, questions):
@@ -160,6 +188,10 @@ class Quiz(db.Model):
         self.total_score = total_score
         self.status = 1
         db.session.commit()
+
+    @staticmethod
+    def get_quizzes_count():
+        return db.session.query(func.count(Quiz.id)).scalar()
 
 
 class QuestionLog(db.Model):
