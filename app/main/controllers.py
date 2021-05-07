@@ -6,6 +6,8 @@ from app.data import add_tutorial_data, addQuestion
 from sqlalchemy.orm import class_mapper
 from datetime import datetime
 from sqlalchemy import desc, asc, func
+import mock
+import numpy as np
 
 
 class IndexController:
@@ -160,5 +162,20 @@ class GeneralController:
             "count_score_above_eighty": count_score_above_eighty,
             "count_total": count_total
         }
-
         return jsonify(proportions)
+
+    @staticmethod
+    def get_data_for_area_chart():
+        tutorial_progresses = TutorialProgress.query.all()
+        tutorial_count = Tutorial.get_tutorial_count()
+        tutorial_time_list = {}
+        tutorial_average_time = [0 for x in range(0, tutorial_count)]
+        for tu in tutorial_progresses:
+            if not tutorial_time_list.get(tu.read_tutorial_num):
+                tutorial_time_list[tu.read_tutorial_num] = []
+            tutorial_time_list[tu.read_tutorial_num].append(tu.time_duration)
+
+        for k, v in tutorial_time_list.items():
+            tutorial_average_time[k - 1] = ['P' + str(k), np.mean(v)]
+
+        return jsonify(tutorial_average_time)
