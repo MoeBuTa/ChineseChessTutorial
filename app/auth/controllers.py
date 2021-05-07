@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for
 from app import db
 from app.auth.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user
-from app.models import User, Tutorial
+from app.models import User, TutorialProgress
 from datetime import datetime
 
 
@@ -64,8 +64,8 @@ class UserController:
             user = User(username=register_username, email=email, register_time=datetime.now())
             user.set_password(register_password)
             db.session.add(user)
-            db.session.commit()
-            registered_user = User.query.filter_by(username=register_username).first()
-            registered_user.save_tutorial_progress(1)
+            db.session.flush()
+            TutorialProgress.save_tutorial_progress(user.id, 1)
+
             response["action"] = 1
             return response
