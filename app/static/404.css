@@ -1,0 +1,78 @@
+*{
+    font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+    color: #333;
+    text-decoration: none;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: -webkit-repeating-linear-gradient(45deg, #6989c6, #1458d8, #3c5074, #6989c6, #1458d8, #3c5074, #6989c6);
+    height: 100vh;
+    background-size: 200%;
+}
+
+/* page error */
+.container{
+    position: absolute;
+    top: 10%;
+    left: 17%;
+    right: 17%;
+    bottom: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .4);
+}
+
+.container .content{
+    max-width: 600px;
+    text-align: center;
+}
+
+.content .title{
+    font-size: 100px;
+    font-weight: bolder;
+    line-height: 120px;
+    color: #6989c6;
+
+}
+
+.content .sub_title{
+    font-size: 30px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    max-width: 600px;
+
+}
+
+.content .page{
+    font-size: 16px;
+}
+
+.content .btn{
+    display: inline-flex;
+}
+
+.content .btn a{
+    display: inline-block;
+    margin-top: 20px;
+    border: 2px solid #6989c6;
+    color: #6989c6;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: all .3s ease;
+}
+
+.content .btn a:hover{
+    color: #fff;
+    background: #6989c6;
+}
+
+
+
