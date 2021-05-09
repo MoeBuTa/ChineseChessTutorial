@@ -78,6 +78,7 @@
 }
 
 button{
+    line-height: 0px;
     margin-top: 70px;
     border: none;
     outline: none;
