@@ -6,7 +6,7 @@ from app.api.errors import error_response as api_error_response
 
 def wants_json_response():
     return request.accept_mimetypes['application/json'] >= \
-        request.accept_mimetypes['text/html']
+           request.accept_mimetypes['text/html']
 
 
 @bp.app_errorhandler(404)
@@ -22,3 +22,10 @@ def internal_error(error):
     if wants_json_response():
         return api_error_response(500)
     return render_template('errors/500.html'), 500
+
+
+@bp.app_errorhandler(401)
+def unauthorized_error(error):
+    if wants_json_response():
+        return api_error_response(401)
+    return render_template('errors/401.html'), 401

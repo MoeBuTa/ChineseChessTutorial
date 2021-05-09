@@ -1,18 +1,45 @@
-# CITS3403-groupDesign<br>
+# Chinese Chess Tutorial
+A flask app for user to learn how to play Chinese Chess.
+
+##1. design and development
 
 
 
-# Get started:<br>
-1.pip install virtalenv<br>
-2.virtalenv venv<br>
-3.source venv/bin/activate<br>
-4.pip install -r requirements.txt<br>
-5.flask run<br>
+##2. installing:
+- Install python3.7 sqlite3
+  <br>
+- update pip:
+`python -m pip install --upgrade pip`
+  <br>
+- set up a virtual environment:
+`pip install virtualenv`
+`virtualenv venv`
 
-# create database:<br>
-1. flask db init<br>
-2. flask db migrate<br>
-3. flask db upgrade<br>
+##3.  Get Started:
+- Activate the python virtual environment:
+`source venv/bin/activate`
+  <br>
+- Install requirements.txt
+`pip install -r requirements.txt`
+  <br>
+- build the database:
+  - `flask db init`
+  - `flask db migrate`
+  - `flask db upgrade`   
+<br>
+- deploy flask server 
+`flask run`
 
-# unit test<br>
-python -m tests.unit_test
+- To run the app:`$flask run`
+<br>
+- To stop the app:`$^C`
+<br>
+- To exit the environment:`$deactivate`
+
+
+##4. Running on the tests
+1. unit test
+`python -m tests.unit_tests`
+   
+2. selenium test
+`python -m tests.selenium_tests`

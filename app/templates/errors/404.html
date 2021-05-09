@@ -1,6 +1,8 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 {% block styles %}
   {{super()}}
-  <link rel="stylesheet" type="text/css" href="../static/404.css">
+  <link rel="stylesheet" type="text/css" href="../../static/404.css">
 {% endblock styles %}
 
 {% block content %}
@@ -11,7 +13,7 @@
             <div class="sub_title">Opps! Page not found</div>
             <div class="page">Sorry! The page can't open. The error may be used when a server does not wish to disclose whether it has the requested information.</div>
             <div class="btn">
-                <a href="#">Return Home</a>
+                <a href="{{ url_for('main.index') }}">Return Home</a>
             </div>
         </div>
     </div>
