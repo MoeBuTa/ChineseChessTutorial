@@ -1,12 +1,11 @@
 from flask import render_template, flash, redirect, url_for, jsonify
 from app import db
-from flask_login import current_user, login_user, logout_user
-from app.models import User, Tutorial, Question, QuestionLog, Quiz, QuestionAnswer, TutorialProgress
+from flask_login import current_user
+from app.models import Tutorial, Question, QuestionLog, Quiz, TutorialProgress
 from app.data import add_tutorial_data, addQuestion
 from sqlalchemy.orm import class_mapper
 from datetime import datetime
-from sqlalchemy import desc, asc, func
-import mock
+from sqlalchemy import func
 import numpy as np
 
 
