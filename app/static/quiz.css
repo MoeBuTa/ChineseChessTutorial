@@ -98,3 +98,10 @@ button:hover{
     float: right;
     margin-right: 10px;
 }
+
+
+/* to level with the submit button */
+.cancel {
+    position: relative;
+    bottom: 24px;
+}
