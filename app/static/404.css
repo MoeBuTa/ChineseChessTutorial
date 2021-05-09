@@ -9,7 +9,7 @@
 }
 
 body{
-    background: -webkit-repeating-linear-gradient(45deg, #6989c6, #1458d8, #3c5074, #6989c6, #1458d8, #3c5074, #6989c6);
+    background: -webkit-repeating-linear-gradient(45deg, #b9b9b9, #757677, #757677, #b9b9b9, #757677, #757677, #b9b9b9);
     height: 100vh;
     background-size: 200%;
 }
