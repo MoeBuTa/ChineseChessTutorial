@@ -1,6 +1,8 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 {% block styles %}
   {{super()}}
-  <link rel="stylesheet" type="text/css" href="../static/500.css">
+  <link rel="stylesheet" type="text/css" href="../../static/500.css">
 {% endblock styles %}
 
 {% block content %}
@@ -11,7 +13,7 @@
             <div class="sub_title">Opps! Internal Server Error</div>
             <div class="page">Sorry! The page can't open. Retry the web page by clicking the refresh/reload button or trying the URL from the address bar again.</div>
             <div class="btn">
-                <a href="#">Return Home</a>
+                <a href="{{ url_for('main.index') }}">Return Home</a>
             </div>
         </div>
     </div>

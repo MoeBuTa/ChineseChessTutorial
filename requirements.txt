@@ -17,3 +17,4 @@ WTForms==2.3.3
 alembic==1.5.8
 mock
 numpy
+email-validator==1.1.2
