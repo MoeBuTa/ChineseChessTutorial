@@ -1,11 +1,11 @@
 # Chinese Chess Tutorial
 A flask app for user to learn how to play Chinese Chess.
 
-##1. design and development
+## 1. design and development
 
 
 
-##2. installing:
+## 2. installing:
 - Install python3.7 sqlite3
   <br>
 - update pip:
@@ -15,7 +15,7 @@ A flask app for user to learn how to play Chinese Chess.
 `pip install virtualenv`
 `virtualenv venv`
 
-##3.  Get Started:
+## 3.  Get Started:
 - Activate the python virtual environment:
 `source venv/bin/activate`
   <br>
@@ -27,17 +27,13 @@ A flask app for user to learn how to play Chinese Chess.
   - `flask db migrate`
   - `flask db upgrade`   
 <br>
-- deploy flask server 
-`flask run`
 
 - To run the app:`$flask run`
-<br>
-- To stop the app:`$^C`
-<br>
+- To stop the app: `$^C`
 - To exit the environment:`$deactivate`
 
 
-##4. Running on the tests
+## 4. Running on the tests
 1. unit test
 `python -m tests.unit_tests`
    
