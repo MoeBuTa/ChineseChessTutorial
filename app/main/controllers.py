@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, jsonify
+from flask import render_template, flash, redirect, url_for
 from app import db
 from flask_login import current_user
 from app.models import Tutorial, Question, QuestionLog, Quiz, TutorialProgress
@@ -44,12 +44,6 @@ class TutorialController:
         return render_template('tutorial.html', title='Chinese chess tutorial', current_tutorial=current_tutorial,
                                tutorial_count=tutorial_count)
 
-    # query switched tutorial by num and save progress
-    @staticmethod
-    def tutorial_switch(target_tutorial_num):
-        target_tutorial = Tutorial.query.filter_by(tutorial_num=target_tutorial_num).first()
-        TutorialProgress.save_tutorial_progress(current_user.id, target_tutorial_num)
-        return jsonify(target_tutorial.to_dict())
 
 
 class StoryController:
@@ -100,13 +94,6 @@ class QuestionController:
         return render_template('quiz.html', title='Chinese chess questions',
                                selected_questions=selected_questions, quiz_id=quiz_id)
 
-    @staticmethod
-    def save_questions_progress(selected_answer, question_log_id, quiz_id):
-        question_log = QuestionLog.query.get(question_log_id)
-        question_log.save_question_progress(selected_answer)
-        quiz = Quiz.query.get(quiz_id)
-        quiz.update_quiz_edit_time()
-        return "success"
 
     @staticmethod
     def submit_questions(form):
@@ -138,35 +125,3 @@ class GeneralController:
     @staticmethod
     def general_view():
         return render_template('general.html', title='general view')
-
-    @staticmethod
-    def get_data_for_pie_chart():
-        count_score_below_forty = db.session.query(func.count(Quiz.id)).filter(Quiz.total_score <= 40).scalar()
-        count_score_between_forty_and_eighty = db.session.query(func.count(Quiz.id)).filter(
-            Quiz.total_score > 40, Quiz.total_score < 80).scalar()
-        count_score_above_eighty = db.session.query(func.count(Quiz.id)).filter(
-            Quiz.total_score >= 80).scalar()
-        count_total = Quiz.get_quizzes_count()
-
-        proportions = {
-            "count_score_below_forty": count_score_below_forty,
-            "count_score_between_forty_and_eighty": count_score_between_forty_and_eighty,
-            "count_score_above_eighty": count_score_above_eighty,
-            "count_total": count_total
-        }
-        return jsonify(proportions)
-
-    @staticmethod
-    def get_data_for_area_chart():
-        tutorial_progresses = TutorialProgress.query.all()
-        tutorial_count = Tutorial.get_tutorial_count()
-        tutorial_time_list = {}
-        tutorial_average_time = [['P' + str(x), 0] for x in range(0, tutorial_count)]
-        for tu in tutorial_progresses:
-            if not tutorial_time_list.get(tu.read_tutorial_num):
-                tutorial_time_list[tu.read_tutorial_num] = []
-            tutorial_time_list[tu.read_tutorial_num].append(tu.time_duration)
-        for k, v in tutorial_time_list.items():
-            tutorial_average_time[k - 1] = ['P' + str(k), np.mean(v)]
-
-        return jsonify(tutorial_average_time)

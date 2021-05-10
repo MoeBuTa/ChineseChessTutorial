@@ -32,7 +32,7 @@ function getAnotherTutorial(button) {
 
     }
     $("#numberPagin_" + tutorial_num).addClass('currentPage');
-    $.post('/tutorialSwitch', {
+    $.post('/api/tutorialSwitch', {
         target_tutorial_num: tutorial_num,
     }).done(function (response) {
         $("#box").scrollTop(0);

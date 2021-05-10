@@ -28,14 +28,15 @@ $(':radio').click(function () {
     var selected_answer = $(this).val();
     console.log(selected_answer)
     var question_log_id = $(this).attr('name');
-    $.post('/saveQuestionsProgress', {
-        selected_answer: selected_answer,
-        question_log_id: question_log_id,
-        quiz_id: quiz_id
-    }).done(function (response) {
-
+    var data = {
+        'selected_answer': selected_answer,
+        'question_log_id': question_log_id,
+        'quiz_id': quiz_id
+    }
+    $.post('/api/saveQuestionsProgress', data).done(function (response) {
+        toastr.success("answer saved!");
     }).fail(function () {
-        // toastr.error("connection timeout!");
+        toastr.error("connection timeout!");
     })
 });
 

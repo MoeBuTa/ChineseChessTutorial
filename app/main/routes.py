@@ -22,13 +22,6 @@ def tutorials():
     return TutorialController.tutorials()
 
 
-@bp.route('/tutorialSwitch', methods=['POST'])
-@login_required
-def tutorial_switch():
-    target_tutorial_num = request.form.get('target_tutorial_num')
-    return TutorialController.tutorial_switch(target_tutorial_num)
-
-
 @bp.route('/questionsInfo')
 @login_required
 def questions_info():
@@ -39,15 +32,6 @@ def questions_info():
 @login_required
 def questions():
     return QuestionController.questions()
-
-
-@bp.route('/saveQuestionsProgress', methods=['POST'])
-@login_required
-def save_questions_progress():
-    selected_answer = request.form.get('selected_answer')
-    question_log_id = request.form.get('question_log_id')
-    quiz_id = request.form.get('quiz_id')
-    return QuestionController.save_questions_progress(selected_answer, question_log_id, quiz_id)
 
 
 @bp.route('/submitQuestions', methods=['POST'])
@@ -61,11 +45,5 @@ def general_view():
     return GeneralController.general_view()
 
 
-@bp.route('/getDataForPieChart', methods=['POST'])
-def get_data_for_pie_chart():
-    return GeneralController.get_data_for_pie_chart()
 
 
-@bp.route('/getDataForAreaChart', methods=['POST'])
-def get_data_for_area_chart():
-    return GeneralController.get_data_for_area_chart()

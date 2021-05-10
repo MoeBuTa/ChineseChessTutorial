@@ -9,8 +9,7 @@ google.charts.load("current", {packages: ["calendar"]});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawSarahChart() {
-    $.post('/getDataForAreaChart', {}).done(function (response) {
-        console.log(response)
+    $.post('/api/getDataForAreaChart', {}).done(function (response) {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'minutes');
@@ -33,15 +32,15 @@ function drawSarahChart() {
 }
 
 function drawAnthonyChart() {
-    $.post('/getDataForPieChart', {}).done(function (response) {
+    $.post('/api/getDataForPieChart', {}).done(function (response) {
         var p1 = response["count_score_below_forty"];
         var p2 = response["count_score_between_forty_and_eighty"];
         var p3 = response["count_score_above_eighty"];
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
+        data.addColumn('number', 'number of people');
         data.addRows([
-            ['≤40', p1],
+            ['<40', p1],
             ['40-80', p2],
             ['≥80', p3],
         ]);
