@@ -25,6 +25,7 @@ class UserController:
                 flash('Invalid username or password')
             else:
                 login_user(user, remember=loginForm.remember_me.data)
+                current_user.get_token()
                 return redirect(url_for('main.index'))
 
         if registrationForm.registration_submit.data:

@@ -3,7 +3,6 @@ from app import db
 from flask_login import current_user
 from app.models import Tutorial, Question, QuestionLog, Quiz, TutorialProgress
 from app.data import add_tutorial_data, addQuestion
-from sqlalchemy.orm import class_mapper
 from datetime import datetime
 from sqlalchemy import func
 import numpy as np
@@ -18,11 +17,6 @@ class IndexController:
         if not Question.query.all():
             addQuestion()
         return render_template('index.html', title='Chinese Chess')
-
-    @staticmethod
-    def serialize(model):
-        columns = [c.key for c in class_mapper(model.__class__).columns]
-        return dict((c, getattr(model, c)) for c in columns)
 
 
 class TutorialController:
@@ -55,7 +49,7 @@ class TutorialController:
     def tutorial_switch(target_tutorial_num):
         target_tutorial = Tutorial.query.filter_by(tutorial_num=target_tutorial_num).first()
         TutorialProgress.save_tutorial_progress(current_user.id, target_tutorial_num)
-        return jsonify(IndexController.serialize(target_tutorial))
+        return jsonify(target_tutorial.to_dict())
 
 
 class StoryController:
@@ -90,7 +84,7 @@ class QuestionController:
                             start_question_time=datetime.now(),
                             status=0,
                             last_question_edit_time=datetime.now())
-                selected_questions = Quiz.addNewQuiz(quiz, questions_in_db)
+                selected_questions = Quiz.add_new_quiz(quiz, questions_in_db)
 
             else:
                 selected_questions = Question.get_selected_question(quiz.id)
@@ -143,7 +137,6 @@ class GeneralController:
 
     @staticmethod
     def general_view():
-        # GeneralController.get_data_for_pie_chart()
         return render_template('general.html', title='general view')
 
     @staticmethod
