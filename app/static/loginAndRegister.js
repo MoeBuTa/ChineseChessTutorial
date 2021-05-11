@@ -30,7 +30,7 @@ function registerValidation() {
     }
 
     $.ajax({
-        url: "/registerValidation",
+        url: "/api/registerValidation",
         data: {
             register_username: $("#register_username").val(),
             email: email,
@@ -39,6 +39,7 @@ function registerValidation() {
         type: "POST",
         async: false,
         success: function (re) {
+            console.log(re)
             response = re;
         },
         error: function () {
@@ -46,11 +47,11 @@ function registerValidation() {
         }
     });
 
-    if (response.action == 1) {
+    if (response == 'success') {
         return true;
     }
     else{
-        toastr.error(response.msg);
+        toastr.error(response);
     }
     return false;
 

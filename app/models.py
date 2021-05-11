@@ -28,6 +28,24 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    def register_validation(self, register_password):
+        # validate username
+        check_username = User.query.filter_by(username=self.username).first()
+        if check_username is not None:
+            return 'Please use a different username!'
+
+        # validate email
+        check_email = User.query.filter_by(email=self.email).first()
+        if check_email is not None:
+            return 'Please use a different email address!'
+
+        # add user to database
+        self.set_password(register_password)
+        db.session.add(self)
+        db.session.flush()
+        TutorialProgress.save_tutorial_progress(self.id, 1)
+        return 'success'
+
     # Token support methods for api
     def get_token(self, expires_in=3600):
         now = datetime.utcnow()
@@ -166,7 +184,7 @@ class TutorialProgress(db.Model):
             if time_duration < 5:
                 last_tutorial_progress.time_duration += time_duration
             else:
-                last_tutorial_progress.time_duration = 5
+                last_tutorial_progress.time_duration += 5
             last_tutorial_progress.last_tutorial_read_time = datetime.now()
 
             # query if the user read the current tutorial

@@ -37,37 +37,3 @@ class UserController:
     def logout():
         logout_user()
         return redirect(url_for('main.index'))
-
-    @staticmethod
-    def register_validation(register_username, email, register_password):
-
-        response = {
-            "action": 0,
-            "msg": '',
-            "target": ''
-        }
-
-        # validate username
-        check_username = User.query.filter_by(username=register_username).first()
-        if check_username is not None:
-            response["msg"] = 'Please use a different username!'
-            response["target"] = "register_username"
-            return response
-
-        # validate email
-        check_email = User.query.filter_by(email=email).first()
-        if check_email is not None:
-            response["msg"] = 'Please use a different email address!'
-            response["target"] = "email"
-            return response
-
-        # add user to database
-        else:
-            user = User(username=register_username, email=email, register_time=datetime.now())
-            user.set_password(register_password)
-            db.session.add(user)
-            db.session.flush()
-            TutorialProgress.save_tutorial_progress(user.id, 1)
-
-            response["action"] = 1
-            return response
