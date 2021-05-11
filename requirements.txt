@@ -19,3 +19,4 @@ mock
 numpy
 email-validator==1.1.2
 Flask-HTTPAuth==4.2.0
+selenium==3.141.0

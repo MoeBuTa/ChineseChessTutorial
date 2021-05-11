@@ -1,11 +1,8 @@
 from flask import render_template, flash, redirect, url_for
-from app import db
 from flask_login import current_user
 from app.models import Tutorial, Question, QuestionLog, Quiz, TutorialProgress
-from app.data import add_tutorial_data, addQuestion
 from datetime import datetime
-from sqlalchemy import func
-import numpy as np
+from tests import data
 
 
 class IndexController:
@@ -13,9 +10,7 @@ class IndexController:
     @staticmethod
     def index():
         if not Tutorial.query.all():
-            add_tutorial_data()
-        if not Question.query.all():
-            addQuestion()
+            data.add_data()
         return render_template('index.html', title='Chinese Chess')
 
 
@@ -45,7 +40,6 @@ class TutorialController:
                                tutorial_count=tutorial_count)
 
 
-
 class StoryController:
 
     @staticmethod
@@ -68,6 +62,7 @@ class QuestionController:
         questions_in_db = Question.query.all()
         selected_questions = []
         quiz_id = 0
+
         # check if database has questions available
         if questions_in_db:
 
@@ -93,7 +88,6 @@ class QuestionController:
 
         return render_template('quiz.html', title='Chinese chess questions',
                                selected_questions=selected_questions, quiz_id=quiz_id)
-
 
     @staticmethod
     def submit_questions(form):

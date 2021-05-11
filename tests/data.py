@@ -1,5 +1,6 @@
 from app import db
-from app.models import Tutorial, Question, QuestionAnswer
+from app.models import Tutorial, Question, QuestionAnswer, User, TutorialProgress
+from datetime import datetime
 
 
 def add_tutorial_data():
@@ -121,7 +122,7 @@ def add_tutorial_data():
     db.session.commit()
 
 
-def addQuestion():
+def add_question():
     question1 = Question(
         body="What is the number of pieces does a game require altogether?",
         option_one='20',
@@ -133,7 +134,6 @@ def addQuestion():
     db.session.flush()
     answer1 = QuestionAnswer(question_id=question1.id, answer='32', score=20.00)
     db.session.add(answer1)
-    # db.session.commit()
 
     question2 = Question(
         body="How many types of pieces does Xiangqi have?",
@@ -146,7 +146,6 @@ def addQuestion():
     db.session.flush()
     answer2 = QuestionAnswer(question_id=question2.id, answer='7', score=20.00)
     db.session.add(answer2)
-    # db.session.commit()
 
     question3 = Question(
         body="How big is the board of Xiangqi?",
@@ -159,7 +158,6 @@ def addQuestion():
     db.session.flush()
     answer3 = QuestionAnswer(question_id=question3.id, answer='9 by 10', score=20.00)
     db.session.add(answer3)
-    # db.session.commit()
 
     question4 = Question(
         body=" How many spots/spaces does the palace/fortress have?",
@@ -172,7 +170,6 @@ def addQuestion():
     db.session.flush()
     answer4 = QuestionAnswer(question_id=question4.id, answer='9', score=20.00)
     db.session.add(answer4)
-    # db.session.commit()
 
     question5 = Question(
         body="What type of piece has the most pieces on the board?",
@@ -185,7 +182,6 @@ def addQuestion():
     db.session.flush()
     answer5 = QuestionAnswer(question_id=question5.id, answer='Soldier', score=20.00)
     db.session.add(answer5)
-    # db.session.commit()
 
     question6 = Question(
         body="What piece cannot cross the river?",
@@ -198,7 +194,6 @@ def addQuestion():
     db.session.flush()
     answer6 = QuestionAnswer(question_id=question6.id, answer='Elephant', score=20.00)
     db.session.add(answer6)
-    # db.session.commit()
 
     question7 = Question(
         body="Which piece moves in directions that are different from the other three?",
@@ -211,7 +206,6 @@ def addQuestion():
     db.session.flush()
     answer7 = QuestionAnswer(question_id=question7.id, answer='Counselor', score=20.00)
     db.session.add(answer7)
-    # db.session.commit()
 
     question8 = Question(
         body="Which piece captures differently from the other three?",
@@ -224,7 +218,6 @@ def addQuestion():
     db.session.flush()
     answer8 = QuestionAnswer(question_id=question8.id, answer='Cannon', score=20.00)
     db.session.add(answer8)
-    # db.session.commit()
 
     question9 = Question(
         body="Which piece cannot leave the palace?",
@@ -238,3 +231,27 @@ def addQuestion():
     answer9 = QuestionAnswer(question_id=question9.id, answer='General', score=20.00)
     db.session.add(answer9)
     db.session.commit()
+
+
+def add_user():
+    user1 = User(username='John', email='12345@gmail.com', register_time=datetime.now())
+    user1.set_password("12345")
+    db.session.add(user1)
+    db.session.flush()
+    TutorialProgress.save_tutorial_progress(user1.id, 1)
+    user2 = User(username='Tom', email='23456@gmail.com', register_time=datetime.now())
+    user2.set_password("qwerty")
+    db.session.add(user2)
+    db.session.flush()
+    TutorialProgress.save_tutorial_progress(user2.id, 1)
+    user3 = User(username='Mike', email='34567@gmail.com', register_time=datetime.now())
+    user3.set_password("zxcvb")
+    db.session.add(user3)
+    db.session.flush()
+    TutorialProgress.save_tutorial_progress(user3.id, 1)
+
+
+def add_data():
+    add_tutorial_data()
+    add_question()
+    add_user()
