@@ -71,6 +71,98 @@ class SystemTest(unittest.TestCase):
         logout = self.driver.find_element_by_partial_link_text('Logout')
         self.assertEqual(logout.get_attribute('innerHTML'), 'RandomGuy_Logout', msg='Logged in')
 
+    def test_tutorial(self):
+        # test auth
+        self.driver.get('http://localhost:5000/tutorials')
+        self.driver.implicitly_wait(5)
+        self.assertEqual(self.driver.find_element_by_class_name('title').get_attribute('innerHTML'), '401',
+                         msg='unauthenticated')
+
+        # login an account
+        self.driver.implicitly_wait(5)
+        self.driver.find_element_by_partial_link_text('login your account').click()
+        self.driver.implicitly_wait(5)
+        time.sleep(1)
+        login_username_field = self.driver.find_element_by_id('login_username')
+        login_username_field.send_keys('John')
+        login_password_field = self.driver.find_element_by_id('login_password')
+        login_password_field.send_keys('12345')
+        time.sleep(1)
+        login_submit = self.driver.find_element_by_id('login_submit')
+        login_submit.click()
+
+        # redirect to tutorial page
+        self.driver.implicitly_wait(5)
+        time.sleep(1)
+        tutorial_field = self.driver.find_element_by_partial_link_text('Tutorial')
+        tutorial_field.click()
+        self.assertEqual(self.driver.find_element_by_class_name('title').get_attribute('innerHTML'),
+                         'Learn To Play XiangQi / Chinese Chess',
+                         msg='authenticated')
+
+        # next page
+        self.driver.implicitly_wait(5)
+        time.sleep(1)
+        next_page_field = self.driver.find_element_by_id('next')
+        next_page_field.click()
+        self.assertEqual(self.driver.find_element_by_id('numberPagin_2').get_attribute('innerHTML'),
+                         '2', msg='next page')
+
+        # pre page
+        self.driver.implicitly_wait(5)
+        time.sleep(1)
+        pre_page_field = self.driver.find_element_by_id('pre')
+        pre_page_field.click()
+        self.assertEqual(self.driver.find_element_by_id('numberPagin_1').get_attribute('innerHTML'),
+                         '1', msg='pre page')
+
+    def test_quiz(self):
+        # test auth
+        self.driver.get('http://localhost:5000/questionsInfo')
+        self.driver.implicitly_wait(5)
+        self.assertEqual(self.driver.find_element_by_class_name('title').get_attribute('innerHTML'), '401',
+                         msg='unauthenticated')
+
+        # login an account
+        self.driver.implicitly_wait(5)
+        self.driver.find_element_by_partial_link_text('login your account').click()
+        self.driver.implicitly_wait(5)
+        time.sleep(1)
+        login_username_field = self.driver.find_element_by_id('login_username')
+        login_username_field.send_keys('Tom')
+        login_password_field = self.driver.find_element_by_id('login_password')
+        login_password_field.send_keys('qwerty')
+        time.sleep(1)
+        login_submit = self.driver.find_element_by_id('login_submit')
+        login_submit.click()
+
+        # redirect to quizInfo page
+        self.driver.implicitly_wait(5)
+        time.sleep(1)
+        quiz_info_field = self.driver.find_element_by_partial_link_text('Quiz')
+        quiz_info_field.click()
+        self.assertEqual(self.driver.find_element_by_class_name('title').get_attribute('innerHTML'),
+                         'INSTRUCTIONS',
+                         msg='authenticated')
+
+        # redirect to quiz page
+        self.driver.implicitly_wait(5)
+        time.sleep(1)
+        quiz_field = self.driver.find_element_by_id('begin')
+        quiz_field.click()
+        self.assertEqual(self.driver.find_element_by_class_name('title').get_attribute('innerHTML'),
+                         'Start your Quiz now:',
+                         msg='quiz page')
+
+        # submit quiz
+        self.driver.implicitly_wait(5)
+        time.sleep(1)
+        submit_field = self.driver.find_element_by_id('submit')
+        submit_field.click()
+        self.assertEqual(self.driver.find_element_by_id('username').get_attribute('innerHTML'),
+                         'Tom',
+                         msg='quiz feedback')
+
 
 if __name__ == '__main__':
     unittest.main()

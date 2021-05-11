@@ -1,7 +1,7 @@
-var sub = document.getElementById("submit");
-sub.onclick = function () {
-    alert("You have Submitted!");
-};
+// var sub = document.getElementById("submit");
+// sub.onclick = function () {
+//     alert("You have Submitted!");
+// };
 
 
 var quiz_id = Server.quiz_id;
