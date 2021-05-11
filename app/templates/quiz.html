@@ -7,6 +7,8 @@
 
 
 {% block content %}
+<div class="main-container">
+        {% include 'navSideBar.html' %}
     <div class="article-container">
 
         <div class="article-content web_width clearfix">
@@ -59,6 +61,7 @@
             </div>
         </div>
     </div>
+</div>
     {% block scripts %}
         {{ super() }}
         <script>
