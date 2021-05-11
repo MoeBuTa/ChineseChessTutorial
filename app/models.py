@@ -313,12 +313,14 @@ class Quiz(db.Model):
             selected_quest.QuestionLog = quest
             selected_questions.append(selected_quest)
             db.session.add(quest)
+            db.session.flush()
         db.session.commit()
         return selected_questions
 
     def update_quiz_edit_time(self):
         self.last_question_edit_time = datetime.now()
         db.session.commit()
+        return self.last_question_edit_time
 
     def submit_quiz(self, total_score):
         self.last_question_edit_time = datetime.now()

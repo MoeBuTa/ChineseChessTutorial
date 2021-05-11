@@ -38,4 +38,6 @@ A flask app for user to learn how to play Chinese Chess.
 `python -m tests.unit_tests`
    
 2. selenium test
-`python -m tests.selenium_tests`
+Chrome version: 88.0.4324.96
+OS: win10  
+`python -m tests.system_tests`

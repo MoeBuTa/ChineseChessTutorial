@@ -1,7 +1,7 @@
 import unittest
 from app import create_app, db
 from tests import data
-from app.models import User, Tutorial, TutorialProgress, Question, Quiz
+from app.models import User, Tutorial, TutorialProgress, Question, Quiz, QuestionLog
 from config import TestingConfig
 from datetime import datetime
 
@@ -13,9 +13,8 @@ class UserModelCase(unittest.TestCase):
         self.app_context = self.app.app_context()
         self.app_context.push()
         db.create_all()
-        data.add_question()
-        data.add_tutorial_data()
-        data.add_user()
+        data.add_data()
+
 
     def tearDown(self):
         db.session.remove()
@@ -35,7 +34,7 @@ class UserModelCase(unittest.TestCase):
         user2 = User(username='Daniel', email='12345@gmail.com', register_time=datetime.now())
         message2 = user2.register_validation("12345")
         self.assertEqual(message2, 'Please use a different email address!')
-        user3 = User(username='Daniel', email='123456@gmail.com', register_time=datetime.now())
+        user3 = User(username='RandomGuy', email='123456@gmail.com', register_time=datetime.now())
         message3 = user3.register_validation("12345")
         self.assertEqual(message3, 'success')
 
@@ -48,22 +47,49 @@ class UserModelCase(unittest.TestCase):
         self.assertEqual(count, 8)
 
     def test_tutorial_progress(self):
-        user = User(username='Daniel', email='1234567@gmail.com', register_time=datetime.now())
+        # add new user template
+        user = User(username='RandomGuy', email='1234567@gmail.com', register_time=datetime.now())
         user.register_validation("12345")
         progress = TutorialProgress.query_tutorial_progress(user.id)
         self.assertEqual(progress.user_id, user.id)
 
     def test_add_quiz_and_select_questions(self):
-        user = User(username='Daniel', email='1234567@gmail.com', register_time=datetime.now())
-        user.register_validation("12345")
+        # add quiz and log
         questions_in_db = Question.query.all()
-        quiz = Quiz(user_id=user.id,
+        quiz = Quiz(user_id=1,
                     start_question_time=datetime.now(),
                     status=0,
                     last_question_edit_time=datetime.now())
         selected_questions = Quiz.add_new_quiz(quiz, questions_in_db)
         self.assertEqual(selected_questions[0].QuestionLog.quiz_id, quiz.id)
 
+    def test_save_question_progress(self):
+        # add quiz and log
+        questions_in_db = Question.query.all()
+        quiz = Quiz(user_id=1,
+                    start_question_time=datetime.now(),
+                    status=0,
+                    last_question_edit_time=datetime.now())
+        Quiz.add_new_quiz(quiz, questions_in_db)
+
+        # save progress
+        question_log = QuestionLog.query.get(1)
+        question_log.save_question_progress("abc")
+
+        self.assertEqual(question_log.selected_answer, "abc")
+
+    def test_update_quiz_edit_time(self):
+        # add quiz and log
+        questions_in_db = Question.query.all()
+        quiz = Quiz(user_id=1,
+                    start_question_time=datetime.now(),
+                    status=0,
+                    last_question_edit_time=datetime.now())
+        Quiz.add_new_quiz(quiz, questions_in_db)
+
+        # update quiz edit time
+        edit_time = quiz.update_quiz_edit_time()
+        self.assertEqual(quiz.last_question_edit_time, edit_time)
 
 
 if __name__ == '__main__':
