@@ -1,27 +1,32 @@
 
-<div class="main-content web_width clearfix">
+<nav class="side-container clearfix">
+
+    <a href="#" class="sidebar-icon"><img src="../static/chess-img/sidebar-icon.png" alt="sidebar icon" width="60" height="60"></a>
+
+
     <div class="navsidebar">
         <div class="target"><img src="./static/chess-img/target.png" alt="view of target"></div>
         <ul class="lists">
-            <li><a href="{{ url_for('main.index') }}">Home</a></li>
-            <li><a href="{{url_for('main.story')}}">Story</a></li>
+            <li><a class="sideBarLinks sideBarLinksCommon sideBarLinksColour" href="{{ url_for('main.index') }}">Home</a></li>
+            <li><a class="sideBarLinks sideBarLinksCommon sideBarLinksColour" href="{{url_for('main.story')}}">Story</a></li>
             <li class="rule">
-                <a href="{{ url_for('main.tutorials') }}">Rule</a>
+                <a class="sideBarLinks sideBarLinksCommon sideBarLinksColour" href="{{ url_for('main.tutorials') }}">Rule</a>
                 <div class="rule-lists">
                     <ul>
-                        <li><a href="#">page1</a></li>
-                        <li><a href="#">page2</a></li>
-                        <li><a href="#">page3</a></li>
-                        <li><a href="#">page4</a></li>
-                        <li><a href="#">page5</a></li>
-                        <li><a href="#">page6</a></li>
-                        <li><a href="#">page7</a></li>
-                        <li><a href="#">page8</a></li>
+                        <li><a class="ruleListLinks sideBarLinksCommon" href="#">page1</a></li>
+                        <li><a class="ruleListLinks sideBarLinksCommon" href="#">page2</a></li>
+                        <li><a class="ruleListLinks sideBarLinksCommon" href="#">page3</a></li>
+                        <li><a class="ruleListLinks sideBarLinksCommon" href="#">page4</a></li>
+                        <li><a class="ruleListLinks sideBarLinksCommon" href="#">page5</a></li>
+                        <li><a class="ruleListLinks sideBarLinksCommon" href="#">page6</a></li>
+                        <li><a class="ruleListLinks sideBarLinksCommon" href="#">page7</a></li>
+                        <li><a class="ruleListLinks sideBarLinksCommon" href="#">page8</a></li>
                     </ul>
                 </div>
             </li>
-            <li><a href="#">Quiz</a></li>
-            <li><a href="#">General</a></li>
+            <li><a class="sideBarLinks sideBarLinksCommon sideBarLinksColour" href="#">Quiz</a></li>
+            <li><a class="sideBarLinks sideBarLinksCommon sideBarLinksColour" href="#">General</a></li>
         </ul>
     </div>
-</div>
+
+</nav>

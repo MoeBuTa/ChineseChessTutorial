@@ -94,29 +94,40 @@ b{
     overflow: auto;
 }
 
+.side-container {
+    width: 15%;
+    float: left;
+    z-index: 9999;
+    position: fixed;
+}
 
+.sidebar-icon {
+    transition: all 0.5s;
+    float: left;
+}
+
+.sidebar-icon:hover{
+    transform: scale(1.2)
+}
 
 .navsidebar{
-    width: 200px;
-    height: 480px;
+    /* display: none; */
+    width: 0px;
+    overflow: hidden;
+    height: 100%;
     position: fixed;
-    padding: 20px 0;
     text-align: center;
-    z-index: 999;
-
-
+    z-index: 1000;
+    background-color: #6f6f6f;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, .5);
     /* background-color: #ff6700; */
+    transition: 1s;
 }
 
-.navsidebar:hover{
-    background-color: #333;
-    border: 2px solid #ff6700;
+.navsidebar .target{
+    padding: 20px;
 }
 
-.navsidebar a{
-    display: block;
-    color: #b0b0b0;
-}
 
 .navsidebar .lists{
   border-top: 2px solid #ff6700;
@@ -130,8 +141,8 @@ b{
     z-index: 999;
     left: 200px;
     top: 90px;
-
-    background-color: blue;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, .5);
+    background-color: #6f6f6f;
 }
 
 .navsidebar .rule-lists ul{
@@ -140,23 +151,71 @@ b{
     margin: 3px 10px;
 }
 
-.rule:hover .rule-lists{
+.navsidebar .rule:hover .rule-lists{
     display: block;
     z-index: 999;
 }
 
-.navsidebar .lists li a{
-    display: block;
+.navsidebar .lists li{
     height: 62px;
-    line-height: 62px;
-    z-index: 9999;
+    width: 100%;
 }
 
-.navsidebar .lists li a:hover{
+
+.navsidebar .sideBarLinksCommon:hover {
+    background-color: #333;
+    color: #ff6700;
+}
+
+.navsidebar .sideBarLinksCommon {
+    display: inline-block;
+    z-index: 9999;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    z-index: 9999;
+    transition: background-color .5s;
+}
+
+.navsidebar .sideBarLinks {
+    height: 50px;
+    width: 150px;
+    line-height: 50px;
+}
+
+.navsidebar .sideBarLinksColour{
+    color: #b0b0b0;
+}
+
+.navsidebar .ruleListLinks {
+    height: 35px;
+    width: 125px;
+    line-height: 35px;
+    color: #b0b0b0;
+}
+
+.navsidebar .ruleBarLink {
+    background-color: #333;
     color: #ff6700;
 }
 
 
+
+.darkBackground-overlay {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    z-index: 999;
+}
 
 
 /* -------------------------------------------------------- */
@@ -171,6 +230,7 @@ b{
     bottom:0;
     line-height: 50px;
     background-color: #333;
+    z-index: 9999; /* To get it on top of the overlay */
 }
 
 .footer-content .info{

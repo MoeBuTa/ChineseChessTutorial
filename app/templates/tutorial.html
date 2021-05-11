@@ -8,8 +8,12 @@
 
 {% block content %}
     <div class="main-container">
-        {% include 'navSideBar.html' %}
+
         <div class="article-container web_width clearfix">
+
+            {% include 'navSideBar.html' %}
+            <!-- <div class="darkBackground-overlay"></div> -->
+
             <div class="article-content" id="article-content">
                 {{ super() }}
                 <div class="box-cover" id="box-cover">
@@ -87,17 +91,20 @@
             </div>
         </div>
     </div>
-    {% block scripts %}
-        {{ super() }}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script type="text/javascript">
-            var Server = {
-                tutorial_num:{{ current_tutorial.tutorial_num|tojson }},
-                answer: {{ current_tutorial.answer|tojson }},
-                tutorial_count:{{ tutorial_count|tojson }}
-            };
-        </script>
-        <script src="../static/tutorial.js"></script>
 
-    {% endblock scripts %}
 {% endblock content %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        var Server = {
+            tutorial_num:{{ current_tutorial.tutorial_num|tojson }},
+            answer: {{ current_tutorial.answer|tojson }},
+            tutorial_count:{{ tutorial_count|tojson }}
+        };
+    </script>
+    <script src="../static/tutorial.js"></script>
+    <script src="../static/navSideBar.js"></script>
+
+{% endblock scripts %}
