@@ -37,3 +37,9 @@ def get_data_for_area_chart():
     for k, v in tutorial_time_list.items():
         tutorial_average_time[k - 1] = ['P' + str(k), np.mean(v)]
     return jsonify(tutorial_average_time)
+
+
+@bp.route('/getTutorialCount', methods=['POST', 'GET'])
+def get_tutorial_count():
+    tutorial_count = Tutorial.get_tutorial_count()
+    return jsonify(tutorial_count)

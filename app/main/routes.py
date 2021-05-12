@@ -1,5 +1,5 @@
 from app.main.controllers import IndexController, TutorialController, StoryController, QuestionController, \
-    GeneralController
+    GeneralController, UserViewController
 from app.main import bp
 from flask_login import login_required
 from flask import request
@@ -44,6 +44,9 @@ def submit_questions():
 def general_view():
     return GeneralController.general_view()
 
+@bp.route('/userView')
+def user_view():
+    return UserViewController.user_view()
 
 
 

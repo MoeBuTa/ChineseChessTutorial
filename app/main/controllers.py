@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user
-from app.models import Tutorial, Question, QuestionLog, Quiz, TutorialProgress
+from app.models import Tutorial, Question, QuestionLog, Quiz, TutorialProgress, User
 from datetime import datetime
 from tests import data
 
@@ -118,4 +118,24 @@ class GeneralController:
 
     @staticmethod
     def general_view():
-        return render_template('general.html', title='general view')
+        user_count = User.get_user_count()
+        tutorial_count = Tutorial.get_tutorial_count()
+        question_count = Question.get_question_count()
+        return render_template('general.html', title='general view', user_count=user_count,
+                               tutorial_count=tutorial_count, question_count=question_count)
+
+
+class UserViewController:
+
+    @staticmethod
+    def user_view():
+        current_tutorial = Tutorial.query_tutorial(current_user.id)
+        quizzes = Quiz.get_user_quiz(current_user.id)
+        return render_template('user.html', title='user view', current_tutorial=current_tutorial, quizzes=quizzes)
+
+    @staticmethod
+    def selected_quiz(quiz_id):
+        quiz = Quiz.query.get(quiz_id)
+        selected_questions = QuestionLog.get_selected_questions_by_quiz(quiz_id)
+
+        return render_template('quiz-feedback.html', title='feedback', selected_questions=selected_questions, quiz=quiz)

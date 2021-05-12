@@ -46,6 +46,10 @@ class User(UserMixin, db.Model):
         TutorialProgress.save_tutorial_progress(self.id, 1)
         return 'success'
 
+    @staticmethod
+    def get_user_count():
+        return db.session.query(func.count(User.id)).scalar()
+
     # Token support methods for api
     def get_token(self, expires_in=3600):
         now = datetime.utcnow()
@@ -240,6 +244,10 @@ class Question(db.Model):
             asc(QuestionLog.current_question_num)
         ).add_entity(QuestionLog).all()
 
+    @staticmethod
+    def get_question_count():
+        return db.session.query(func.count(Question.id)).scalar()
+
     def to_dict(self):
         data = {
             'id': self.id,
@@ -332,6 +340,10 @@ class Quiz(db.Model):
     def get_quizzes_count():
         return db.session.query(func.count(Quiz.id)).scalar()
 
+    @classmethod
+    def get_user_quiz(cls, user_id):
+        return cls.query.filter_by(user_id=user_id).all()
+
     def to_dict(self):
         data = {
             'id': self.id,
@@ -370,6 +382,14 @@ class QuestionLog(db.Model):
     @classmethod
     def get_selected_question_answer(cls, ids):
         return cls.query.filter(cls.id.in_(ids)).join(
+            QuestionAnswer, (QuestionLog.question_id == QuestionAnswer.question_id)).join(Question, (
+                QuestionLog.question_id == Question.id)).order_by(
+            asc(QuestionLog.current_question_num)).add_entity(
+            QuestionAnswer).add_entity(Question).all()
+
+    @classmethod
+    def get_selected_questions_by_quiz(cls, quiz_id):
+        return cls.query.filter(cls.quiz_id == quiz_id).join(
             QuestionAnswer, (QuestionLog.question_id == QuestionAnswer.question_id)).join(Question, (
                 QuestionLog.question_id == Question.id)).order_by(
             asc(QuestionLog.current_question_num)).add_entity(

@@ -21,3 +21,9 @@ def register_validation():
         return bad_request('must include all user fields!')
     user = User(username=data['register_username'], email=data['email'], register_time=datetime.now())
     return user.register_validation(data['register_password'])
+
+
+@bp.route('/getUserCount', methods=['POST', 'GET'])
+def get_user_count():
+    user_count = User.get_user_count()
+    return jsonify(user_count)

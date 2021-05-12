@@ -1,9 +1,15 @@
 # Chinese Chess Tutorial
 A flask app for user to learn how to play Chinese Chess.
 
-## 1. design and development
+## 1. design and development of the application
 
-
+- a page for user registration and login
+- tutorial, quiz and user view only provided for authenticated user
+- tutorial part can save current reading progress for each user
+- each quiz are 5 questions randomly picked from database, and can save progress and each selected answer when current user didn't finish it
+- feedbacks are available for users when they finished their quizzes
+- general view can see statistics: current number of user, current number of tutorial sections, current number of questions in database, an area chart for showing average reading time for each tutorial section of all users, a pie chart for showing quiz score proportion distribution for all users
+- user view can see users' personal details, quiz history, and the number of tutorial section last read 
 
 ## 2. installing:
 - Install python3.7 sqlite3
@@ -38,6 +44,6 @@ A flask app for user to learn how to play Chinese Chess.
 `python -m tests.unit_tests`
    
 2. selenium test:<br>
-Chrome version: 90.0.4430.212
+Chrome version: 90.0.4430.212<br>
 OS: win10  
 `python -m tests.system_tests`
