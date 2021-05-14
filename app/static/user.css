@@ -1,0 +1,76 @@
+.main-content {
+    width: 1000px;
+    /* height: 100%; */
+    margin: 0 auto;
+}
+
+.main-content .dashboard {
+    /* float: left; */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 90px;
+    /* left: 30%;
+    top: 5%; */
+}
+
+.dashboard .text {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+
+.dashboard .text a {
+    position: relative;
+    left: 30px;
+}
+
+.dashboard .dashboard-progress {
+    position: relative;
+    width: 49%;
+    height: 84px;
+    line-height: 84px;
+    background-color: #fff;
+    border-left: 5px solid #2640d3;
+    border-radius: 5px;
+    float: left;
+}
+
+.dashboard .dashboard-progress a {
+    color: #2640d3;
+    transition: all .3s;
+}
+
+
+.dashboard .dashboard-feedback {
+    position: relative;
+    width: 49%;
+    height: 84px;
+    line-height: 84px;
+    background-color: #fff;
+    border-left: 5px solid #0dc234;
+    border-radius: 5px;
+    float: right;
+}
+
+.dashboard .dashboard-feedback a {
+    color: #0dc234;
+    transition: all .3s;
+}
+
+.dashboard .dashboard-feedback a:hover, .dashboard-progress a:hover {
+    text-shadow: 6px 0 4px rgba(0, 0, 0, .4);
+}
+
+.dashboard .dashboard-feedback img, .dashboard-progress img {
+    position: relative;
+    /* left: 50px; */
+    float: right;
+    top: 30px;
+    right: 30px;
+}
+
+
+.dashboard .charts .center {
+    margin: 0 auto;
+}
