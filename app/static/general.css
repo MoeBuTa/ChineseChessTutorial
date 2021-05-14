@@ -3,8 +3,9 @@
 /* -------------------------------------------------------- */
 
 .main-content {
-    width: 100%;
-    height: 100%;
+    width: 1000px;
+    /* height: 100%; */
+    margin: 0 auto;
 }
 
 /*.bar {*/
@@ -54,12 +55,13 @@
 /*}*/
 
 .main-content .dashboard {
-    float: left;
+    /* float: left; */
     position: relative;
-    /*width: 100%;*/
-    /*height: 100%;*/
-    left: 30%;
-    top: 5%;
+    width: 100%;
+    height: 100%;
+    margin-top: 90px;
+    /* left: 30%;
+    top: 5%; */
 }
 
 .dashboard .text {
@@ -142,11 +144,17 @@
 
 .dashboard .dashboard-tutorial img, .dashboard-quiz img, .dashboard-feedback img, .dashboard-story img {
     position: relative;
-    left: 50px;
+    /* left: 50px; */
+    float: right;
+    top: 30px;
+    right: 30px;
 }
 
 #calendar_basic {
-    position: relative;
-    left: -80px;
+    /* position: relative;
+    left: -80px; */
 }
 
+.dashboard .charts .center {
+    margin: 0 auto;
+}
