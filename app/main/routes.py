@@ -44,9 +44,12 @@ def submit_questions():
 def general_view():
     return GeneralController.general_view()
 
+
 @bp.route('/userView')
 def user_view():
     return UserViewController.user_view()
 
 
-
+@bp.route('/selectedQuiz/<quiz_id>', methods=['GET'])
+def selected_quiz(quiz_id):
+    return UserViewController.selected_quiz(quiz_id)

@@ -67,7 +67,7 @@ class QuestionController:
         if questions_in_db:
 
             # check if current user has unfinished quiz
-            quiz = Quiz.query.filter(Quiz.status == 0 and Quiz.user_id == current_user.id).first()
+            quiz = Quiz.query.filter(Quiz.status == 0, Quiz.user_id == current_user.id).first()
             if not quiz:
                 quiz = Quiz(user_id=current_user.id,
                             start_question_time=datetime.now(),
