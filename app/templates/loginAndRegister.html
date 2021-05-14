@@ -8,69 +8,78 @@
 
 
 {% block content %}
-    <div class="container">
-        {{ super() }}
-        <div class="content web_width clearfix">
-            <div class="switch-box">
-                <div class="register display">
-                    <div class="title">Register</div>
-                    {#                                        {{ wtf.quick_form(registrationForm) }}#}
-                    <form autocapitalize="off" action="" method="post" onsubmit="return registerValidation()">
-                        {{ registrationForm.register_username }}
-                        {{ registrationForm.email }}
-                        {{ registrationForm.register_password }}
-                        {{ registrationForm.register_password2 }}
-                        {{ registrationForm.registration_submit() }}
-                    </form>
+    <div class="main-container">
+        {% block sidebar %}
+            {{super()}}
+        {% endblock sidebar %}
+        <div class="container">
+            {% block message %}
+                {{super()}}
+            {% endblock message %}
+            <div class="content web_width clearfix">
+                <div class="switch-box">
+                    <div class="register display">
+                        <div class="title">Register</div>
+                        {#                                        {{ wtf.quick_form(registrationForm) }}#}
+                        <form autocapitalize="off" action="" method="post" onsubmit="return registerValidation()">
+                            {{ registrationForm.register_username }}
+                            {{ registrationForm.email }}
+                            {{ registrationForm.register_password }}
+                            {{ registrationForm.register_password2 }}
+                            {{ registrationForm.registration_submit() }}
+                        </form>
+                    </div>
+
+                    <div class="sign-in">
+                        <div class="title">Sign In</div>
+                        {#                                        {{ wtf.quick_form(loginForm) }}#}
+                        <form autocapitalize="off" action="" method="post">
+                            {{ loginForm.hidden_tag() }}
+                            {{ loginForm.login_username }}
+                            {{ loginForm.login_password }}
+                            <div class="check-box">
+                                {{ loginForm.remember_me.label }}
+                                {{ loginForm.remember_me }}
+                            </div>
+                            {{ loginForm.login_submit() }}
+                        </form>
+
+                    </div>
                 </div>
 
-                <div class="sign-in">
-                    <div class="title">Sign In</div>
-                    {#                                        {{ wtf.quick_form(loginForm) }}#}
-                    <form autocapitalize="off" action="" method="post">
-                        {{ loginForm.hidden_tag() }}
-                        {{ loginForm.login_username }}
-                        {{ loginForm.login_password }}
-                        <div class="check-box">
-                            {{ loginForm.remember_me.label }}
-                            {{ loginForm.remember_me }}
-                        </div>
-                        {{ loginForm.login_submit() }}
-                    </form>
+                <div class="left-box">
+                    <div class="sub-title1">
+                        <span>Have Fun!</span>
+                    </div>
+                    <img class="chess1" src="../static/chess-img/chess-login.jpg" alt="login">
+                    <div class="infor1">
+                        <span>Have an account?</span>
+                        <br>
+                        <button class="btn1" id="sign-in">Login</button>
+                    </div>
+                </div>
 
-                </div>
-            </div>
-
-            <div class="left-box">
-                <div class="sub-title1">
-                    <span>Have Fun!</span>
-                </div>
-                <img class="chess1" src="../static/chess-img/chess-login.jpg" alt="login">
-                <div class="infor1">
-                    <span>Have an account?</span>
-                    <br>
-                    <button class="btn1" id="sign-in">Login</button>
-                </div>
-            </div>
-
-            <div class="right-box">
-                <div class="sub-title2">
-                    <span>Good Day!</span>
-                </div>
-                <img class="chess2" src="../static/chess-img/chess-login1.jpg" alt="login1">
-                <div class="infor2">
-                    <span>Don't have an account?</span>
-                    <br>
-                    <button class="btn2" id="sign-up">Sign Up</button>
+                <div class="right-box">
+                    <div class="sub-title2">
+                        <span>Good Day!</span>
+                    </div>
+                    <img class="chess2" src="../static/chess-img/chess-login1.jpg" alt="login1">
+                    <div class="infor2">
+                        <span>Don't have an account?</span>
+                        <br>
+                        <button class="btn2" id="sign-up">Sign Up</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    {% block scripts %}
-        {{ super() }}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="../static/loginAndRegister.js"></script>
-    {% endblock scripts %}
+
 
 {% endblock content %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../static/loginAndRegister.js"></script>
+{% endblock scripts %}

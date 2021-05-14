@@ -11,11 +11,15 @@
 
         <div class="article-container web_width clearfix">
 
-            {% include 'navSideBar.html' %}
+            {% block sidebar %}
+                {{super()}}
+            {% endblock sidebar %}
             <!-- <div class="darkBackground-overlay"></div> -->
 
             <div class="article-content" id="article-content">
-                {{ super() }}
+                {% block message %}
+                    {{super()}}
+                {% endblock message %}
                 <div class="box-cover" id="box-cover">
                     <span>Learn To Play XiangQi / Chinese Chess</span>
                     <div class="box" id="box">

@@ -9,6 +9,9 @@
 {% block content %}
     <div class="main-container">
         <div class="article-container">
+            {% block sidebar %}
+                {{super()}}
+            {% endblock sidebar %}
             <div class="article-content web_width clearfix">
                 <div class="box-cover">
                     <span>Begin: Chinese Chess Quiz: Start your Quiz now</span>
@@ -33,10 +36,8 @@
             </div>
         </div>
     </div>
-    {% block scripts %}
-    {{ super() }}
-
-    <script src="../static/quizInfo.js"></script>
-
-    {% endblock scripts %}
 {% endblock content %}
+{% block scripts %}
+    {{ super() }}
+    <script src="../static/quizInfo.js"></script>
+{% endblock scripts %}

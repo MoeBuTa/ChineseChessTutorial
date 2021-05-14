@@ -8,6 +8,9 @@
 
 {% block content %}
     <div class="main-container">
+        {% block sidebar %}
+            {{super()}}
+        {% endblock sidebar %}
         <div class="main-content web_width clearfix">
             <div class="feedback-box">
                 <div class="title">
@@ -122,7 +125,7 @@
             </div>
         </div>
     </div>
-    {% block scripts %}
-        {{ super() }}
-    {% endblock scripts %}
 {% endblock content %}
+{% block scripts %}
+    {{ super() }}
+{% endblock scripts %}

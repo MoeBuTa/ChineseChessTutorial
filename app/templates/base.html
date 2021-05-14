@@ -23,18 +23,23 @@
         {% include 'navbar.html' %}
     {% endblock navbar %}
     {% block content %}
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-info alert-dismissible" role="alert">
-                        {{ message|safe }}
-                        <button class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+        {% block message %}
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            {{ message|safe }}
+                            <button class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        {% endblock message %}
+        {% block sidebar %}
+            {% include 'navSideBar.html' %}
+        {% endblock sidebar %}
     {% endblock content %}
     {% block footer %}
         {% include 'footer.html' %}
@@ -44,5 +49,6 @@
         {{ moment.include_moment() }}
         <script src="../static/toastr/toastr.js"></script>
         <script src="../static/toastr/toastrOption.js"></script>
+        <script src="../static/navSideBar.js"></script>
     {%- endblock scripts %}
 {% endblock body %}

@@ -8,11 +8,15 @@
 
 {% block content %}
 <div class="main-container">
-        {% include 'navSideBar.html' %}
-    <div class="article-container">
 
+    <div class="article-container">
+        {% block sidebar %}
+            {% include 'navSideBar.html' %}
+        {% endblock sidebar %}
         <div class="article-content web_width clearfix">
-            {{ super() }}
+            {% block message %}
+                {{ super() }}
+            {% endblock message %}
             <div class="box-cover">
                 <span>Begin: Chinese Chess Quiz: Start your Quiz now</span>
                 <div class="box">
@@ -62,25 +66,26 @@
         </div>
     </div>
 </div>
-    {% block scripts %}
-        {{ super() }}
-        <script>
-            var Server = {
-                quiz_id:{{ quiz_id }}
-            }
-            var selected_questions = []
-            {% for q in selected_questions %}
-                quest = {
-                    id: "{{ q.QuestionLog.id }}",
-                    selected_answer: "{{q.QuestionLog.selected_answer}}",
-                    option_one: "{{ q.Question.option_one }}",
-                    option_two: "{{ q.Question.option_two }}",
-                    option_three: "{{ q.Question.option_three }}",
-                    option_four: "{{ q.Question.option_four }}"
-                }
-                selected_questions.push(quest)
-            {% endfor %}
-        </script>
-        <script src="../static/quiz.js"></script>
-    {% endblock scripts %}
 {% endblock content %}
+{% block scripts %}
+    {{ super() }}
+    <script>
+        var Server = {
+            quiz_id:{{ quiz_id }}
+        }
+        var selected_questions = []
+        {% for q in selected_questions %}
+            quest = {
+                id: "{{ q.QuestionLog.id }}",
+                selected_answer: "{{q.QuestionLog.selected_answer}}",
+                option_one: "{{ q.Question.option_one }}",
+                option_two: "{{ q.Question.option_two }}",
+                option_three: "{{ q.Question.option_three }}",
+                option_four: "{{ q.Question.option_four }}"
+            }
+            selected_questions.push(quest)
+        {% endfor %}
+    </script>
+    <script src="../static/quiz.js"></script>
+    <script src="../static/navSideBar.js"></script>
+{% endblock scripts %}

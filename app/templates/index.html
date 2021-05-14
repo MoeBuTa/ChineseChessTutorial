@@ -6,9 +6,14 @@
 {% endblock styles %}
 
 {% block content %}
-        <div class="main-container">
-        {{super()}}
-            <nav class="nav-container web_width clearfix">
+    <div class="main-container">
+        {% block message %}
+            {{super()}}
+        {% endblock message %}
+        <nav class="nav-container web_width clearfix">
+            {% block sidebar %}
+                {{super()}}
+            {% endblock sidebar %}
             <div class="nav-content">
                 <div class="sub-title">
                     XiangQi / Chinese Chess

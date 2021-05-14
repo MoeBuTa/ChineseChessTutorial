@@ -8,6 +8,9 @@
 
 {% block content %}
     <div class="main-container">
+        {% block sidebar %}
+            {% include 'navSideBar.html' %}
+        {% endblock sidebar %}
         <div class="main-content clearfix">
 
             {#            <div class="bar">#}
@@ -67,13 +70,13 @@
                         <img src="../static/chess-img/books.png" alt="books">
                         Tutorial Statistics
                     </div>
-                    <div id="Sarah_chart_div"></div>
+                    <div id="Sarah_chart_div" class="center"></div>
                     <br><br>
                     <div class="text">
                         <img src="../static/chess-img/books.png" alt="books">
                         Quiz Statistics
                     </div>
-                    <table>
+                    <table class="center">
                         <tr>
                             <td><div id="Anthony_chart_div"></div></td>
                             <td><div id="barchart_div"></div></td>
@@ -84,16 +87,16 @@
                         <img src="../static/chess-img/books.png" alt="books">
                         Website Traffic statistics
                     </div>
-                    <div id="calendar_basic"></div>
+                    <div id="calendar_basic" class="center"></div>
                 </div>
 
             </div>
         </div>
     </div>
-    {% block scripts %}
-        {{ super() }}
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript" src="../static/general.js"></script>
-
-    {% endblock scripts %}
 {% endblock content %}
+{% block scripts %}
+    {{ super() }}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="../static/general.js"></script>
+
+{% endblock scripts %}

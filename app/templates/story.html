@@ -6,11 +6,12 @@
 {% endblock styles %}
 
 {% block content %}
-  {{super()}}
 
   <div class="main-container">
     <div class="nav-container web_width clearfix">
-      {#{% include 'navSideBar.html' %}#}
+      {% block sidebar %}
+          {{super()}}
+      {% endblock sidebar %}
 
       <div class="article-container">
         <div class="article-content web_width clearfix">
