@@ -3,6 +3,10 @@
 /* for main-container  */
 /* -------------------------------------------------------- */
 
+.feedback-box {
+    width: 80%;
+    margin: 0 auto;
+}
 
 .feedback-box .title{
     font-size: 30px;
