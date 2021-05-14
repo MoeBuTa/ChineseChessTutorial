@@ -3,30 +3,31 @@
 //     alert("You have Submitted!");
 // };
 
-
-var quiz_id = Server.quiz_id;
-
+window.onload=function(){
 for (var i = 0; i < selected_questions.length; i++) {
     if (selected_questions[i].selected_answer == selected_questions[i].option_one) {
-        $("#E" + selected_questions[i].id).removeAttr("checked", true)
+        $("#E" + selected_questions[i].id).removeProp("checked", true)
         $("#A" + selected_questions[i].id).attr("checked", true)
     } else if (selected_questions[i].selected_answer == selected_questions[i].option_two) {
-        $("#E" + selected_questions[i].id).removeAttr("checked", true)
-        $("#B" + selected_questions[i].id).attr("checked", true)
+        $("#E" + selected_questions[i].id).removeProp("checked", true)
+        $("#B" + selected_questions[i].id).prop("checked", true)
     } else if (selected_questions[i].selected_answer == selected_questions[i].option_three) {
-        $("#E" + selected_questions[i].id).removeAttr("checked", true)
-        $("#C" + selected_questions[i].id).attr("checked", true)
+        $("#E" + selected_questions[i].id).removeProp("checked", true)
+        $("#C" + selected_questions[i].id).prop("checked", true)
     } else if (selected_questions[i].selected_answer == selected_questions[i].option_four) {
-        $("#E" + selected_questions[i].id).removeAttr("checked", true)
-        $("#D" + selected_questions[i].id).attr("checked", true)
+        $("#E" + selected_questions[i].id).removeProp("checked", true)
+        $("#D" + selected_questions[i].id).prop("checked", true)
     } else {
     }
 
 }
+}
+var quiz_id = Server.quiz_id;
+
+
 
 $(':radio').click(function () {
     var selected_answer = $(this).val();
-    console.log(selected_answer)
     var question_log_id = $(this).attr('name');
     var data = {
         'selected_answer': selected_answer,
