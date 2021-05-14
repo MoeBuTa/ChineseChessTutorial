@@ -52,7 +52,7 @@ class QuestionController:
     @staticmethod
     def questions_info():
         # check if current user has unfinished quiz
-        quiz = Quiz.query.filter(Quiz.status == 0 and Quiz.user_id == current_user.id).first()
+        quiz = Quiz.query.filter(Quiz.status == 0, Quiz.user_id == current_user.id).first()
         if quiz:
             return QuestionController.questions()
         return render_template('quizInfo.html', title='Chinese chess questions')
