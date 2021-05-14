@@ -6,7 +6,9 @@
 {% endblock styles %}
 
 {% block content %}
-  {{super()}}
+    {% block message %}
+      {{super()}}
+    {% endblock message %}
     <div class="container">
         <div class="content">
             <div class="title">500</div>
