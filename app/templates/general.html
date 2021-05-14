@@ -11,8 +11,23 @@
         {% block sidebar %}
             {% include 'navSideBar.html' %}
         {% endblock sidebar %}
-        <div class="main-content clearfix">
 
+
+
+        <div class="main-content clearfix">
+          <div class="profile">
+              <div class="avatar">
+                  <a href="#">
+                      <img src="../static/chess-img/user.png" alt="user">
+                  </a>
+                  <div class="text">
+                      Hello: (need to insert name)
+                  </div>
+                  <div class="btn">
+                      <button>My Progress</button>
+                  </div>
+              </div>
+          </div>
             {#            <div class="bar">#}
             {#                <div class="user-info">#}
             {#                    <img src="../static/chess-img/owl.png" alt="owl">#}
@@ -98,5 +113,9 @@
     {{ super() }}
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="../static/general.js"></script>
-
+    <script type="text/javascript">
+        $(".btn button").click(function(){
+            window.location.href = "{{url_for('main.user_view')}}"
+        })
+    </script>
 {% endblock scripts %}

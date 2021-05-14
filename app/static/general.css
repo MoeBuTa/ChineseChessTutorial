@@ -8,6 +8,64 @@
     margin: 0 auto;
 }
 
+
+.profile {
+    float: left;
+    position: fixed;
+    top: 25%;
+    margin-left: -200px
+
+}
+
+.profile .avatar{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff6700, #ff3300);
+    text-align: center;
+    /* padding: 30px; */
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+}
+
+.avatar:hover{
+    width: 180px;
+    height: 330px;
+    border-radius: 5px;
+    padding-top: 30px;
+}
+
+.profile .avatar .text{
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.profile .avatar .text a{
+    font-weight: bolder;
+    color: black;
+    text-decoration: underline;
+}
+
+.profile .avatar .text a:hover{
+    color: #fff;
+}
+
+.profile .avatar .btn button{
+    margin-top: 30px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.profile .avatar .btn button:hover{
+    transform: scale(.9);
+}
+
 /*.bar {*/
 /*    float: left;*/
 /*    background: linear-gradient(45deg, #333, #656569);*/
