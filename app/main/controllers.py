@@ -114,6 +114,7 @@ class QuestionController:
                                quiz=quiz)
 
 
+# controller for general view
 class GeneralController:
 
     @staticmethod
@@ -121,10 +122,14 @@ class GeneralController:
         user_count = User.get_user_count()
         tutorial_count = Tutorial.get_tutorial_count()
         question_count = Question.get_question_count()
+        tutorial_average_time = Tutorial.query_tutorial_average_time()
+        proportions = Quiz.get_quiz_score_distribution()
         return render_template('general.html', title='general view', user_count=user_count,
-                               tutorial_count=tutorial_count, question_count=question_count)
+                               tutorial_count=tutorial_count, question_count=question_count,
+                               tutorial_average_time=tutorial_average_time, proportions=proportions)
 
 
+# controller for user view
 class UserViewController:
 
     @staticmethod
@@ -138,4 +143,5 @@ class UserViewController:
         quiz = Quiz.query.get(quiz_id)
         selected_questions = QuestionLog.get_selected_questions_by_quiz(quiz_id)
 
-        return render_template('quiz-feedback.html', title='feedback', selected_questions=selected_questions, quiz=quiz)
+        return render_template('quiz-feedback.html', title='feedback', selected_questions=selected_questions,
+                               quiz=quiz)

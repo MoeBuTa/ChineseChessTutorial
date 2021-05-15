@@ -36,36 +36,36 @@
                 </div>
                 <div id="column_chart_div"></div>
 
-{#                <div class="dashboard-story">#}
-{##}
-{#                    <div class="text">#}
-{##}
-{#                        <a href="#">{{ user_count }}</a>#}
-{##}
-{#                        <img src="../static/chess-img/notebook.png" alt="notebook">#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#                <div class="dashboard-tutorial">#}
-{#                    <div class="text">#}
-{#                        <a href="#">Tutorial</a>#}
-{#                        <img src="../static/chess-img/notes.png" alt="notes">#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#                <div class="dashboard-quiz">#}
-{#                    <div class="text">#}
-{#                        <a href="#">Quiz</a>#}
-{#                        <img src="../static/chess-img/pin.png" alt="pin">#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#                <div class="dashboard-feedback">#}
-{#                    <div class="text">#}
-{#                        <a href="#">Feedback</a>#}
-{#                        <img src="../static/chess-img/notepad.png" alt="notepad">#}
-{#                    </div>#}
-{#                </div>#}
+                {#                <div class="dashboard-story">#}
+                {##}
+                {#                    <div class="text">#}
+                {##}
+                {#                        <a href="#">{{ user_count }}</a>#}
+                {##}
+                {#                        <img src="../static/chess-img/notebook.png" alt="notebook">#}
+                {#                    </div>#}
+                {#                </div>#}
+                {##}
+                {#                <div class="dashboard-tutorial">#}
+                {#                    <div class="text">#}
+                {#                        <a href="#">Tutorial</a>#}
+                {#                        <img src="../static/chess-img/notes.png" alt="notes">#}
+                {#                    </div>#}
+                {#                </div>#}
+                {##}
+                {#                <div class="dashboard-quiz">#}
+                {#                    <div class="text">#}
+                {#                        <a href="#">Quiz</a>#}
+                {#                        <img src="../static/chess-img/pin.png" alt="pin">#}
+                {#                    </div>#}
+                {#                </div>#}
+                {##}
+                {#                <div class="dashboard-feedback">#}
+                {#                    <div class="text">#}
+                {#                        <a href="#">Feedback</a>#}
+                {#                        <img src="../static/chess-img/notepad.png" alt="notepad">#}
+                {#                    </div>#}
+                {#                </div>#}
 
                 <br><br>
                 <div class="charts">
@@ -114,6 +114,10 @@
         {{ question_count }}
         var tutorial_count =
         {{ tutorial_count }}
+        var tutorial_average_time =
+        {{ tutorial_average_time|tojson }}
+        var proportions =
+        {{ proportions|tojson }}
     </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="../static/general.js"></script>

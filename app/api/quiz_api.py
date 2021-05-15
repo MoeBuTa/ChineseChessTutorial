@@ -22,19 +22,7 @@ def save_questions_progress():
 
 @bp.route('/getDataForPieChart', methods=['POST'])
 def get_data_for_pie_chart():
-    count_score_below_forty = db.session.query(func.count(Quiz.id)).filter(Quiz.total_score < 40).scalar()
-    count_score_between_forty_and_eighty = db.session.query(func.count(Quiz.id)).filter(
-        Quiz.total_score >= 40, Quiz.total_score < 80).scalar()
-    count_score_above_eighty = db.session.query(func.count(Quiz.id)).filter(
-        Quiz.total_score >= 80).scalar()
-    count_total = Quiz.get_quizzes_count()
-
-    proportions = {
-        "count_score_below_forty": count_score_below_forty,
-        "count_score_between_forty_and_eighty": count_score_between_forty_and_eighty,
-        "count_score_above_eighty": count_score_above_eighty,
-        "count_total": count_total
-    }
+    proportions = Quiz.get_quiz_score_distribution()
     return jsonify(proportions)
 
 

@@ -6,8 +6,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import desc, asc, func
 from flask_login import UserMixin
 from datetime import datetime, timedelta
+import numpy as np
 
 
+# user
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -117,11 +119,27 @@ class Tutorial(db.Model):
     def get_tutorial_count():
         return db.session.query(func.count(Tutorial.id)).scalar()
 
+    # use user id to query tutorial based on the progress
     @classmethod
     def query_tutorial(cls, user_id):
         return cls.query.join(TutorialProgress, (TutorialProgress.read_tutorial_num == cls.tutorial_num)).filter(
             TutorialProgress.user_id == user_id).order_by(desc(TutorialProgress.last_tutorial_read_time)).first()
 
+    @staticmethod
+    def query_tutorial_average_time():
+        tutorial_progresses = TutorialProgress.query.all()
+        tutorial_count = Tutorial.get_tutorial_count()
+        tutorial_time_list = {}
+        tutorial_average_time = [['P' + str(x), 0] for x in range(0, tutorial_count)]
+        for tu in tutorial_progresses:
+            if not tutorial_time_list.get(tu.read_tutorial_num):
+                tutorial_time_list[tu.read_tutorial_num] = []
+            tutorial_time_list[tu.read_tutorial_num].append(tu.time_duration)
+        for k, v in tutorial_time_list.items():
+            tutorial_average_time[k - 1] = ['P' + str(k), np.mean(v)]
+        return tutorial_average_time
+
+    # query tutorial num
     @classmethod
     def query_by_num(cls, num):
         return cls.query.filter_by(tutorial_num=num).first()
@@ -148,7 +166,7 @@ class Tutorial(db.Model):
                 setattr(self, field, data[field])
 
 
-# for saving tutorial progresses
+# for saving tutorial progresses and recording read time of each tutorial section of each user
 class TutorialProgress(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -290,7 +308,7 @@ class QuestionAnswer(db.Model):
                 setattr(self, field, data[field])
 
 
-# a quiz is created when a user start a new quiz
+# a quiz is created when a user start a new quiz, which is designed for recording the selected questions for each quiz
 class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -303,6 +321,7 @@ class Quiz(db.Model):
     def __repr__(self):
         return '<Quiz status: {}, total_score:{}, user_id:{}>'.format(self.status, self.total_score, self.user_id)
 
+    # add new quiz based on user and selected questions
     @staticmethod
     def add_new_quiz(quiz, questions):
         selected_questions = []
@@ -325,24 +344,46 @@ class Quiz(db.Model):
         db.session.commit()
         return selected_questions
 
+    # update quiz edit time
     def update_quiz_edit_time(self):
         self.last_question_edit_time = datetime.now()
         db.session.commit()
         return self.last_question_edit_time
 
+    # submit quiz
     def submit_quiz(self, total_score):
         self.last_question_edit_time = datetime.now()
         self.total_score = total_score
         self.status = 1
         db.session.commit()
 
+    # get all quizzes count
     @staticmethod
     def get_quizzes_count():
         return db.session.query(func.count(Quiz.id)).scalar()
 
+    # get quizzes by user
     @classmethod
     def get_user_quiz(cls, user_id):
         return cls.query.filter_by(user_id=user_id).all()
+
+    # get quiz score distribution in three parts(<40, 40-80, ≥80)
+    @staticmethod
+    def get_quiz_score_distribution():
+        count_score_below_forty = db.session.query(func.count(Quiz.id)).filter(Quiz.total_score < 40).scalar()
+        count_score_between_forty_and_eighty = db.session.query(func.count(Quiz.id)).filter(
+            Quiz.total_score >= 40, Quiz.total_score < 80).scalar()
+        count_score_above_eighty = db.session.query(func.count(Quiz.id)).filter(
+            Quiz.total_score >= 80).scalar()
+        count_total = Quiz.get_quizzes_count()
+
+        proportions = {
+            "count_score_below_forty": count_score_below_forty,
+            "count_score_between_forty_and_eighty": count_score_between_forty_and_eighty,
+            "count_score_above_eighty": count_score_above_eighty,
+            "count_total": count_total
+        }
+        return proportions
 
     def to_dict(self):
         data = {
@@ -375,10 +416,12 @@ class QuestionLog(db.Model):
         return '<QuestionLog selected_answer: {}, quiz_id: {}, current_question_num: {}>'.format(
             self.selected_answer, self.quiz_id, self.current_question_num)
 
+    # save question progress for user
     def save_question_progress(self, selected_answer):
         self.selected_answer = selected_answer
         db.session.commit()
 
+    # get answers based on the selected questions
     @classmethod
     def get_selected_question_answer(cls, ids):
         return cls.query.filter(cls.id.in_(ids)).join(
@@ -387,6 +430,7 @@ class QuestionLog(db.Model):
             asc(QuestionLog.current_question_num)).add_entity(
             QuestionAnswer).add_entity(Question).all()
 
+    # get all selected questions of the quiz
     @classmethod
     def get_selected_questions_by_quiz(cls, quiz_id):
         return cls.query.filter(cls.quiz_id == quiz_id).join(

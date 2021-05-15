@@ -10,8 +10,6 @@ google.charts.setOnLoadCallback(drawAnthonyChart);
 google.charts.setOnLoadCallback(drawChart);
 
 
-
-
 function drawColumnChart() {
     var data = google.visualization.arrayToDataTable([
         ['Element', 'Count', {role: 'style'}, {role: 'annotation'}],
@@ -25,60 +23,53 @@ function drawColumnChart() {
 
 
 function drawSarahChart() {
-    $.post('/api/getDataForAreaChart', {}).done(function (response) {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'minutes');
-        data.addRows(
-            response
-        );
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Topping');
+    data.addColumn('number', 'minutes');
+    data.addRows(
+        tutorial_average_time
+    );
 
-        var options = {
-            'title': 'OVERALL - The Average time duration of each tutorial section of the Chinese Chess',
-            'width': 1000,
-            'height': 300,
-            vAxis: {minValue: 0},
-        };
+    var options = {
+        'title': 'OVERALL - The Average time duration of each tutorial section of the Chinese Chess',
+        'width': 1000,
+        'height': 300,
+        vAxis: {minValue: 0},
+    };
 
-        var chart = new google.visualization.AreaChart(document.getElementById('Sarah_chart_div'));
-        chart.draw(data, options);
-    })
+    var chart = new google.visualization.AreaChart(document.getElementById('Sarah_chart_div'));
+    chart.draw(data, options);
 
 
 }
 
 function drawAnthonyChart() {
-    $.post('/api/getDataForPieChart', {}).done(function (response) {
-        var p1 = response["count_score_below_forty"];
-        var p2 = response["count_score_between_forty_and_eighty"];
-        var p3 = response["count_score_above_eighty"];
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'number of people');
-        data.addRows([
-            ['<40', p1],
-            ['40-80', p2],
-            ['≥80', p3],
-        ]);
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Topping');
+    data.addColumn('number', 'number of people');
+    data.addRows([
+        ['<40', proportions['count_score_below_forty']],
+        ['40-80', proportions['count_score_between_forty_and_eighty']],
+        ['≥80', proportions['count_score_above_eighty']],
+    ]);
 
-        var options = {
-            'title': 'Quiz Score Proportion',
-            'width': 400,
-            'height': 300,
+    var options = {
+        'title': 'Quiz Score Proportion',
+        'width': 400,
+        'height': 300,
 
-        };
-        var chart = new google.visualization.PieChart(document.getElementById('Anthony_chart_div'));
-        chart.draw(data, options);
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('Anthony_chart_div'));
+    chart.draw(data, options);
 
-        var barchart_options = {
-            title: 'Quiz Score Proportion',
-            width: 400,
-            height: 300,
-            legend: 'none'
-        };
-        var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
-        barchart.draw(data, barchart_options);
-    })
+    var barchart_options = {
+        title: 'Quiz Score Proportion',
+        width: 400,
+        height: 300,
+        legend: 'none'
+    };
+    var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
+    barchart.draw(data, barchart_options);
 
 }
 
