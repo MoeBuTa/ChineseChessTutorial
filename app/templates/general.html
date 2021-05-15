@@ -15,69 +15,57 @@
 
 
         <div class="main-content clearfix">
-          <div class="profile">
-              <div class="avatar">
-                  <a href="#">
-                      <img src="../static/chess-img/user.png" alt="user">
-                  </a>
-                  <div class="text">
-                      Hello: (need to insert name)
-                  </div>
-                  <div class="btn">
-                      <button>My Progress</button>
-                  </div>
-              </div>
-          </div>
-            {#            <div class="bar">#}
-            {#                <div class="user-info">#}
-            {#                    <img src="../static/chess-img/owl.png" alt="owl">#}
-            {#                    TempUser_123_d / <a href="#">Login</a>#}
-            {#                </div>#}
-            {#                <ul>#}
-            {#                    <li class="li">OVERVIEW</li>#}
-            {#                    <li class="li">INTERFACE</li>#}
-            {#                    <li><img src="../static/chess-img/settings.png" alt="settings"><a href="#">Components</a></li>#}
-            {#                    <li><img src="../static/chess-img/network.png" alt="network"><a href="#">Utilities</a></li>#}
-            {#                    <li class="li">ADDONS</li>#}
-            {#                    <li><img src="../static/chess-img/folder.png" alt="folder"><a href="#">Pages</a></li>#}
-            {#                    <li><img src="../static/chess-img/paper-plane.png" alt="paper-plane"><a href="#">Charts</a></li>#}
-            {#                    <li><img src="../static/chess-img/share.png" alt="share"><a href="#">Setting</a></li>#}
-            {#                </ul>#}
-            {#            </div>#}
-
+            <div class="profile">
+                <div class="avatar">
+                    <a href="#">
+                        <img src="../static/chess-img/user.png" alt="user">
+                    </a>
+                    <div class="text">
+                        Hello: (need to insert name)
+                    </div>
+                    <div class="btn">
+                        <button>My Progress</button>
+                    </div>
+                </div>
+            </div>
 
             <div class="dashboard">
+
                 <div class="text">
                     <img src="../static/chess-img/books.png" alt="books"> Overview
                 </div>
+                <div id="column_chart_div"></div>
 
-                <div class="dashboard-story">
-                    <div class="text">
-                        <a href="#">Story</a>
-                        <img src="../static/chess-img/notebook.png" alt="notebook">
-                    </div>
-                </div>
-
-                <div class="dashboard-tutorial">
-                    <div class="text">
-                        <a href="#">Tutorial</a>
-                        <img src="../static/chess-img/notes.png" alt="notes">
-                    </div>
-                </div>
-
-                <div class="dashboard-quiz">
-                    <div class="text">
-                        <a href="#">Quiz</a>
-                        <img src="../static/chess-img/pin.png" alt="pin">
-                    </div>
-                </div>
-
-                <div class="dashboard-feedback">
-                    <div class="text">
-                        <a href="#">Feedback</a>
-                        <img src="../static/chess-img/notepad.png" alt="notepad">
-                    </div>
-                </div>
+{#                <div class="dashboard-story">#}
+{##}
+{#                    <div class="text">#}
+{##}
+{#                        <a href="#">{{ user_count }}</a>#}
+{##}
+{#                        <img src="../static/chess-img/notebook.png" alt="notebook">#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="dashboard-tutorial">#}
+{#                    <div class="text">#}
+{#                        <a href="#">Tutorial</a>#}
+{#                        <img src="../static/chess-img/notes.png" alt="notes">#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="dashboard-quiz">#}
+{#                    <div class="text">#}
+{#                        <a href="#">Quiz</a>#}
+{#                        <img src="../static/chess-img/pin.png" alt="pin">#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="dashboard-feedback">#}
+{#                    <div class="text">#}
+{#                        <a href="#">Feedback</a>#}
+{#                        <img src="../static/chess-img/notepad.png" alt="notepad">#}
+{#                    </div>#}
+{#                </div>#}
 
                 <br><br>
                 <div class="charts">
@@ -93,8 +81,12 @@
                     </div>
                     <table class="center">
                         <tr>
-                            <td><div id="Anthony_chart_div"></div></td>
-                            <td><div id="barchart_div"></div></td>
+                            <td>
+                                <div id="Anthony_chart_div"></div>
+                            </td>
+                            <td>
+                                <div id="barchart_div"></div>
+                            </td>
                         </tr>
                     </table>
                     <br><br>
@@ -111,11 +103,19 @@
 {% endblock content %}
 {% block scripts %}
     {{ super() }}
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="../static/general.js"></script>
     <script type="text/javascript">
-        $(".btn button").click(function(){
+        $(".btn button").click(function () {
             window.location.href = "{{url_for('main.user_view')}}"
         })
+
+        var user_count =
+        {{ user_count }}
+        var question_count =
+        {{ question_count }}
+        var tutorial_count =
+        {{ tutorial_count }}
     </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="../static/general.js"></script>
+
 {% endblock scripts %}
