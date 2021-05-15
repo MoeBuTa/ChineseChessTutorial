@@ -13,7 +13,10 @@
         {% endblock sidebar %}
 
         <div class="main-content clearfix">
+            {% for content in quizzes %}
 
+              {{content.id}}
+            {% endfor %}
             <div class="dashboard">
                 <div class="text">
                     <img src="../static/chess-img/books.png" alt="books"> Overview
@@ -21,31 +24,48 @@
 
                 <div class="dashboard-progress">
                     <div class="text">
-                        <a class="progress" href="#Quiz-progress">My Quiz Progress</a>
+                        <a class="progress" href="#my-progress">My Tutorial Progress</a>
                         <img src="../static/chess-img/notebook.png" alt="notebook">
+
                     </div>
                 </div>
 
 
                 <div class="dashboard-feedback">
                     <div class="text">
-                        <a href="#">My Recent Quiz Feedback</a>
+                        <a href="#">My Recent Quiz Progress/Feedback</a>
                         <img src="../static/chess-img/notepad.png" alt="notepad">
+                    </div>
+                    <div>
+                        <ul>
+                            {% if not quizzes %}
+                                <li>Please complete your first quiz!</li>
+                            {% else %}
+                                {% for quiz in quizzes %}
+                                    <li><a href="{{url_for('main.selected_quiz', quiz_id=quiz.id)}}">See quiz result!</a></li>
+
+                                {% endfor %}
+                            {% endif %}
+
+
+                        </ul>
                     </div>
                 </div>
 
-                <br><br><br><br><br><br>
-                <div id="Quiz-progress" class="charts">
+                <br><br><br><br><br><br><br>
+                <div id="my-progress" class="charts">
+                    <div class="text">
+                        <img src="../static/chess-img/books.png" alt="books">
+                        My Tutorial Progress
+                    </div>
+                    <div id="tute_chart_div" class="center"></div>
+
+                    <br><br>
                     <div class="text">
                         <img src="../static/chess-img/books.png" alt="books">
                         My Quiz Progress
                     </div>
-                    <!-- <div class="dashboard-story">
-                        <div class="text">
-                            <a href="#">My Quiz Progress</a>
-                            <img src="../static/chess-img/notebook.png" alt="notebook">
-                        </div>
-                    </div> -->
+
                     <div id="Sarah_chart_div" class="center"></div>
                     <br><br>
                     <div class="text">
@@ -71,15 +91,23 @@
     <script type="text/javascript">
         var None = null;  //score value will become None when quiz is not completed
         var data = [];
+        var QuizIDArray = [];
+        var tutorialProgress = {{current_tutorial.id}};
         {% for content in quizzes %}
             var single = {{content.total_score}};
             data.push(single);
+            QuizIDArray.push({{content.id}});
         {% endfor %}
-        console.log(data);
+        console.log(data.length);
+        var resultTempURL = "{{url_for('main.selected_quiz', quiz_id="")}}";
+        var quizURL = "{{url_for('main.questions_info')}}"; //URL TO START FIRST QUIZ!
+        var tuteURL = "{{url_for('main.tutorials')}}"
     </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="../static/user.js"></script>
     <script type="text/javascript">
-        changeAIfImcomplete('{{url_for('main.questions')}}');
+
+
+        changeAIfIncomplete('{{url_for('main.questions')}}');
     </script>
 {% endblock scripts %}

@@ -74,3 +74,8 @@
 .dashboard .charts .center {
     margin: 0 auto;
 }
+
+.first-quiz {
+    background-color: white;
+    text-align: center;
+}

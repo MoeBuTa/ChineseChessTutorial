@@ -1,4 +1,4 @@
-function toCorrectPieArray(data) {
+function toCorrectArray(data) {
     let arrays = [[["Score (%)", "Number of Occurrance"]]];
     let lessforty = 0, mid = 0, largereighty = 0;
     let complete = 1; //0 is false, 1 is true
@@ -29,12 +29,50 @@ function toCorrectPieArray(data) {
     arrays.push(complete);
     return arrays;
 }
-var arrays = toCorrectPieArray(data);
+//  RETURNS: [2D ARRAY DATA FOR PIE, 2D ARRAY DATA FOR LINE, COMPLETE QUIZ NUMBER]
+var arrays = toCorrectArray(data);
 
 
 google.charts.load('current', {'packages': ['corechart']});
+google.charts.setOnLoadCallback(drawTuteProgress);
+
+if(data.length > 0) {
+    google.charts.setOnLoadCallback(drawLineChart);
+    let qComment = "<p>*click on graph dot to see previous quiz result</p>";
+
+    $("#Sarah_chart_div").before("<div class=\"first-quiz\">"+qComment+"</div>")
+
+}
+else{
+    $("#Sarah_chart_div").addClass("first-quiz");
+    $('#Sarah_chart_div').append("<a href="+quizURL+" class=\"text\">Chart is not available! Please click to start your first Quiz here!</a>");
+}
+
+
 google.charts.setOnLoadCallback(drawCharts);
-google.charts.setOnLoadCallback(drawLineChart);
+
+
+
+
+function drawTuteProgress() {
+    let tuteProgressData = [["Chinese Chess Tutorial", "Tutorial Progress (Page No.)"],["Current Progress", tutorialProgress]];
+    console.log(tuteProgressData);
+    let tuteData = google.visualization.arrayToDataTable(tuteProgressData);
+    let tuteOptions = {
+      'title': 'My Current Tutorial Progress',
+      'width': 1000,
+      'height': 300,
+      'hAxis': {
+        viewWindow: {
+        min: 0,
+        max: 8 //BETTER TO DYNAMICALLY INSERT TUTE SIZE
+        },
+      }
+    };
+    let tuteBarchart = new google.visualization.BarChart(document.getElementById('tute_chart_div'));
+    tuteBarchart.draw(tuteData, tuteOptions);
+}
+
 function drawCharts() {
     console.log(arrays);
     var data = google.visualization.arrayToDataTable(arrays[0]);
@@ -59,6 +97,7 @@ function drawCharts() {
 function drawLineChart() {
     var data = google.visualization.arrayToDataTable(arrays[1]);
     var options = {
+        title: 'My Quiz Scores',
         hAxis: {
           title: 'Quiz Number',
         },
@@ -70,15 +109,44 @@ function drawLineChart() {
 
       var chart = new google.visualization.LineChart(document.getElementById('Sarah_chart_div'));
 
+
+
+      function selectHandler() {
+          var selectedItem = chart.getSelection()[0];
+          if (selectedItem) {
+            var topping = data.getValue(selectedItem.row, 0);
+            // alert('The user selected ' + topping);
+          }
+          var quizID = QuizIDArray[topping-1];
+          // alert(quizID);
+          resultFinalURL = resultTempURL + quizID;
+          window.location.replace(resultFinalURL);
+      }
+
+
+      google.visualization.events.addListener(chart, 'select', selectHandler);
       chart.draw(data, options);
+
 
 }
 
 // THERE IS STILL IMCOMPLETE QUIZ
 
-function changeAIfImcomplete(url){
+function changeAIfIncomplete(link){
     if(arrays[2] == 0){
-        $(".dashboard-progress .text .progress").attr("href", url);
-        $("#Sarah_chart_div").after("<br><p>* -100% = Quiz incomplete</p>");
+        $(".dashboard-progress .text .progress").attr("href", link);
+        let comment = "<p>* -100% = Quiz incomplete</p><br>";
+        let incomplete = "<a class=\"text\" href="+link+">Click here to continue your Quiz!</a>"
+        $("#Sarah_chart_div").after("<div class=\"first-quiz\">"+comment+incomplete+"</div>");
+
     }
+}
+
+//BETTER TO DYNAMICALLY INSERT TUTE PAGE SIZE
+//TO DYNAMICALLY CHANGE THE COMMENT BELOW THE TUTE CHART
+if(tutorialProgress < 8){
+    $("#tute_chart_div").after("<div class=\"first-quiz text\"><a href="+tuteURL+">Click here to continue your Tutorial!</a></div>");
+}
+else{
+    $("#tute_chart_div").after("<div class=\"first-quiz text\"><p>Congradulation! You have completed the tutorial.</p></div>");
 }
