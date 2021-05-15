@@ -7,7 +7,7 @@ window.onload=function(){
 for (var i = 0; i < selected_questions.length; i++) {
     if (selected_questions[i].selected_answer == selected_questions[i].option_one) {
         $("#E" + selected_questions[i].id).removeProp("checked", true)
-        $("#A" + selected_questions[i].id).attr("checked", true)
+        $("#A" + selected_questions[i].id).prop("checked", true)
     } else if (selected_questions[i].selected_answer == selected_questions[i].option_two) {
         $("#E" + selected_questions[i].id).removeProp("checked", true)
         $("#B" + selected_questions[i].id).prop("checked", true)
@@ -40,10 +40,3 @@ $(':radio').click(function () {
         toastr.error("connection timeout!");
     })
 });
-
-
-
-
-
-
-
