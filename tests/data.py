@@ -21,7 +21,7 @@ def add_tutorial_data():
             img_url="../static/chess-img/chess-qipan.img.gif",
             question_title="There are totally 32 pieces.",
             answer=0,
-            hint="hint=One side are 16 pieces, and totally 32 pieces"
+            hint="One side are 16 pieces, and totally 32 pieces"
         ),
         Tutorial(
             tutorial_num=2,

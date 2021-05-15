@@ -28,7 +28,7 @@ var quiz_id = Server.quiz_id;
 
 $(':radio').click(function () {
     var selected_answer = $(this).val();
-    var question_log_id = $(this).attr('name');
+    var question_log_id = $(this).prop('name');
     var data = {
         'selected_answer': selected_answer,
         'question_log_id': question_log_id,
