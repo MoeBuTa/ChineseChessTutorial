@@ -1,12 +1,28 @@
 //charts
-google.charts.load('current', {'packages': ['corechart']});
+google.charts.load('current', {'packages': ['corechart', 'calendar', 'bar']});
+
+google.charts.setOnLoadCallback(drawColumnChart);
 
 google.charts.setOnLoadCallback(drawSarahChart);
 
 google.charts.setOnLoadCallback(drawAnthonyChart);
 
-google.charts.load("current", {packages: ["calendar"]});
 google.charts.setOnLoadCallback(drawChart);
+
+
+
+
+function drawColumnChart() {
+    var data = google.visualization.arrayToDataTable([
+        ['Element', 'Count', {role: 'style'}, {role: 'annotation'}],
+        ['current number of users', user_count, 'red', user_count],            // RGB value
+        ['current number of questions', question_count, 'green', question_count],            // English color name
+        ['current number of tutorials', tutorial_count, 'blue', tutorial_count]
+    ]);
+    var chart = new google.visualization.ColumnChart(document.getElementById('column_chart_div'));
+    chart.draw(data);
+}
+
 
 function drawSarahChart() {
     $.post('/api/getDataForAreaChart', {}).done(function (response) {
