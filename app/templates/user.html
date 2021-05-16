@@ -54,15 +54,20 @@
                             <ul>
                                 {% for quiz in quizzes %}
                                     {% if quiz.status == 0 %}
-                                        <li>You have unfinished quiz, click<a
-                                                href="{{ url_for('main.questions_info') }}"> here </a>to
-                                            continue!
+                                        <li>You have an unfinished quiz, please click
+                                            <a href="{{ url_for('main.questions_info') }}">
+                                                here
+                                            </a>
+                                            to continue!
                                         </li>
                                         <br>
                                     {% else %}
-                                        <li>see quiz feedback: <a
-                                                href="{{ url_for('main.selected_quiz', quiz_id=quiz.id) }}">{{ quiz.last_question_edit_time.strftime("%d %b  %Y, %H:%M:%S") }}</a>
-                                            score: {{ quiz.total_score }}
+                                        <li>
+                                            see quiz feedback:
+                                            <a href="{{ url_for('main.selected_quiz', quiz_id=quiz.id) }}">
+                                                {{ quiz.last_question_edit_time.strftime("%d %b  %Y, %H:%M:%S") }}
+                                            </a>
+                                            score (%): {{ quiz.total_score }}
                                         </li>
                                     {% endif %}
                                 {% endfor %}
@@ -113,16 +118,13 @@
             data.push(single);
             QuizIDArray.push({{content.id}});
         {% endfor %}
-        console.log(data.length);
+        // console.log(data.length);
         var resultTempURL = "{{url_for('main.selected_quiz', quiz_id="")}}";
         var quizURL = "{{url_for('main.questions_info')}}"; //URL TO START FIRST QUIZ!
-        var tuteURL = "{{url_for('main.tutorials')}}"
+        var tuteURL = "{{url_for('main.tutorials')}}";
+        var continueQuizURL = "{{url_for('main.questions')}}";
     </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="../static/user.js"></script>
-    <script type="text/javascript">
 
-
-        changeAIfIncomplete('{{url_for('main.questions')}}');
-    </script>
 {% endblock scripts %}

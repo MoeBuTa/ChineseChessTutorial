@@ -3,10 +3,10 @@ function toCorrectArray(data) {
     let lessforty = 0, mid = 0, largereighty = 0;
     let complete = 1; //0 is false, 1 is true
     let separateScore = [["Quiz Number", "Score (%)"]];
-    for (var i = 0; i < data.length; i++) {
+    for (var i = data.length-1; i >= 0; i--) {
         if(data[i] == null){
             complete = 0;
-            separateScore.push([i+1, -100]);
+            separateScore.push([data.length-i, -100]);
             continue;
         }
         if(data[i] < 40){
@@ -19,7 +19,7 @@ function toCorrectArray(data) {
             let content = ["≥80", data[i]];
             largereighty++;
         }
-        separateScore.push([i+1, data[i]]);
+        separateScore.push([data.length-i, data[i]]);
     }
     let lessArray = ["<40", lessforty];
     let midArray = ["40-79", mid];
@@ -56,7 +56,7 @@ google.charts.setOnLoadCallback(drawCharts);
 
 function drawTuteProgress() {
     let tuteProgressData = [["Chinese Chess Tutorial", "Tutorial Progress (Page No.)"],["Current Progress", tutorialProgress]];
-    console.log(tuteProgressData);
+    // console.log(tuteProgressData);
     let tuteData = google.visualization.arrayToDataTable(tuteProgressData);
     let tuteOptions = {
       'title': 'My Current Tutorial Progress',
@@ -74,7 +74,7 @@ function drawTuteProgress() {
 }
 
 function drawCharts() {
-    console.log(arrays);
+    // console.log(arrays);
     var data = google.visualization.arrayToDataTable(arrays[0]);
     var options = {
       'title': 'My Quiz Score Proportion',
@@ -109,7 +109,7 @@ function drawLineChart() {
 
       var chart = new google.visualization.LineChart(document.getElementById('Sarah_chart_div'));
 
-
+      // console.log(QuizIDArray);
 
       function selectHandler() {
           var selectedItem = chart.getSelection()[0];
@@ -117,11 +117,18 @@ function drawLineChart() {
             var topping = data.getValue(selectedItem.row, 0);
             // alert('The user selected ' + topping);
           }
-          var quizID = QuizIDArray[topping-1];
+          var length = QuizIDArray.length;
+          var quizID = QuizIDArray[length-topping];
           // alert(quizID);
-          resultFinalURL = resultTempURL + quizID;
-          window.location.replace(resultFinalURL);
-      }
+          if(arrays[2] === 0 && topping === length){
+              alert("Please click the link below the chart to continue your quiz!")
+          }
+          else{
+              resultFinalURL = resultTempURL + quizID;
+              window.location.replace(resultFinalURL);
+          }
+
+      };
 
 
       google.visualization.events.addListener(chart, 'select', selectHandler);
@@ -131,15 +138,11 @@ function drawLineChart() {
 }
 
 // THERE IS STILL IMCOMPLETE QUIZ
-
-function changeAIfIncomplete(link){
-    if(arrays[2] == 0){
-        $(".dashboard-progress .text .progress").attr("href", link);
-        let comment = "<p>* -100% = Quiz incomplete</p><br>";
-        let incomplete = "<a class=\"text\" href="+link+">Click here to continue your Quiz!</a>"
-        $("#Sarah_chart_div").after("<div class=\"first-quiz\">"+comment+incomplete+"</div>");
-
-    }
+if(arrays[2] == 0){
+    // $(".dashboard-progress .text .progress").attr("href", link);
+    let comment = "<p>* -100% = Quiz incomplete</p><br>";
+    let incomplete = "<a class=\"text\" href="+continueQuizURL+">Click here to continue your Quiz!</a>"
+    $("#Sarah_chart_div").after("<div class=\"first-quiz\">"+comment+incomplete+"</div>");
 }
 
 //BETTER TO DYNAMICALLY INSERT TUTE PAGE SIZE
