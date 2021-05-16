@@ -48,20 +48,26 @@
                         My Quiz Feedback
                     </div>
                     <div class="quizDiv" id="quizDiv">
-                        <ul>
-                            {% for quiz in quizzes %}
-                                {% if quiz.status == 0 %}
-                                    <li>You have unfinished quiz, click<a
-                                            href="{{ url_for('main.questions_info') }}"> here </a>to
-                                        continue!
-                                    </li>
-                                    <br>
-                                {% else %}
-                                    <li>see quiz feedback: <a href="{{ url_for('main.selected_quiz', quiz_id=quiz.id) }}">{{ quiz.last_question_edit_time.strftime("%d %b  %Y, %H:%M:%S") }}</a> score: {{ quiz.total_score }}
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
+                        {% if not quizzes %}
+                           You haven't done any quizzes yet!
+                        {% else %}
+                            <ul>
+                                {% for quiz in quizzes %}
+                                    {% if quiz.status == 0 %}
+                                        <li>You have unfinished quiz, click<a
+                                                href="{{ url_for('main.questions_info') }}"> here </a>to
+                                            continue!
+                                        </li>
+                                        <br>
+                                    {% else %}
+                                        <li>see quiz feedback: <a
+                                                href="{{ url_for('main.selected_quiz', quiz_id=quiz.id) }}">{{ quiz.last_question_edit_time.strftime("%d %b  %Y, %H:%M:%S") }}</a>
+                                            score: {{ quiz.total_score }}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
                     </div>
 
 
