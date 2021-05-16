@@ -52,7 +52,7 @@
                             {% for quiz in quizzes %}
                                 {% if quiz.status == 0 %}
                                     <li>You have unfinished quiz, click<a
-                                            href="{{ url_for('main.selected_quiz', quiz_id=quiz.id) }}"> here </a>to
+                                            href="{{ url_for('main.questions_info') }}"> here </a>to
                                         continue!
                                     </li>
                                     <br>
