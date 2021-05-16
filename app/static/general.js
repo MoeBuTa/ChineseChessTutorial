@@ -13,9 +13,9 @@ google.charts.setOnLoadCallback(drawChart);
 function drawColumnChart() {
     var data = google.visualization.arrayToDataTable([
         ['Element', 'Count', {role: 'style'}, {role: 'annotation'}],
-        ['current number of users', user_count, 'red', user_count],            // RGB value
-        ['current number of questions', question_count, 'green', question_count],            // English color name
-        ['current number of tutorials', tutorial_count, 'blue', tutorial_count]
+        ['total number of users', user_count, 'red', user_count],            // RGB value
+        ['total number of questions', question_count, 'green', question_count],            // English color name
+        ['total number of tutorials', tutorial_count, 'blue', tutorial_count]
     ]);
     var chart = new google.visualization.ColumnChart(document.getElementById('column_chart_div'));
     chart.draw(data);
