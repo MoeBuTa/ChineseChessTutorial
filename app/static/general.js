@@ -74,33 +74,33 @@ function drawAnthonyChart() {
 }
 
 
-function drawChart() {
-    var dataTable = new google.visualization.DataTable();
-    dataTable.addColumn({type: 'date', id: 'Date'});
-    dataTable.addColumn({type: 'number', id: 'visited'});
-    dataTable.addRows([
-        [new Date(2020, 3, 13), 332],
-        [new Date(2020, 3, 14), 384],
-        [new Date(2020, 4, 15), 324],
-        [new Date(2020, 4, 16), 318],
-        [new Date(2020, 4, 17), 389],
-        [new Date(2020, 5, 4), 387],
-        [new Date(2020, 6, 5), 305],
-        [new Date(2020, 7, 12), 210],
-        [new Date(2020, 8, 13), 389],
-        [new Date(2020, 8, 19), 388],
-        [new Date(2020, 10, 23), 345],
-        [new Date(2020, 10, 24), 346],
-        [new Date(2020, 11, 30), 347]
-    ]);
-
-    var chart = new google.visualization.Calendar(document.getElementById('calendar_basic'));
-
-    var options = {
-        // title: "Number of Visited our Website",
-        width: 1000,
-        height: 350,
-    };
-
-    chart.draw(dataTable, options);
-}
+// function drawChart() {
+//     var dataTable = new google.visualization.DataTable();
+//     dataTable.addColumn({type: 'date', id: 'Date'});
+//     dataTable.addColumn({type: 'number', id: 'visited'});
+//     dataTable.addRows([
+//         [new Date(2020, 3, 13), 332],
+//         [new Date(2020, 3, 14), 384],
+//         [new Date(2020, 4, 15), 324],
+//         [new Date(2020, 4, 16), 318],
+//         [new Date(2020, 4, 17), 389],
+//         [new Date(2020, 5, 4), 387],
+//         [new Date(2020, 6, 5), 305],
+//         [new Date(2020, 7, 12), 210],
+//         [new Date(2020, 8, 13), 389],
+//         [new Date(2020, 8, 19), 388],
+//         [new Date(2020, 10, 23), 345],
+//         [new Date(2020, 10, 24), 346],
+//         [new Date(2020, 11, 30), 347]
+//     ]);
+//
+//     var chart = new google.visualization.Calendar(document.getElementById('calendar_basic'));
+//
+//     var options = {
+//         // title: "Number of Visited our Website",
+//         width: 1000,
+//         height: 350,
+//     };
+//
+//     chart.draw(dataTable, options);
+// }
