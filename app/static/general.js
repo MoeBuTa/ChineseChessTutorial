@@ -14,8 +14,8 @@ function drawColumnChart() {
     var data = google.visualization.arrayToDataTable([
         ['Element', 'Count', {role: 'style'}, {role: 'annotation'}],
         ['total number of users', user_count, 'red', user_count],            // RGB value
-        ['total number of questions', question_count, 'green', question_count],            // English color name
-        ['total number of tutorials', tutorial_count, 'blue', tutorial_count]
+        ['total number of questions in database', question_count, 'green', question_count],            // English color name
+        ['total number of tutorial pages', tutorial_count, 'blue', tutorial_count]
     ]);
     var chart = new google.visualization.ColumnChart(document.getElementById('column_chart_div'));
     chart.draw(data);
