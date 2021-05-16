@@ -1,11 +1,11 @@
 
 <nav class="side-container clearfix">
 
-    <a href="#" class="sidebar-icon"><img src="../static/chess-img/sidebar-icon.png" alt="sidebar icon" width="60" height="60"></a>
+    <a href="#" class="sidebar-icon"><img src="{{url_for('static', filename='chess-img/sidebar-icon.png')}}" alt="sidebar icon" width="60" height="60"></a>
 
 
     <div class="navsidebar">
-        <div class="target"><img src="./static/chess-img/target.png" alt="view of target"></div>
+        <div class="target"><img src="{{url_for('static', filename='chess-img/target.png')}}" alt="view of target"></div>
         <ul class="lists">
             <li><a class="sideBarLinks sideBarLinksCommon sideBarLinksColour" href="{{ url_for('main.index') }}">Home</a></li>
             <li><a class="sideBarLinks sideBarLinksCommon sideBarLinksColour" href="{{url_for('main.story')}}">Story</a></li>

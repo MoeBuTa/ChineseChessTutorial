@@ -2,7 +2,7 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="../static/general.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='general.css')}}">
 {% endblock styles %}
 
 
@@ -19,7 +19,7 @@
                 <div class="profile">
                     <div class="avatar">
                         <a href="#">
-                            <img src="../static/chess-img/user.png" alt="user">
+                            <img src="{{url_for('static', filename='chess-img/user.png')}}" alt="user">
                         </a>
                         <div class="text">
                             Hello: {{ current_user.username}}
@@ -35,7 +35,7 @@
             <div class="dashboard">
 
                 <div class="text">
-                    <img src="../static/chess-img/books.png" alt="books"> Overview
+                    <img src="{{url_for('static', filename='chess-img/books.png')}}" alt="books"> Overview
                 </div>
                 <div id="column_chart_div"></div>
 
@@ -73,13 +73,13 @@
                 <br><br>
                 <div class="charts">
                     <div class="text">
-                        <img src="../static/chess-img/books.png" alt="books">
+                        <img src="{{url_for('static', filename='chess-img/books.png')}}" alt="books">
                         Tutorial Statistics
                     </div>
                     <div id="Sarah_chart_div" class="center"></div>
                     <br><br>
                     <div class="text">
-                        <img src="../static/chess-img/books.png" alt="books">
+                        <img src="{{url_for('static', filename='chess-img/books.png')}}" alt="books">
                         Quiz Statistics
                     </div>
                     <table class="center">
@@ -94,7 +94,7 @@
                     </table>
                     <br><br>
                     <div class="text">
-                        <img src="../static/chess-img/books.png" alt="books">
+                        <img src="{{url_for('static', filename='chess-img/books.png')}}" alt="books">
                         Website Traffic statistics
                     </div>
                     <div id="calendar_basic" class="center"></div>
@@ -123,6 +123,6 @@
         {{ proportions|tojson }}
     </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="../static/general.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='general.js')}}"></script>
 
 {% endblock scripts %}

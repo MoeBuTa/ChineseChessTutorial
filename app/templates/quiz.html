@@ -2,7 +2,7 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="../static/quiz.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='quiz.css')}}">
 {% endblock styles %}
 
 
@@ -86,6 +86,5 @@
             selected_questions.push(quest)
         {% endfor %}
     </script>
-    <script src="../static/quiz.js"></script>
-    <script src="../static/navSideBar.js"></script>
+    <script src="{{url_for('static', filename='quiz.js')}}"></script>
 {% endblock scripts %}

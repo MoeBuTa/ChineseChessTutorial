@@ -10,9 +10,9 @@
 
     {% block styles %}
         {{ super() }}
-        <link rel="stylesheet" type="text/css" href="../static/reset.css">
-        <link rel="stylesheet" type="text/css" href="../static/base.css">
-        <link rel="stylesheet" href="../static/toastr/toastr.css"/>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='reset.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='base.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='toastr/toastr.css')}}"/>
     {% endblock styles %}
 {%- endblock head %}
 
@@ -47,8 +47,8 @@
     {% block scripts %}
         {{ super() }}
         {{ moment.include_moment() }}
-        <script src="../static/toastr/toastr.js"></script>
-        <script src="../static/toastr/toastrOption.js"></script>
-        <script src="../static/navSideBar.js"></script>
+        <script src="{{url_for('static', filename='toastr/toastr.js')}}"></script>
+        <script src="{{url_for('static', filename='toastr/toastrOption.js')}}"></script>
+        <script src="{{url_for('static', filename='navSideBar.js')}}"></script>
     {%- endblock scripts %}
 {% endblock body %}

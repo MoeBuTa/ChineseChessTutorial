@@ -2,7 +2,7 @@
 
 {% block styles %}
   {{super()}}
-  <link rel="stylesheet" type="text/css" href="../static/story.css">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='story.css')}}">
 {% endblock styles %}
 
 {% block content %}
@@ -35,13 +35,13 @@
           </p>
           <br><br><br>
           <div class="image-container">
-            <img src="../static/chess-img/Chinese playing chess.jpg" alt="chinese playing chess" class="image">
-            <img src="../static/chess-img/chinese playing chess crowd.jpg" alt="chinese playing chess with crowds" class="image">
+            <img src="{{url_for('static', filename='chess-img/Chinese playing chess.jpg')}}" alt="chinese playing chess" class="image">
+            <img src="{{url_for('static', filename='chess-img/chinese playing chess crowd.jpg')}}" alt="chinese playing chess with crowds" class="image">
             <p class="image-description">Chinese playing XiangQi on a table in a park (left-hand side image) and on a street with crowds surrounding the two players (right-hand side image)</p>
           </div>
           <br><br><br>
           <div class="right-side-image-container">
-            <img src="../static/chess-img/hanxin.jpg" alt="A protrait of Hán Xin - 韩信" class="han-xin-portrait">
+            <img src="{{url_for('static', filename='chess-img/hanxin.jpg')}}" alt="A protrait of Hán Xin - 韩信" class="han-xin-portrait">
             <div class="hanxin-text-container">
               <p class="image-description">A protrait of Hán Xin - 韩信, who is one of the best milatary general in the history of China and he is thought to be the inventor of XiangQi</p>
             </div>
@@ -85,7 +85,7 @@
           </p>
           <br><br><br>
           <div class="image-container">
-            <img src="../static/chess-img/chess-xiangzi.gif" alt="picture of xiang chess pieces">
+            <img src="{{url_for('static', filename='chess-img/chess-xiangzi.gif')}}" alt="picture of xiang chess pieces">
 
             <p class="centre-image-description image-description">
               The left-hand image means foreign minister and it is located next to an animal chess piece (horse)
@@ -113,7 +113,7 @@
           <br><br><br>
 
           <div class="image-container">
-            <img src="../static/chess-img/Shatranj.jpg" alt="an image of Shatranj" class="image">
+            <img src="{{url_for('static', filename='chess-img/Shatranj.jpg')}}" alt="an image of Shatranj" class="image">
             <p class="image-description centre-image-description">
               An image of glazed Iranian fritware shatranj set in the New York Metropolitan Museum of Art By
               <a href="//commons.wikimedia.org/wiki/User:Zereshk" title="User:Zereshk">Zereshk</a> - Own work,

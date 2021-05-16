@@ -120,6 +120,8 @@ function drawLineChart() {
           var length = QuizIDArray.length;
           var quizID = QuizIDArray[length-topping];
           // alert(quizID);
+
+//        WHEN THERE IS INCOMPLETE QUIZ AND USER CLICKED ON THE INCOMPLETE QUIZ DOT (LAST ONE)
           if(arrays[2] === 0 && topping === length){
               alert("Please click the link below the chart to continue your quiz!")
           }
@@ -145,7 +147,7 @@ if(arrays[2] == 0){
     $("#Sarah_chart_div").after("<div class=\"first-quiz\">"+comment+incomplete+"</div>");
 }
 
-//BETTER TO DYNAMICALLY INSERT TUTE PAGE SIZE
+
 //TO DYNAMICALLY CHANGE THE COMMENT BELOW THE TUTE CHART
 if(tutorialProgress < 8){
     $("#tute_chart_div").after("<div class=\"first-quiz text\"><a href="+tuteURL+">Click here to continue your Tutorial!</a></div>");

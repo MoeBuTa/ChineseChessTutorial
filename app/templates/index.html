@@ -2,7 +2,7 @@
 
 {% block styles %}
   {{super()}}
-  <link rel="stylesheet" type="text/css" href="./static/index.css">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='index.css')}}">
 {% endblock styles %}
 
 {% block content %}
@@ -32,22 +32,22 @@
             <div class="article-content">
                 <div class="cube">
                     <div class="img1">
-                        <img src="./static/chess-img/chess-rotatebing.png" alt="view of bing">
+                        <img src="{{url_for('static', filename='chess-img/chess-rotatebing.png')}}" alt="view of bing">
                     </div>
                     <div class="img2">
-                        <img src="./static/chess-img/chess-rotatepao.png" alt="view of pao">
+                        <img src="{{url_for('static', filename='chess-img/chess-rotatepao.png')}}" alt="view of pao">
                     </div>
                     <div class="img3">
-                        <img src="./static/chess-img/chess-rotateche.png" alt="view of che">
+                        <img src="{{url_for('static', filename='chess-img/chess-rotateche.png')}}" alt="view of che">
                     </div>
                     <div class="img4">
-                        <img src="./static/chess-img/chess-rotateshuai.png" alt="view of shuai">
+                        <img src="{{url_for('static', filename='chess-img/chess-rotateshuai.png')}}" alt="view of shuai">
                     </div>
                     <div class="img5">
-                        <img src="./static/chess-img/chess-rotatema.png" alt="view of ma">
+                        <img src="{{url_for('static', filename='chess-img/chess-rotatema.png')}}" alt="view of ma">
                     </div>
                     <div class="img6">
-                        <img src="./static/chess-img/chess-rotateshi.png" alt="view of shi">
+                        <img src="{{url_for('static', filename='chess-img/chess-rotateshi.png')}}" alt="view of shi">
                     </div>
                 </div>
             </div>
