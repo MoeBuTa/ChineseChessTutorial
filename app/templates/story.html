@@ -35,8 +35,26 @@
           </p>
           <br><br><br>
           <div class="image-container">
-            <img src="{{url_for('static', filename='chess-img/Chinese playing chess.jpg')}}" alt="chinese playing chess" class="image">
-            <img src="{{url_for('static', filename='chess-img/chinese playing chess crowd.jpg')}}" alt="chinese playing chess with crowds" class="image">
+            <div id="img-box">
+                <ul id="img-list">
+                    <li><img src="{{url_for('static', filename='chess-img/playingChess1.png')}}" alt="playingChess1"></li>
+                    <li><img src="{{url_for('static', filename='chess-img/playingChess2.png')}}" alt="playingChess2"></li>
+                    <li><img src="{{url_for('static', filename='chess-img/playingChess3.png')}}" alt="playingChess3"></li>
+                    <li><img src="{{url_for('static', filename='chess-img/playingChess4.png')}}" alt="playingChess4"></li>
+                    <li><img src="{{url_for('static', filename='chess-img/playingChess5.png')}}" alt="playingChess5"></li>
+                    <li><img src="{{url_for('static', filename='chess-img/playingChess1.png')}}" alt="playingChess1"></li>
+                </ul>
+
+                <div id="btn">
+                    <a class="imageA" href="#"></a>
+                    <a class="imageA" href="#"></a>
+                    <a class="imageA" href="#"></a>
+                    <a class="imageA" href="#"></a>
+                    <a class="imageA" href="#"></a>
+                </div>
+            </div>
+
+
             <p class="image-description">Chinese playing XiangQi on a table in a park (left-hand side image) and on a street with crowds surrounding the two players (right-hand side image)</p>
           </div>
           <br><br><br>
@@ -130,3 +148,8 @@
   </div>
 
 {% endblock content %}
+{% block scripts %}
+    <script src="{{url_for('static', filename='pic.js')}}"></script>
+    {{super()}}
+
+{% endblock scripts %}
