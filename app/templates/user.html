@@ -2,7 +2,7 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static', filename='user.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='user.css') }}">
 {% endblock styles %}
 
 
@@ -15,13 +15,13 @@
         <div class="main-content clearfix">
             <div class="dashboard">
                 <div class="text">
-                    <img src="{{url_for('static', filename='chess-img/books.png')}}" alt="books"> Overview
+                    <img src="{{ url_for('static', filename='chess-img/books.png') }}" alt="books"> Overview
                 </div>
 
                 <div class="dashboard-progress">
                     <div class="text">
                         <a href="#my-progress">My Tutorial Progress</a>
-                        <img src="{{url_for('static', filename='chess-img/notebook.png')}}" alt="notebook">
+                        <img src="{{ url_for('static', filename='chess-img/notebook.png') }}" alt="notebook">
 
                     </div>
                 </div>
@@ -30,62 +30,62 @@
                 <div class="dashboard-feedback">
                     <div class="text">
                         <a href="#quizDiv">My Quiz Feedback</a>
-                        <img src="{{url_for('static', filename='chess-img/notepad.png')}}" alt="notepad">
+                        <img src="{{ url_for('static', filename='chess-img/notepad.png') }}" alt="notepad">
                     </div>
                 </div>
 
                 <br><br><br><br><br><br><br>
                 <div id="my-progress" class="charts">
                     <div class="text">
-                        <img src="{{url_for('static', filename='chess-img/books.png')}}" alt="books">
+                        <img src="{{ url_for('static', filename='chess-img/books.png') }}" alt="books">
                         My Tutorial Progress
                     </div>
                     <div id="tute_chart_div" class="center"></div>
 
                     <br><br>
                     <div class="text" id="quizDiv">
-                        <img src="{{url_for('static', filename='chess-img/notepad.png')}}" alt="notepad">
-                        My Quiz Feedback
-                    </div>
-                    <div class="quizDiv">
-                        {% if not quizzes %}
-                           You haven't done any quizzes yet!
-                        {% else %}
-                            <ul>
-                                {% for quiz in quizzes %}
-                                    {% if quiz.status == 0 %}
-                                        <li>You have an unfinished quiz, please click
-                                            <a href="{{ url_for('main.questions_info') }}">
-                                                here
-                                            </a>
-                                            to continue!
-                                        </li>
-                                        <br>
-                                    {% else %}
-                                        <li>
-                                            see quiz feedback:
-                                            <a href="{{ url_for('main.selected_quiz', quiz_id=quiz.id) }}">
-                                                {{ quiz.last_question_edit_time.strftime("%d %b  %Y, %H:%M:%S") }}
-                                            </a>
-                                            score (%): {{ quiz.total_score }}
-                                        </li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-                    </div>
-
-
-                    <br><br>
-                    <div class="text">
-                        <img src="{{url_for('static', filename='chess-img/books.png')}}" alt="books">
+                        <img src="{{ url_for('static', filename='chess-img/books.png') }}" alt="books">
                         My Quiz Progress
                     </div>
 
                     <div id="Sarah_chart_div" class="center"></div>
+                    <div class="quizDiv">
+                    <br><br>
+                        {% if not quizzes %}
+                            <p>You haven't done any quizzes yet!</p>
+                        {% else %}
+                            <table>
+                                <thead>
+                                <td>Quiz number</td>
+                                <td>Submit date</td>
+                                <td>Scores (%)</td>
+                                </thead>
+
+                                <br>
+                                {% for i in range(0, quizzes|count) %}
+                                    {% if quizzes[i].status == 0 %}
+
+                                        You have an unfinished quiz, please click
+                                        <a href="{{ url_for('main.questions_info') }}">
+                                            here
+                                        </a>
+                                        to continue!
+                                    {% else %}
+                                        <tr>
+                                            <td>
+                                                <a href="{{ url_for('main.selected_quiz', quiz_id=quizzes[i].id) }}">Quiz {{ quizzes|count - i }}</a>
+                                            </td>
+                                            <td>{{ quizzes[i].last_question_edit_time.strftime("%d %b  %Y, %H:%M:%S") }}</td>
+                                            <td>{{ quizzes[i].total_score }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </table>
+                        {% endif %}
+                    </div>
                     <br><br>
                     <div class="text">
-                        <img src="{{url_for('static', filename='chess-img/books.png')}}" alt="books">
+                        <img src="{{ url_for('static', filename='chess-img/books.png') }}" alt="books">
                         Quiz Statistics
                     </div>
                     <table class="center">
@@ -125,6 +125,6 @@
         var continueQuizURL = "{{url_for('main.questions')}}";
     </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="{{url_for('static', filename='user.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='user.js') }}"></script>
 
 {% endblock scripts %}

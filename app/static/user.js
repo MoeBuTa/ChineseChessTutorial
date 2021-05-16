@@ -38,7 +38,7 @@ google.charts.setOnLoadCallback(drawTuteProgress);
 
 if(data.length > 0) {
     google.charts.setOnLoadCallback(drawLineChart);
-    let qComment = "<p>*click on graph dot to see previous quiz result</p>";
+    let qComment = "<p>*click on graph dot to see previous quiz feedbacks</p>";
 
     $("#Sarah_chart_div").before("<div class=\"first-quiz\">"+qComment+"</div>")
 
@@ -123,7 +123,8 @@ function drawLineChart() {
 
 //        WHEN THERE IS INCOMPLETE QUIZ AND USER CLICKED ON THE INCOMPLETE QUIZ DOT (LAST ONE)
           if(arrays[2] === 0 && topping === length){
-              alert("Please click the link below the chart to continue your quiz!")
+              window.location.replace(quizURL);
+              // alert("Please click the link below the chart to continue your quiz!")
           }
           else{
               resultFinalURL = resultTempURL + quizID;
@@ -143,8 +144,8 @@ function drawLineChart() {
 if(arrays[2] == 0){
     // $(".dashboard-progress .text .progress").attr("href", link);
     let comment = "<p>* -100% = Quiz incomplete</p><br>";
-    let incomplete = "<a class=\"text\" href="+continueQuizURL+">Click here to continue your Quiz!</a>"
-    $("#Sarah_chart_div").after("<div class=\"first-quiz\">"+comment+incomplete+"</div>");
+    // let incomplete = "<a class=\"text\" href="+continueQuizURL+">Click here to continue your Quiz!</a>"
+    $("#Sarah_chart_div").after("<div class=\"first-quiz\">"+comment+"</div>");
 }
 
 
