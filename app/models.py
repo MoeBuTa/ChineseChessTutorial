@@ -365,7 +365,7 @@ class Quiz(db.Model):
     # get quizzes by user
     @classmethod
     def get_user_quiz(cls, user_id):
-        return cls.query.filter_by(user_id=user_id).all()
+        return cls.query.filter_by(user_id=user_id).order_by(desc(cls.last_question_edit_time)).all()
 
     # get quiz score distribution in three parts(<40, 40-80, ≥80)
     @staticmethod

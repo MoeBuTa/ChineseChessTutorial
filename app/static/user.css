@@ -70,6 +70,22 @@
     right: 30px;
 }
 
+.quizDiv{
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bolder;
+    width: 49%;
+    height: 100px;
+    line-height: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: auto;
+}
+.quizDiv a{
+    color : blue;
+}
+
+
 
 .dashboard .charts .center {
     margin: 0 auto;
