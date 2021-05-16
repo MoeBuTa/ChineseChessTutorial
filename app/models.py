@@ -313,7 +313,6 @@ class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     total_score = db.Column(db.Float(precision=10, decimal_return_scale=2))
-    feedback = db.Column(db.UnicodeText())
     start_question_time = db.Column(db.DateTime)
     last_question_edit_time = db.Column(db.DateTime)
     status = db.Column(db.SmallInteger)
