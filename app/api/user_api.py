@@ -18,7 +18,7 @@ def get_user_by_name(username):
 def register_validation():
     data = request.form
     if 'register_username' not in data or 'email' not in data or 'register_password' not in data:
-        return bad_request('must include all user fields!')
+        return bad_request('must include all user fields!'), 400
     user = User(username=data['register_username'], email=data['email'], register_time=datetime.now())
     return user.register_validation(data['register_password'])
 

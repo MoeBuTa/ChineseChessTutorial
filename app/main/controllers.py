@@ -3,6 +3,7 @@ from flask_login import current_user
 from app.models import Tutorial, Question, QuestionLog, Quiz, TutorialProgress, User
 from datetime import datetime
 from tests import data
+from app.api.errors import bad_request
 
 
 class IndexController:
@@ -141,7 +142,11 @@ class UserViewController:
     @staticmethod
     def selected_quiz(quiz_id):
         quiz = Quiz.query.get(quiz_id)
-        selected_questions = QuestionLog.get_selected_questions_by_quiz(quiz_id)
+        # if requested quiz do not belong to current user
+        if quiz.user_id != current_user.id:
+            return render_template('errors/404.html')
+        else:
+            selected_questions = QuestionLog.get_selected_questions_by_quiz(quiz_id)
 
         return render_template('quiz-feedback.html', title='feedback', selected_questions=selected_questions,
                                quiz=quiz)

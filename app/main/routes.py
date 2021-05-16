@@ -46,10 +46,12 @@ def general_view():
 
 
 @bp.route('/userView')
+@login_required
 def user_view():
     return UserViewController.user_view()
 
 
 @bp.route('/selectedQuiz/<quiz_id>', methods=['GET'])
+@login_required
 def selected_quiz(quiz_id):
     return UserViewController.selected_quiz(quiz_id)
