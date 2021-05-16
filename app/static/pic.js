@@ -1,7 +1,7 @@
 
 var imgList = document.getElementById("img-list");
 
-var imgArr = document.getElementsByTagName("img");
+var imgArr = document.getElementsByClassName("switch-img");
 
 imgList.style.width = 475 * imgArr.length + "px";
 

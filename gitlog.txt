@@ -1,0 +1,1542 @@
+commit 61bdcae057357efe915232d63673cefae07079b6
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 16 23:24:56 2021 +0800
+
+    Added photo transition
+
+commit c0b310603e7e1cd74141402b125f500515ea0065
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 16 20:32:30 2021 +0800
+
+    improve quiz progress section of user view
+
+commit 20e964ddc5b0806bc7ac4a32673ca3e58f63d052
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 16 16:08:18 2021 +0800
+
+    improve column description
+
+commit 05c06976e7bb949e0fb6ea6511ba1904c8956ff6
+Merge: c079679 372a05c
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 16 16:01:06 2021 +0800
+
+    Merge remote-tracking branch 'origin' into Jun
+
+commit c0796791286c652eb136ed055b76b0d2ade562ce
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 16 15:58:50 2021 +0800
+
+    Changed chart title name
+
+commit 372a05c655144f9d1beab7bccb7895efb17dfd99
+Merge: 3699a55 bdefd94
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 16 15:51:13 2021 +0800
+
+    Merge branch 'main' of github.com:yv024433/CITS3403-groupDesign into main
+
+commit bdefd944155747fb6a5aa2f21df77a630999da0e
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 16 15:50:07 2021 +0800
+
+    drop redundant column
+
+commit 3699a55c5aa333c8964f521fbfb057ad9bb7f579
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 16 15:48:53 2021 +0800
+
+    Commented out the website traffic part
+
+commit a9ce75f166f11a5679d2f62a2a48b50a57ee8ba5
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 16 15:42:10 2021 +0800
+
+    Changed the path of image and js
+
+commit e57e4e85ffa866de46da7033ba47e9e0be46e445
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 16 15:41:49 2021 +0800
+
+    Changed the path of image and js + ref to #quizDiv
+
+commit 597625f99d5b9e20cd651690b714899ac41d1faa
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 16 14:58:13 2021 +0800
+
+    add authentication to user view
+
+commit 86a2d887f25a01c64727c2589e1a8992acb73c6c
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 16 13:46:48 2021 +0800
+
+    Fixed chart bugs
+
+commit 7d0f2c0807bcd61de42bfe6ded21699143388495
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 16 10:14:00 2021 +0800
+
+    add quiz feedback in user view
+
+commit 0fb0dd8b85b19cab30bb9689865e681e87d845ec
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 16 09:52:40 2021 +0800
+
+    added quiz feedback to user view
+
+commit 44caa2f6c4cff0648db03f7b592883ba7f339658
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 16 09:49:50 2021 +0800
+
+    added quiz feedback to user view
+
+commit 11ffd7a1decc3149379e675a262b9c0356cd057f
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 16 01:07:27 2021 +0800
+
+    Added content to user view
+
+commit d1486197a75dae7d5cb631c4291a5ee7dc858341
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sat May 15 23:49:59 2021 +0800
+
+    Fixed quiz bug
+
+commit f7c424ebaf079fe5c706220d17b2dbc08a9216cc
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 18:09:10 2021 +0800
+
+    fix quiz bugs
+
+commit 8e01a9bb606edf0f1a6e5b638f407cbd632bc57f
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 16:50:13 2021 +0800
+
+    add migrations folder
+
+commit 2b9837788c407300dfe421e3cee8ea168dca14d8
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 16:33:57 2021 +0800
+
+    delete migration content
+
+commit 782442b8cdb695af08d975afbe3834c430894743
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 16:33:24 2021 +0800
+
+    add conditions to profile div
+
+commit 8948d999902a1b9aa5d0b1b6080361f33ce9c3bc
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 11:40:28 2021 +0800
+
+    add username to avatar
+
+commit 3eaa3f665c2be3a7e9161dc7426c266812cc14f1
+Merge: 88a5405 6617495
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 11:26:00 2021 +0800
+
+    Merge remote-tracking branch 'origin/main' into Wenxiao
+
+commit 88a5405fe3e728d2a362fc31bd2b6be53d3062cc
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 11:25:47 2021 +0800
+
+    refactor charts data related code - put db operation into models.py and render general page with charts data
+
+commit 66174958eed8af2f35127aae559a6f08e558965b
+Merge: d161ae2 fb08e5f
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 10:56:17 2021 +0800
+
+    Merge pull request #36 from yv024433/Wenxiao
+    
+    add column chart for counts visualization, comment redundant code
+
+commit fb08e5f211f6a4bfd135f97c7de2578882efefdd
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 10:55:43 2021 +0800
+
+    add column chart for counts visualization, comment redundant code
+
+commit d161ae2ceca07673ce55f9adb9db43920e64c8c1
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 01:28:21 2021 +0800
+
+    fix quiz bugs
+
+commit aba700634f1ab619f75ba2f1a85d23f356942ff6
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 01:25:10 2021 +0800
+
+    fix quiz bugs
+
+commit a9451cae5a13cee8dba8bb1e6220bde23d6ebd05
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 15 00:56:05 2021 +0800
+
+    fix partial quiz bugs and add selectedQuiz route
+
+commit b7dcbfc0d72f316541567fcd7697b060743931f6
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sat May 15 00:06:37 2021 +0800
+
+    Added user view
+
+commit 90bed4f81db74f812b39d5fad39dee1620c357bf
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sat May 15 00:06:14 2021 +0800
+
+    Added link to user view
+
+commit 7d46ddd819294c5f1fd30cba2b3e032f7b33d45f
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Fri May 14 14:32:22 2021 +0800
+
+    Only inherit the message block
+
+commit c996840875035e2b16e30b91e85b7fd90327e019
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Fri May 14 14:26:48 2021 +0800
+
+    Moved the script block out of content block + sidebar into base template
+
+commit 5d4acda37014e2465c3dcdbae7e05217680067e5
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Fri May 14 14:25:27 2021 +0800
+
+    Remove duplicate css
+
+commit c1ff35c4b2cc1b60fdb29c2b75bd36e4882684d7
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Fri May 14 14:23:47 2021 +0800
+
+    makes the login box vertically center
+
+commit a86713aab2bbaef7c5f9ee383bafca10681962ec
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Fri May 14 14:23:03 2021 +0800
+
+    changes to layout
+
+commit a9920ab3e5742485427cd8d41d1d3746da0bb995
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Fri May 14 13:00:55 2021 +0800
+
+    Added .main-container div
+
+commit 11e2ea0278567ed27d265ec821ec077045271d5e
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Fri May 14 12:00:26 2021 +0800
+
+    Fixed the layout
+
+commit 14c18c273c1cafd88685570cff38d0028aaa2d68
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed May 12 11:09:12 2021 +0800
+
+    updated api for user view and quiz feedback, updated README
+
+commit ce93481a5ed2a529fc821865aae961255584163c
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Tue May 11 22:08:07 2021 +0800
+
+    added system tests
+
+commit 5f462cd975284c503c6b616a4245027a895cd5da
+Merge: e3e8e43 2029ba3
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Tue May 11 18:22:58 2021 +0800
+
+    Merge pull request #35 from yv024433/Wenxiao
+    
+    added system test for register and login (see updated readmd)
+
+commit 2029ba3e50b688a902fcdd03307f155120b40b08
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Tue May 11 18:22:13 2021 +0800
+
+    added system test for register and login (see updated readmd)
+
+commit e3e8e43ea5b76d9e47e82fc3e317fe88fdfff9d3
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Tue May 11 16:18:59 2021 +0800
+
+    hide the sidebar + animation
+
+commit da9e8c13c856dbb958690ab83a54cc9663e15a8f
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Tue May 11 15:19:58 2021 +0800
+
+    Update navSideBar.html
+
+commit c60c4c1f0c136b77cefcab7bbd7c7b5fe134f773
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Tue May 11 15:19:11 2021 +0800
+
+    Update quiz.html
+
+commit 7fc44934bcc5bdac7364bb8b4820d7f512f6cedc
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Tue May 11 11:21:53 2021 +0800
+
+    added unit tests
+
+commit f7432e23131afb892b42276b33cf6e59949c4076
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Tue May 11 10:42:36 2021 +0800
+
+    move register ajax request handler to api module
+
+commit e4ce7cb1d147a3c8f2aa8c0eec3e51863f54da9b
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Mon May 10 18:54:34 2021 +0800
+
+    fix area chart bug
+
+commit ca21f89596610b25bd2be9302872e70b97a5e51c
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Mon May 10 18:49:47 2021 +0800
+
+    refactor project structure using REST style in handling ajax request
+
+commit 98efee4ad31a1f3c703fcf25d1c62be60f34534c
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Mon May 10 16:49:16 2021 +0800
+
+    add dict transfer method for each model class, initially create api files for REST
+
+commit 031e0b7070fc6b82ce40d1608c0828e1b1024fa0
+Merge: c3a21ff 57c12e8
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Mon May 10 16:27:05 2021 +0800
+
+    Merge remote-tracking branch 'origin/main' into Wenxiao
+
+commit 57c12e8e6eed994d42f9f268f6b7621a534ff585
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Mon May 10 00:15:55 2021 +0800
+
+    Update README.md
+
+commit 1c369d8f0ecccab584dd592cc3a26c7ee19e0795
+Merge: 0a68234 f643169
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Mon May 10 00:13:15 2021 +0800
+
+    Merge pull request #34 from yv024433/Wenxiao
+    
+    deleted redundant css, added 401 unauth, updated README.md
+
+commit f64316996cffcafac77c2287df9c1315c977ef3f
+Merge: 96e5df7 0a68234
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Mon May 10 00:13:08 2021 +0800
+
+    Merge branch 'main' into Wenxiao
+
+commit c3a21ff7e0d4b230cf500bbdd95ad1c151e14c31
+Merge: 96e5df7 0a68234
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Mon May 10 00:12:30 2021 +0800
+
+    Merge remote-tracking branch 'origin/main' into Wenxiao
+    
+    # Conflicts:
+    #       app/static/quizInfo.css
+
+commit 96e5df724640b668ee6e3656294623990c9c2bf4
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Mon May 10 00:11:04 2021 +0800
+
+    deleted redundant css, added 401 unauth, updated README.md
+
+commit 0a682340ddc67c09e6879773ccd5e79de7e526f9
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 9 23:58:01 2021 +0800
+
+    Fixed some layout problem
+
+commit 6da22ee91c09b1f6c680bb269266c69dad1c645a
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 9 23:57:23 2021 +0800
+
+    Fixed misspelled words
+
+commit a587523e923a03e17f0403f6f293e2c6ab8bd1b3
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Sun May 9 14:54:46 2021 +0800
+
+    Update 500.css
+
+commit e7d265abc402dbb9f8eff69ea1998f1ed3ef5e72
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Sun May 9 14:53:45 2021 +0800
+
+    Update 404.css
+
+commit 8666736e94045f340c7553789b4cc7d0913b12f9
+Merge: f8e9dbb 3a478f7
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 9 08:11:57 2021 +0800
+
+    Merge remote-tracking branch 'origin/main' into Wenxiao
+
+commit f8e9dbb603ce5087fea839756393253d132de833
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 9 08:10:56 2021 +0800
+
+    implemented error handler and fix requirements bug
+
+commit 3a478f729cf487daf448b9fbf873ecf2b25f6cc6
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Sun May 9 01:02:40 2021 +0800
+
+    Update quiz.html
+
+commit 8feb4e9c57f8b9f06a03c4dcfc38481d5f48c52c
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Sun May 9 01:01:21 2021 +0800
+
+    Update quizInfo.html
+
+commit 3198f6b8608c1377081222ab0e9fc0a642656cb2
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Sun May 9 00:41:44 2021 +0800
+
+    Add files via upload
+
+commit 7d5457618a1bacfb63dba8a44e195a35916bd904
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Sun May 9 00:41:19 2021 +0800
+
+    Add files via upload
+
+commit 4bb1fa834fa391f5d919896186a7e49f1c2e03a8
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat May 8 10:26:20 2021 +0800
+
+    fix login/register bugs
+
+commit 42077e498e707f81211e023c39e2ed0b5ad06520
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 22:11:43 2021 +0800
+
+    fix area charts bugs
+
+commit cb56c64e08ce4b790f5ea8668cb75b50a2dd5875
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 21:51:50 2021 +0800
+
+    fix area charts bugs
+
+commit 6a8cc2a9b8506ecd375c072b56add53176cd1fa8
+Merge: 33bf85d ae1cb64
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 19:19:38 2021 +0800
+
+    Merge pull request #33 from yv024433/Wenxiao
+    
+    fix time duration bugs
+
+commit ae1cb640db12ce7d355c181d670eb49fb6a39f9a
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 19:18:47 2021 +0800
+
+    fix time duration bugs
+
+commit 33bf85d1c6f5917eb65fe1b9346f47c4cf813aa9
+Merge: 32a6529 9d3476c
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 19:04:17 2021 +0800
+
+    Merge pull request #32 from yv024433/Wenxiao
+    
+    implemented area chart for displaying average tutorial time
+
+commit 9d3476cea4cd0920241cd7210cf75b659711bc16
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 19:03:42 2021 +0800
+
+    implemented area chart for displaying average tutorial time
+
+commit 32a6529a4a8c5af17570d88984b9f0546e55ef41
+Merge: 104dc09 1a0656c
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 13:43:23 2021 +0800
+
+    Merge pull request #31 from yv024433/Wenxiao
+    
+    refactor tutorial_progress/ add render controller to general.html/ fix css bugs/ implemented quiz score proportion charts visualization
+
+commit 1a0656c1b5f2da3faf3f07336e1a2c3148feece1
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 13:41:54 2021 +0800
+
+    refactor tutorial_progress table to record reading time of each tutorial section
+
+commit 41dee16589dc99f0b8bd388b69f67f99d85e1178
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 11:49:36 2021 +0800
+
+    implemented quiz score proportion charts visualization
+
+commit f6971ea7ae1eb073ad74b8740329a57dd40eefe5
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 10:07:48 2021 +0800
+
+    add render controller to general.html and fix css bugs
+
+commit eebbf1359f5f9f8a73e4aa3434e1415a7cc385f4
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 10:07:41 2021 +0800
+
+    add render controller to general.html and fix css bugs
+
+commit 104dc0904e87b91e3fe7dc3467470ccffe0e6065
+Merge: 9fd75b2 fad3342
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 08:44:58 2021 +0800
+
+    Merge pull request #30 from yv024433/Wenxiao
+    
+    @MoeBuTa rename all Assessment into Question, rename quiz, quiz1.(html/css/js) into quizInfo, quiz.(html/css/js) , fix quiz logic bugs
+
+commit fad3342db4ef4c194c4ab97d52827dcec576493d
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 08:43:00 2021 +0800
+
+    rename all Assessment into Question, rename quiz, quiz1.(html/css/js) into quizInfo, quiz.(html/css/js) , fix quiz logic bugs
+
+commit 0c40b64f72fdb395b4815cfdb4aa4f6ca7c72c9a
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri May 7 08:42:44 2021 +0800
+
+    rename all Assessment into Question, rename quiz, quiz1.(html/css/js) into quizInfo, quiz.(html/css/js) , fix quiz logic bugs
+
+commit 9fd75b2f1301f7b6bacab51dced38931f5db14fc
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Fri May 7 04:22:16 2021 +0800
+
+    Add files via upload
+
+commit cd128dcc4047e4fb6b6732865b98be3a1194745e
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Fri May 7 04:21:46 2021 +0800
+
+    Delete feedback.js
+
+commit ef456e77607698e3bd0ddce8560df47975d341ee
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Fri May 7 04:21:38 2021 +0800
+
+    Delete feedback.css
+
+commit 03b316d07285b87a109c4c2240003afd56a651e3
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Fri May 7 04:20:51 2021 +0800
+
+    Add files via upload
+
+commit d8950b6de5761e7f1c0800efa6a9b42057fe1e72
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Fri May 7 04:20:10 2021 +0800
+
+    Delete feedback.html
+
+commit b492275129a5d84753ba6f847fd10e5d9a957ebb
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Fri May 7 04:19:47 2021 +0800
+
+    Add files via upload
+
+commit f981ed93cec2cb05e84771be07d12900cf97d334
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Fri May 7 03:42:45 2021 +0800
+
+    Update quiz-feedback.css
+
+commit 6b6a2f4636d9e30460bedd381049e5edeb5d0324
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Fri May 7 01:54:23 2021 +0800
+
+    Update navbar.html
+
+commit 3231f725cc773da65f9651d9e34e25f6d9fea374
+Merge: e112f41 bd4b7cf
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Thu May 6 20:55:17 2021 +0800
+
+    Merge pull request #29 from yv024433/Wenxiao
+    
+    implemented correction judgment, result calculation, result displaying(feedback) feature for assessment section
+
+commit bd4b7cfcef0707b3b71667bd562959d2ffb13249
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Thu May 6 20:53:51 2021 +0800
+
+    implemented correction judgment, result calculation, result displaying(feedback) feature for assessment section
+
+commit e112f41883ecf758b10e101172290c7560c2075d
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Wed May 5 17:19:42 2021 +0800
+
+    Add files via upload
+
+commit 761d35ee346b234df0e5d72d2a05de50fb612f3b
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Wed May 5 17:18:59 2021 +0800
+
+    Add files via upload
+
+commit c01b912032bec1a189ea66c5b46206d91df5edd6
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Wed May 5 16:49:14 2021 +0800
+
+    Add files via upload
+
+commit 87f75fd8303f3761fa1d622c09a38e2f1b125b95
+Merge: df58579 88ddf91
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed May 5 14:01:40 2021 +0800
+
+    Merge pull request #28 from yv024433/Wenxiao
+    
+    implemented save progress feature for assessment section
+
+commit 88ddf91f3e7098b83024ece4d17bed6f68f3f648
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed May 5 13:59:58 2021 +0800
+
+    implemented save progress feature for assessment section
+
+commit df58579be90a8c82d8cc4f42d373257f90c2facb
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Wed May 5 02:58:42 2021 +0800
+
+    Add files via upload
+
+commit f35c68039a717add689d0a23c22cce6bd85da30b
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Wed May 5 02:57:43 2021 +0800
+
+    Add files via upload
+
+commit a7bff8b0ef3b8d622cd3d87024d1cab2514ce761
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Wed May 5 02:55:22 2021 +0800
+
+    Add files via upload
+
+commit 3118e970bf2be1a986779bcb5c8689a7b6962652
+Merge: 9a21ba6 0fa64ff
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed May 5 00:07:50 2021 +0800
+
+    Merge pull request #27 from yv024433/Wenxiao
+    
+    implemented links for switching tutorial pages
+
+commit 0fa64ff34adc6aacb1da13d32239f559e545cc91
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed May 5 00:06:31 2021 +0800
+
+    implemented links for switching tutorial pages
+
+commit 9a21ba640a28fbec4f8eed1483d239bcfe377ee5
+Merge: 3986e50 39bbf16
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Tue May 4 19:25:41 2021 +0800
+
+    Merge pull request #26 from yv024433/Wei
+    
+    question
+
+commit 39bbf165cf6097b1098456fabf8e1ffea9ac978d
+Author: yv024433 <yv024433@gmail.com>
+Date:   Tue May 4 19:23:36 2021 +0800
+
+    question
+
+commit 3986e50bde7d6a708b408c12aeb1de01565e7536
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Tue May 4 15:15:42 2021 +0800
+
+    Update quiz1.css
+
+commit e77ebc24447199195f205e05662bfbece70e3183
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Tue May 4 14:12:00 2021 +0800
+
+    uncommented the css for button
+
+commit f18455c38e6b740855ccb4479a2f61405b65a606
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Tue May 4 14:05:56 2021 +0800
+
+    Changes made to the tutorial pagination
+
+commit 4344b80a649fa47d5fcb85af20df7df8b56af986
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Tue May 4 02:27:18 2021 +0800
+
+    fix register bug
+
+commit 74b63a690eff5f2165dccd9d485dd44dc6473ae9
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Tue May 4 01:43:07 2021 +0800
+
+    Update quiz.css
+
+commit ea2d4b1fa8e6b4bf4cba9140ffa962d31cacc1df
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Tue May 4 01:17:17 2021 +0800
+
+    Update requirements.txt
+
+commit 6ad513f9b41a5b7d6268a9519f8ea28262c10bec
+Merge: 4549d2e 5032de5
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Tue May 4 00:01:26 2021 +0800
+
+    Merge pull request #23 from yv024433/Wenxiao
+    
+    refactor tutorial table - add tutorial_num column to represent tutorial number
+
+commit 5032de53dc70cf9bc385515a4ecc91e31fda3a7c
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Tue May 4 00:00:22 2021 +0800
+
+    refactor tutorial table - add tutorial_num column to represent tutorial number
+
+commit 4549d2edc31e084596c6b3842ced197ef0b262d8
+Merge: 8f2437a 5aeccbd
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 2 16:26:30 2021 +0800
+
+    Merge branch 'main' of github.com:yv024433/CITS3403-groupDesign into Jun
+
+commit 8f2437a5cd1b01522902872be8e747b36b3eca1d
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 2 16:24:00 2021 +0800
+
+    edit index footer
+
+commit 65e87ffe89d0de4fcfc84793388aee038117f9c5
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 2 16:23:07 2021 +0800
+
+    Changes made for the footer, nav bar, and nav side bar
+
+commit b4271ba8d27a1f3d9af392cf970ee487fc5573cf
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 2 15:11:13 2021 +0800
+
+    Changes to layout and removes redundant css
+
+commit 61dc8ef35fcc06a3ee10b440b44c0fafa17e69c0
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 2 12:43:11 2021 +0800
+
+    changed the content of the navbar, nav sidebar, and footer
+
+commit 2582d22fc01c650afb48b92384dd3e617c6a324c
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 2 12:41:45 2021 +0800
+
+    fixed the layout
+
+commit fe07705cfbd99768a3d0f5cf95109cf216b94706
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Sun May 2 12:40:59 2021 +0800
+
+    fixed images path and index's layout
+
+commit 5aeccbd482988c36f10c630a418e09dd973e6226
+Merge: ed50f79 746fccd
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 2 12:13:16 2021 +0800
+
+    Merge pull request #22 from yv024433/Wenxiao
+    
+    applied toastr.js
+
+commit 746fccdde18ef9ec442365502bcbb83dbd2bce68
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 2 12:12:01 2021 +0800
+
+    deleted former migration versions
+
+commit 7613c10b168552387b14941693726e1024394b65
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 2 12:11:18 2021 +0800
+
+    fixed bugs & applying toastr to further improve tutorial and login & register features
+
+commit ed50f7921234e1eabf7c07983d4be273fddd4d33
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Sun May 2 04:31:59 2021 +0800
+
+    Add files via upload
+
+commit fa0299a372eb28bf9462d79c3e6dffcc90dfe4a8
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Sun May 2 04:31:10 2021 +0800
+
+    Add files via upload
+
+commit f2fd4418106050f2a41a249f344e2a1c096af477
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun May 2 00:36:54 2021 +0800
+
+    improved login and register feature with validations abandoned wtf quick form, customised validation logic
+
+commit 84e662554f2940735cef4b425333f785c441a976
+Merge: fe06b47 8a2fe80
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri Apr 30 19:33:51 2021 +0800
+
+    Merge pull request #21 from yv024433/Wenxiao
+    
+    implemented routes for story.html
+
+commit 8a2fe80f935a851146a0bf81e708b0f2a88d6471
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri Apr 30 19:32:59 2021 +0800
+
+    implemented routes for story.html
+
+commit fe06b4792e1fdf28554ad03a1ed3f23c2e20e446
+Merge: 392cd93 e0ba64d
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Thu Apr 29 23:10:02 2021 +0800
+
+    Merge pull request #20 from yv024433/Wenxiao
+    
+    uploaded migrations
+
+commit e0ba64d7bf0befc01747bd33a818de9689c6ca31
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Thu Apr 29 23:09:22 2021 +0800
+
+    uploaded migrations
+
+commit 392cd934bc95c369d58c212f5b1c81bbd1a902a6
+Merge: d53b664 1c56915
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Thu Apr 29 22:17:08 2021 +0800
+
+    Merge pull request #19 from yv024433/Wenxiao
+    
+    nearly finished tutorial features
+
+commit 1c5691508d60036368c13ca648a265973496772c
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Thu Apr 29 22:15:31 2021 +0800
+
+    deleted redundant files
+
+commit fc031e7ade5f61d1889f005cd9c6bceab8040327
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Thu Apr 29 22:14:40 2021 +0800
+
+    fixed css bugs & implemented tutorial feature by using ajax
+
+commit d53b664759d1f49b794e1467904d673b55aea400
+Merge: 66a9753 a6677af
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Thu Apr 29 18:21:42 2021 +0800
+
+    Merge branch 'main' of github.com:yv024433/CITS3403-groupDesign into Jun
+
+commit 66a9753837e6e0b7fb5fdde0dcfc4772b7afa57d
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Thu Apr 29 18:12:32 2021 +0800
+
+    Added css and html for story
+
+commit 9337b802a5be3a4589f22f9452c1d101616ef7fa
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Thu Apr 29 18:12:12 2021 +0800
+
+    final changes for the layout
+
+commit dedd55e6766d289c38e66eeae88c51bc3d5d945d
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Thu Apr 29 18:10:32 2021 +0800
+
+    Added image for story.html
+
+commit a6677af4fbd4753f2b6b652c89f7530bdc493c08
+Merge: 8ad8859 3686b29
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Thu Apr 29 16:41:32 2021 +0800
+
+    Merge pull request #18 from yv024433/Wenxiao
+    
+    fix css bugs and add refactor base.html, add tutorial data for testing
+
+commit 3686b29deb2593d05785996fce9266772fe03634
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Thu Apr 29 16:40:10 2021 +0800
+
+    add tutorial data for testing
+
+commit 5832008cdd68907b6e64bf4ce7fda991491b994e
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Thu Apr 29 10:41:48 2021 +0800
+
+    fix css bugs and refactor html by applying jinja
+
+commit 8ad8859a0293fbb014c4b3a7098fc9b793e6b420
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Thu Apr 29 01:35:01 2021 +0800
+
+    Add files via upload
+
+commit e32c6c289fff8eae4fd56e885a69177297fc1bcb
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Thu Apr 29 01:34:08 2021 +0800
+
+    Add files via upload
+
+commit cd1f723baca77f20396f423b9b30c939c4a25738
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Thu Apr 29 01:33:14 2021 +0800
+
+    Delete rule2.css
+
+commit ce087071a234cd0d9a02551690ee15a93d89d5f4
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Thu Apr 29 01:33:05 2021 +0800
+
+    Delete rule1.css
+
+commit b5d4a6317b6de9ea9e2fff995e25d0c88d819062
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Thu Apr 29 01:32:20 2021 +0800
+
+    Delete rule2.html
+
+commit d66078615649d00f40065288e171da7ca19a2cae
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Thu Apr 29 01:32:11 2021 +0800
+
+    Delete rule1.html
+
+commit 74fdabf2a8c8eaaf430829fa1b91bf71c5750d1a
+Merge: 7fcd38b 3cb7b2f
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 22:18:57 2021 +0800
+
+    Merge pull request #17 from yv024433/Wenxiao
+    
+    fix bugs
+
+commit 3cb7b2f1e829af523f480bfe9ea7ee26b61be522
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 22:18:16 2021 +0800
+
+    fix bugs
+
+commit 7fcd38b527a3bc16d7a51b104c912b6a8cad8457
+Merge: 2ebca9f de69d59
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 22:14:21 2021 +0800
+
+    Merge pull request #16 from yv024433/Wenxiao
+    
+    use bootstrap in loginAndRegister.html
+
+commit de69d59e3be5bf44fac163f87f71dafe2a1b870d
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 22:13:28 2021 +0800
+
+    use bootstrap in loginAndRegister.html
+
+commit 2ebca9f1a89fff68207582a4d18050d84e451e6c
+Merge: 3c4fb64 243567b
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Wed Apr 28 18:04:55 2021 +0800
+
+    Merge branch 'main' of github.com:yv024433/CITS3403-groupDesign into Jun
+
+commit 3c4fb64cc3a4fe5c984b05742576b64baaba7773
+Author: Junchen88 <69141312+junchen88@users.noreply.github.com>
+Date:   Wed Apr 28 18:00:43 2021 +0800
+
+    Change to use bootstrap base template
+
+commit 243567b8af7802009e85e18461d8c4837130a1f9
+Merge: 1d1c2eb e075875
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 16:52:08 2021 +0800
+
+    Merge pull request #15 from yv024433/Wenxiao
+    
+    use blueprint structure to refactor project
+
+commit e075875952d978e4370d7cf7e7afe578ba0a9b1c
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 16:45:30 2021 +0800
+
+    use blueprint structure to refactor project
+
+commit 1d1c2eb7ebcd6a41b4f39b1487518af6216296fb
+Merge: fc831ea a50baad
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 12:04:25 2021 +0800
+
+    Merge pull request #14 from yv024433/Wenxiao
+    
+    deleted all .DS_store file
+
+commit a50baadfcdc661008ea9125f983c50b1dc411884
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 12:03:07 2021 +0800
+
+    deleted all .DS_store file
+
+commit fc831ea72a673ac29024ef7b7e5f3d7c01bce8f8
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 11:55:53 2021 +0800
+
+    Update README.md
+
+commit 0d35bd840cd868ffe576c5658c0dee0673f7cf18
+Merge: 4dca0d3 4696a72
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 11:52:25 2021 +0800
+
+    Merge pull request #13 from yv024433/Wenxiao
+    
+    add two flask extensions
+
+commit 4696a720a6d978f01f2cdaeb9ed1abb512e4614b
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 11:46:38 2021 +0800
+
+    add tutorial table
+
+commit 206740c3f39ae4be18d6b1b5c750d586f4db61ee
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 11:45:51 2021 +0800
+
+    move flash message function to base.html
+
+commit 85663336e935a74069ff3cf170ac9a3fcd3ac5b8
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 11:44:38 2021 +0800
+
+    fix small config defects
+
+commit 592b212d68b2a8c04e2a450f34cf46644fc31847
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 28 11:43:11 2021 +0800
+
+    add two flask extensions
+
+commit 4dca0d38c4e971d71f22af18b945f149a9124543
+Merge: 23cd935 2dd068e
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Tue Apr 27 20:37:39 2021 +0800
+
+    Merge branch 'main' into Jun
+
+commit 23cd93535f7209a3f266455d3001cee1bc1f9841
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Tue Apr 27 19:56:45 2021 +0800
+
+    Changes for a better mainpage layout
+
+commit 2dd068e76a1447b1475313dc2986841b26f52177
+Merge: 7c4418e a976183
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Tue Apr 27 17:29:29 2021 +0800
+
+    Merge pull request #12 from yv024433/Wenxiao
+    
+    uploaded unit test file and implemented rule.html redirect function
+
+commit a976183f9d243666b443a577e9da1ce47779c470
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Tue Apr 27 17:27:43 2021 +0800
+
+    uploaded unit test file
+
+commit 80de0abcb7812033c438a8b291a9879a3addb2d1
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Tue Apr 27 17:26:31 2021 +0800
+
+    implemented redirect page for rule.html
+
+commit 7c4418e27673de1c492cf0eb2ac9f73ddd86a40c
+Merge: ef65177 298455e
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Mon Apr 26 21:17:14 2021 +0800
+
+    Merge branch 'main' into Jun
+
+commit ef65177b173869d38595ed61e4b87d057e8ce319
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Mon Apr 26 20:56:08 2021 +0800
+
+    Added reference to nav bar
+
+commit f21efa5aca2a0dd2ff1cda2ca05bb2185f7b3ba9
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Mon Apr 26 20:55:09 2021 +0800
+
+    Path correction
+
+commit 298455e7303c706b8aab634991f275014529f09b
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Mon Apr 26 18:05:32 2021 +0800
+
+    Update rule2.css
+
+commit f119d964b81fe4baa71320cf8babe0e21c6d8d99
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Mon Apr 26 18:03:24 2021 +0800
+
+    Update rule2.html
+
+commit 1b55c0319b9795b48083a0fd720f9b712332381e
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Mon Apr 26 18:02:53 2021 +0800
+
+    Update rule2.css
+
+commit 3efbf9eb7e963ff32a29e6384e2453cb7e401838
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Mon Apr 26 17:47:01 2021 +0800
+
+    Add files via upload
+
+commit c4027aa0e8997221cabfe9f14e4346c73acd282e
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Mon Apr 26 17:46:26 2021 +0800
+
+    Add files via upload
+
+commit a563c414817d53c8e07dfe779e4be24297c284da
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Mon Apr 26 14:26:12 2021 +0800
+
+    Corrections to the layout
+
+commit 0f512bbf99a9b3bc4b1e2c25b1d13eb62b522bcc
+Merge: 5bb179f 34b6772
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun Apr 25 17:44:19 2021 +0800
+
+    Merge pull request #11 from yv024433/Wenxiao
+    
+    implemented logout feature
+
+commit 34b67729bc043341e0124f1220b23fa3fb6d9c30
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun Apr 25 17:42:56 2021 +0800
+
+    add current user's name in index.html
+
+commit d2ef9d7b196115c63956efbf6c7ee66aa0047a89
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun Apr 25 17:38:37 2021 +0800
+
+    implemented logout feature
+
+commit 5bb179fef5f6176a4795514df9af1a0b491a2593
+Merge: e5d7079 9369a61
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun Apr 25 17:30:09 2021 +0800
+
+    Merge pull request #10 from yv024433/Wenxiao
+    
+    implemented login&register feature
+
+commit 9369a6141fc38e522bcaa87a1509afaadca01535
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun Apr 25 17:27:51 2021 +0800
+
+    deleted comments & implemented login&register method
+
+commit 2cd9424c95073819e89a856d3dece29a21ed9613
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun Apr 25 17:23:43 2021 +0800
+
+    add email-validator and flask-login packages
+
+commit e5d7079c69f6a49f6b6b0eee9f77134bcf61c476
+Merge: 19f7b21 083ba28
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat Apr 24 10:08:13 2021 +0800
+
+    Merge pull request #9 from yv024433/Wenxiao
+
+commit 083ba28cbeff48ef4151f9ad85aef5c4939a3cf0
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat Apr 24 09:44:24 2021 +0800
+
+    uploaded controller file
+
+commit deb4a9cf50adbf4ad6215d8bbd6569367e59cc5c
+Merge: 10df0c7 19f7b21
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat Apr 24 01:33:26 2021 +0800
+
+    Merge remote-tracking branch 'origin/main' into Wenxiao
+
+commit 10df0c7ece048598f052573637935f850d18afba
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat Apr 24 00:30:05 2021 +0800
+
+    updated instructions for new project structure
+
+commit 1fdd6f6c7e17734747504a2202540f2601e94ddc
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat Apr 24 00:22:23 2021 +0800
+
+    delete redundant file
+
+commit c84632afdb00398c68c642ecc8e945d74e0e0f67
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat Apr 24 00:20:40 2021 +0800
+
+    add redirect/render login/register method
+
+commit 19f7b210b71edfc815a343e8e576ab3cf370b74e
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat Apr 24 00:30:05 2021 +0800
+
+    updated instructions for new project structure
+
+commit 3284795d31c905fce521175a4895fbb282565780
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat Apr 24 00:22:23 2021 +0800
+
+    delete redundant file
+
+commit ed63ec50e2639a250c2ea83d15050017921d05cf
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat Apr 24 00:20:40 2021 +0800
+
+    redirect and render login/register page
+
+commit e2fbc8aa6ec4ef3d0241f0c83d68d025cbdf6b5a
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat Apr 24 00:18:25 2021 +0800
+
+    create forms for login/register
+
+commit 1cef735798cf6ed053eec9d7862198ddaf1a9f3b
+Merge: 5a8ef3c 5c774b0
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sat Apr 24 00:00:23 2021 +0800
+
+    Merge remote-tracking branch 'origin/main' into Wenxiao
+
+commit 5a8ef3c9df4af8e1db4d078b4741eab3e353e8d5
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Fri Apr 23 23:59:57 2021 +0800
+
+    improved project structure
+
+commit 5c774b0e9c1e28c268eaa4b20384f43f0baac617
+Merge: 7dc709e b0b4bd0
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Fri Apr 23 23:14:43 2021 +0800
+
+    Merge branch 'main' of github.com:yv024433/CITS3403-groupDesign into Jun
+
+commit 7dc709e4e0248ec38f01e68a57f808e33aefce1a
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Fri Apr 23 23:02:39 2021 +0800
+
+    Moved the side nav bar into a separate doc
+
+commit a0c81ddca8b63a424ac883fcd9eeb1320b8e6534
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Fri Apr 23 23:00:36 2021 +0800
+
+    Correction to the img path + using base template instead
+
+commit ec1d49c4fc4821b6c9ac1c629e2036e85330ee92
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Fri Apr 23 22:56:42 2021 +0800
+
+    Slight modification and simplification
+
+commit 74afbcadda3a48c43ebbfbed72204db16384f8d5
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Fri Apr 23 22:52:07 2021 +0800
+
+    Added block head to link more files like css
+
+commit b2baa643278848ef5739f875b1843abddeeb2d1c
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Fri Apr 23 22:50:28 2021 +0800
+
+    made nav side bar css into one doc
+
+commit 437552b778d29e63a4f02a00c9772ae770389bc1
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Fri Apr 23 22:49:29 2021 +0800
+
+    Moved all of the header and footer css into base + some slight changes
+
+commit b0b4bd09bbe8eb66ed166020de4d43130fccdba2
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Fri Apr 23 20:16:36 2021 +0800
+
+    Add files via upload
+
+commit 84339439967d8b34a7f595987d05208809038a4e
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Fri Apr 23 20:15:38 2021 +0800
+
+    Add files via upload
+
+commit 070083960063e047e62da4ac26f94536416f1caf
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Fri Apr 23 20:14:50 2021 +0800
+
+    Add files via upload
+
+commit d1e500a67326bde30bac9a7fd31ace7c577994a0
+Author: Junchen88 <jimmy181820@gmail.com>
+Date:   Fri Apr 23 15:54:13 2021 +0800
+
+    Allows the title to be named from init
+
+commit 41b3368009d86e9d484585699430367eb2cd56d4
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Thu Apr 22 00:22:38 2021 +0800
+
+    Update navbar.html
+
+commit c6ad8e085e33935fbb6a0b5faa2b2abb6376f69d
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Thu Apr 22 00:18:45 2021 +0800
+
+    Update navbar.html
+
+commit 63830e3361cd4f41e1c95bb7683aa70c27f2249f
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Thu Apr 22 00:11:23 2021 +0800
+
+    Add files via upload
+
+commit bebee6ebb733b492f9bc0b9fe255bdabb9e1af69
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Thu Apr 22 00:10:27 2021 +0800
+
+    Add files via upload
+
+commit 98462ea8c0ceecd96b278441c81dcd94d1b9091b
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Thu Apr 22 00:09:25 2021 +0800
+
+    Add files via upload
+
+commit 937bc918b44410e17c60323f1352413be437e842
+Merge: 048dc1c f856936
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 21 08:57:04 2021 +0800
+
+    Merge remote-tracking branch 'origin/main' into Wenxiao
+
+commit 048dc1c62eacf3f2fb65538dac13f66bf363ff6c
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 21 08:44:24 2021 +0800
+
+    added .flaskenv
+
+commit d05e6149ee67620684705ebb4672cb93088f5e7d
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 21 08:44:02 2021 +0800
+
+    added python-dotenv package
+
+commit f856936e489d65f1b10124cd14abb88bf3ac8dd4
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 21 08:44:24 2021 +0800
+
+    added .flaskenv
+
+commit bc52b2619ed095be28ab6dcf5443681dba1223ed
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Wed Apr 21 08:44:02 2021 +0800
+
+    added .idea to .gitignore
+    added python-dotenv to requirements.txt
+
+commit eae68f8d344638ece90785361e7e0bb26df4fda5
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Wed Apr 21 08:03:33 2021 +0800
+
+    Update README.md
+
+commit 881f4670aafeca1f364487c7c862a225702028c2
+Merge: 7fdac04 b93b974
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Wed Apr 21 08:02:27 2021 +0800
+
+    Merge pull request #8 from yv024433/Wei
+    
+    readme update
+
+commit b93b974993049481f8f672a1df930a713f4957ee
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Wed Apr 21 08:01:08 2021 +0800
+
+    readme update
+
+commit 7fdac04ce42f9ac6ef19d881e80c8f476b466ff2
+Merge: 8f12767 bc812ca
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Wed Apr 21 07:37:55 2021 +0800
+
+    Merge pull request #7 from yv024433/Wei
+    
+    upload index
+
+commit bc812cadc876fea151b3616b2a03b55cc4f23664
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Wed Apr 21 07:36:22 2021 +0800
+
+    upload index
+
+commit 8f127671e4188cd83c7849e565a6e3fba0b12431
+Author: yunlong <44403079+willyunlong@users.noreply.github.com>
+Date:   Wed Apr 21 02:41:21 2021 +0800
+
+    Add files via upload
+
+commit 370b941c9e38903e2ba468395a8e91e98e9c8653
+Merge: 317afc8 4ac60aa
+Author: MoeBuTa <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun Apr 18 21:45:16 2021 +0800
+
+    Merge pull request #6 from yv024433/Wenxiao
+    
+    delete .idea folder
+
+commit 4ac60aa39b2c9a7ee5269ea93598254d909635c9
+Author: Wenxiao <64770502+MoeBuTa@users.noreply.github.com>
+Date:   Sun Apr 18 21:39:37 2021 +0800
+
+    delete .idea folder
+
+commit 317afc835a6c0795b1d05d17887b83308fcd2e97
+Merge: f277305 9d488c9
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 15:05:16 2021 +0800
+
+    Merge pull request #5 from yv024433/Wei
+    
+    first commit11
+
+commit f277305d61a4546b68b20472275ac5265bf84f75
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 15:05:03 2021 +0800
+
+    Delete requirements.txt
+
+commit 9d488c9b814a3498e9a0d578d8ba87b7e6009cd5
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 15:01:50 2021 +0800
+
+    first commit11
+
+commit 304dfd0dcbeee9fa05d91c7e0c789261c81f0e2d
+Merge: 10f1a52 c7be645
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 14:55:03 2021 +0800
+
+    Merge pull request #4 from yv024433/Wei
+    
+    first commit
+
+commit c7be6454eb4ae1e8f040b69b89b9391a3a75535d
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 14:46:06 2021 +0800
+
+    first commit
+
+commit 10f1a5259597eba76ddcdaf90dcfd648c461e749
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 03:07:36 2021 +0800
+
+    Create requirements.txt
+
+commit 5111f09ac2d546665fe7e5e3515d62837f338804
+Merge: 6fccce6 e22b844
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 02:43:15 2021 +0800
+
+    Merge pull request #3 from yv024433/Wei
+    
+    add navbar for the page
+
+commit e22b844a0fafb9e9dc8f12733aa66c57fec1f9d3
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 02:42:21 2021 +0800
+
+    add navbar for the page
+
+commit 6fccce61247eda4c070c7c19a77cc6434da21fc3
+Merge: cef4c09 4fc3f92
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 02:13:56 2021 +0800
+
+    Merge pull request #2 from yv024433/Wei
+    
+    Wei
+
+commit 4fc3f928a14133cd3e57cac1acdf421372c7e730
+Merge: 38cfeb2 c070ab5
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 02:12:48 2021 +0800
+
+    Merge remote-tracking branch 'origin/Wei' into Wei
+
+commit 38cfeb2427eb25455d6d3a96b775d2b2e517403c
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 01:43:30 2021 +0800
+
+    A simple framework of Flask websie.
+
+commit cef4c099f5351851ecf6b9e979eb763ce4da298f
+Merge: 40c4f1a c070ab5
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 01:54:32 2021 +0800
+
+    Merge pull request #1 from yv024433/Wei
+    
+    this is the config file of the project
+
+commit c070ab5610ad229630836806ea2e3a3332d93de0
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 01:43:30 2021 +0800
+
+    this is the config file of the project
+
+commit 40c4f1a27dce4edcc7bccd16d38b50c71968c6de
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Fri Apr 16 01:09:57 2021 +0800
+
+    Delete a.txt
+
+commit e909f0ebaf3eff8e19826c57b3098cae84574901
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Thu Apr 15 05:45:36 2021 +0800
+
+    Create a.txt
+
+commit c49f54a56588915ab5471b405e1b45db0cf244c6
+Author: yv024433 <64060187+yv024433@users.noreply.github.com>
+Date:   Thu Apr 15 05:43:04 2021 +0800
+
+    Initial commit
