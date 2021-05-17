@@ -6,7 +6,7 @@ from config import TestingConfig
 from datetime import datetime
 
 
-class UserModelCase(unittest.TestCase):
+class UnitTests(unittest.TestCase):
 
     def setUp(self):
         self.app = create_app(TestingConfig)
@@ -14,7 +14,6 @@ class UserModelCase(unittest.TestCase):
         self.app_context.push()
         db.create_all()
         data.add_data()
-
 
     def tearDown(self):
         db.session.remove()
