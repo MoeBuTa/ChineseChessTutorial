@@ -139,7 +139,7 @@ html{
 /* for the footer-container style */
 /* -------------------------------------------------------- */
 .footer-container{
-    position: absolute;
+    position: relative;
     height:210px;
     left: 0;
     width: 100%;

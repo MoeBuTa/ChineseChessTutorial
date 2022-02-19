@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: baf741bcd21e
+Revision ID: b440c630d722
 Revises: 
-Create Date: 2021-05-15 16:44:47.889105
+Create Date: 2021-05-15 21:37:32.687123
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'baf741bcd21e'
+revision = 'b440c630d722'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -21,6 +21,10 @@ def upgrade():
     op.create_table('question',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('body', sa.String(length=140), nullable=True),
+    sa.Column('option_one', sa.String(length=40), nullable=True),
+    sa.Column('option_two', sa.String(length=40), nullable=True),
+    sa.Column('option_three', sa.String(length=40), nullable=True),
+    sa.Column('option_four', sa.String(length=40), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('tutorial',
@@ -29,8 +33,11 @@ def upgrade():
     sa.Column('title', sa.String(length=140), nullable=True),
     sa.Column('subtitle', sa.String(length=140), nullable=True),
     sa.Column('main_content', sa.UnicodeText(), nullable=True),
+    sa.Column('extra_content', sa.UnicodeText(), nullable=True),
     sa.Column('img_url', sa.String(length=140), nullable=True),
     sa.Column('question_title', sa.String(length=140), nullable=True),
+    sa.Column('answer', sa.SmallInteger(), nullable=True),
+    sa.Column('hint', sa.String(length=140), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('user',
@@ -38,6 +45,7 @@ def upgrade():
     sa.Column('username', sa.String(length=64), nullable=True),
     sa.Column('email', sa.String(length=120), nullable=True),
     sa.Column('password_hash', sa.String(length=128), nullable=True),
+    sa.Column('register_time', sa.DateTime(), nullable=True),
     sa.Column('token', sa.String(length=32), nullable=True),
     sa.Column('token_expiration', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
@@ -51,6 +59,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('question_id', sa.Integer(), nullable=True),
     sa.Column('answer', sa.String(length=40), nullable=True),
+    sa.Column('score', sa.Float(precision=10, decimal_return_scale=2), nullable=True),
     sa.ForeignKeyConstraint(['question_id'], ['question.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -61,12 +70,16 @@ def upgrade():
     sa.Column('feedback', sa.UnicodeText(), nullable=True),
     sa.Column('start_question_time', sa.DateTime(), nullable=True),
     sa.Column('last_question_edit_time', sa.DateTime(), nullable=True),
+    sa.Column('status', sa.SmallInteger(), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('tutorial_progress',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('time_duration', sa.Float(precision=10, decimal_return_scale=2), nullable=True),
+    sa.Column('read_tutorial_num', sa.Integer(), nullable=True),
+    sa.Column('last_tutorial_read_time', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

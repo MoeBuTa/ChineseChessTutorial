@@ -16,12 +16,10 @@ body{
 
 /* page error */
 .container{
-    position: absolute;
-    top: 10%;
-    left: 17%;
-    right: 17%;
-    bottom: 10%;
+    position: relative;
     display: flex;
+    min-width: 600px;
+    min-height: 400px;
     align-items: center;
     justify-content: center;
     background: #fff;
@@ -29,7 +27,7 @@ body{
 }
 
 .container .content{
-    max-width: 600px;
+    position: absolute;
     text-align: center;
 }
 
