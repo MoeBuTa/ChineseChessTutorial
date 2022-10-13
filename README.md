@@ -23,7 +23,8 @@ A flask app for user to learn how to play Chinese Chess.
 
 ## 3.  Get Started:
 - Activate the python virtual environment:
-`source venv/bin/activate`
+  - windows: `.\venv\Scripts\activate`
+  - linux: `source venv/bin/activate`
   <br>
 - Install requirements.txt
 `pip install -r requirements.txt`
